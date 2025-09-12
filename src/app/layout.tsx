@@ -1,8 +1,9 @@
 // src/app/layout.tsx
 import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
-import { LanguageProvider } from "../contexts/LanguageContext";
 import Navbar from "../components/Navbar";
+import { LanguageProvider } from "../contexts/LanguageContext";
+
 
 export const metadata = {
   title: "Gabriel Caixeta - Portfólio",
