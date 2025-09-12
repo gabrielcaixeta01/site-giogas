@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import { FaGithub, FaLinkedin, FaChevronDown } from "react-icons/fa";
 import { BsSun, BsMoon } from "react-icons/bs";
 import { BR, US } from "country-flag-icons/react/3x2";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../../contexts/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
@@ -74,23 +74,23 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-xs border-b border-gray-200/20 dark:border-gray-700/20 py-2 px-4">
-      <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 shadow-lg backdrop-blur-sm border-b border-gray-200/40 dark:border-gray-700/40 py-3 px-4">
+      <div className="flex items-center justify-between w-full max-w-6xl mx-auto">
         {/* Logo/Nome à esquerda */}
         <button
           onClick={() => scrollToSection("hero")}
-          className="text-xl font-bold text-blue-700 dark:text-blue-300 mr-6"
+          className="text-2xl font-extrabold tracking-wide text-blue-700 dark:text-blue-200 px-3 py-1 rounded-lg bg-blue-100/60 dark:bg-blue-900/40 shadow-sm hover:scale-105 transition-transform"
         >
           GIOGÁS
         </button>
 
         {/* Navegação Desktop */}
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-6">
           {sections.map((item) => (
             <button
               key={item.key}
               onClick={() => scrollToSection(item.key)}
-              className="text-sm font-medium text-gray-800 dark:text-gray-200 transition-colors duration-500 ease-in-out cursor-pointer"
+              className="text-base font-medium text-gray-800 dark:text-gray-200 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 px-2 py-1 rounded"
             >
               {item.label}
             </button>
@@ -104,32 +104,32 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="p-1.5 rounded-full text-gray-700 dark:text-gray-300 transition-colors duration-500 ease-in-out cursor-pointer hidden sm:block"
+            className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200/70 dark:hover:bg-gray-700/70 transition-colors duration-300 hidden sm:block"
           >
-            <FaGithub size={16} />
+            <FaGithub size={18} />
           </a>
           <a
             href="https://linkedin.com/in/gabriel-caixeta-romero"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="p-1.5 rounded-full text-gray-700 dark:text-gray-300 transition-colors duration-500 ease-in-out cursor-pointer hidden sm:block"
+            className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200/70 dark:hover:bg-gray-700/70 transition-colors duration-300 hidden sm:block"
           >
-            <FaLinkedin size={16} />
+            <FaLinkedin size={18} />
           </a>
 
           {/* Seletor de idioma */}
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setIsLanguageDropdownOpen((open) => !open)}
-              className="flex items-center space-x-1 p-1.5 rounded-full transition-colors duration-500 ease-in-out cursor-pointer"
+              className="flex items-center space-x-1 p-2 rounded-full transition-colors duration-300 cursor-pointer border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"
               aria-label="Change language"
               aria-expanded={isLanguageDropdownOpen}
             >
               {getCurrentFlag()}
               <FaChevronDown
-                size={8}
-                className={`transition-all duration-500 ease-in-out text-gray-500 ${
+                size={10}
+                className={`transition-all duration-300 text-gray-500 ${
                   isLanguageDropdownOpen ? "rotate-180" : ""
                 }`}
               />
@@ -154,7 +154,7 @@ export default function Navbar() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05, duration: 0.2 }}
                       onClick={() => handleLanguageChange(lang.key)}
-                      className="w-full px-3 py-2 text-left flex items-center space-x-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-500 ease-in-out cursor-pointer"
+                      className="w-full px-3 py-2 text-left flex items-center space-x-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 cursor-pointer"
                     >
                       <lang.flag style={{ width: "16px", height: "11px" }} />
                       <span>{lang.label}</span>
@@ -171,12 +171,12 @@ export default function Navbar() {
                 setTheme(resolvedTheme === "dark" ? "light" : "dark")
               }
               aria-label="Toggle theme"
-              className="p-1.5 rounded-full text-gray-700 dark:text-gray-300 transition-colors duration-500 ease-in-out cursor-pointer"
+              className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200/70 dark:hover:bg-gray-700/70 transition-colors duration-300"
             >
               {resolvedTheme === "dark" ? (
-                <BsSun size={16} />
+                <BsSun size={18} />
               ) : (
-                <BsMoon size={16} />
+                <BsMoon size={18} />
               )}
             </button>
           )}
@@ -203,7 +203,7 @@ export default function Navbar() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.05, duration: 0.2 }}
                 onClick={() => scrollToSection(item.key)}
-                className="w-full px-4 py-2 text-left text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300"
+                className="w-full px-4 py-2 text-left text-base text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors duration-300 rounded"
               >
                 {item.label}
               </motion.button>
@@ -234,7 +234,7 @@ export default function Navbar() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full px-4 py-2 text-left text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 block"
+                  className="w-full px-4 py-2 text-left text-base text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors duration-300 block rounded"
                 >
                   {link.label}
                 </motion.a>
