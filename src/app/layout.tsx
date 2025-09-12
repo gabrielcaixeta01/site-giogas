@@ -1,6 +1,12 @@
+// src/app/layout.tsx
+import "./globals.css";
+import { ThemeProvider } from "../components/ThemeProvider";
+import { LanguageProvider } from "../contexts/LanguageContext";
+import Navbar from "../components/Navbar";
+
 export const metadata = {
-  title: "App",
-  description: "Base minimal Next.js",
+  title: "Gabriel Caixeta - Portfólio",
+  description: "Portfólio de Gabriel Caixeta, desenvolvedor web full-stack.",
 };
 
 export default function RootLayout({
@@ -9,8 +15,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
-      <body>{children}</body>
+    <html lang="pt-br" suppressHydrationWarning>
+      <body>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <LanguageProvider>
+              <Navbar />
+              <main>{children}</main>
+          </LanguageProvider>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
