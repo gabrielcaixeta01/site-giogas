@@ -13,10 +13,10 @@ export default function Navbar() {
 
   const [mounted, setMounted] = useState(false);
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const mobileDropdownRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => setMounted(true), []);
@@ -32,8 +32,11 @@ export default function Navbar() {
       if (dropdownRef.current && !dropdownRef.current.contains(target)) {
         setIsLanguageDropdownOpen(false);
       }
-      if (mobileMenuRef.current && !mobileMenuRef.current.contains(target)) {
-        setIsMobileMenuOpen(false);
+      if (
+        mobileDropdownRef.current &&
+        !mobileDropdownRef.current.contains(target)
+      ) {
+        setIsMobileDropdownOpen(false);
       }
     };
 
@@ -44,7 +47,7 @@ export default function Navbar() {
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
     if (section) section.scrollIntoView({ behavior: "smooth" });
-    setIsMobileMenuOpen(false); // Fecha o menu mobile ao navegar
+    setIsMobileDropdownOpen(false); // Fecha o dropdown ao navegar
   };
 
   const handleLanguageChange = (lang: string) => {
@@ -69,7 +72,7 @@ export default function Navbar() {
   // Adapte as seções do menu
   const sections = [
     { key: "apresentacao", label: "Apresentação" },
-    { key: "servico", label: "Serviço" },
+    { key: "servico", label: "Serviços" },
     { key: "contato", label: "Contato" },
   ];
 
@@ -77,30 +80,82 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-sm border-b border-gray-200/20 dark:border-gray-700/20 py-2 px-4">
       <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
         {/* Botão hamburger (Mobile) */}
-        <button
-          ref={menuButtonRef}
-          onMouseDown={(e) => e.stopPropagation()}
-          onClick={() => setIsMobileMenuOpen((open) => !open)}
-          className="md:hidden p-2 rounded-lg text-gray-900 dark:text-gray-100 hover:bg-gray-200/70 dark:hover:bg-gray-700/70 transition-all duration-300 relative z-50"
-          aria-label="Abrir menu lateral"
-          aria-expanded={isMobileMenuOpen}
-          aria-controls="mobile-menu"
-        >
-          <svg
-            className="w-7 h-7"
-            fill="none"
-            strokeWidth={2}
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
+        <div className="relative md:hidden">
+          <button
+            ref={menuButtonRef}
+            onMouseDown={(e) => e.stopPropagation()}
+            onClick={() => setIsMobileDropdownOpen((open) => !open)}
+            className="p-2 rounded-lg text-gray-900 dark:text-gray-100 hover:bg-gray-200/70 dark:hover:bg-gray-700/70 transition-all duration-300 relative z-50"
+            aria-label="Abrir menu dropdown"
+            aria-expanded={isMobileDropdownOpen}
+            aria-controls="mobile-dropdown"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
+            <svg
+              className="w-7 h-7"
+              fill="none"
+              strokeWidth={2}
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+          {/* Dropdown Mobile */}
+          <AnimatePresence>
+            {isMobileDropdownOpen && (
+              <motion.div
+                id="mobile-dropdown"
+                ref={mobileDropdownRef}
+                initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                className="absolute left-0 mt-2 w-56 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl shadow-2xl py-4 px-4 z-40 flex flex-col gap-2"
+                style={{
+                  background:
+                    resolvedTheme === "dark"
+                      ? "rgba(17,24,39,0.95)"
+                      : "rgba(255,255,255,0.95)",
+                }}
+              >
+                {sections.map((item) => (
+                  <button
+                    key={item.key}
+                    onClick={() => scrollToSection(item.key)}
+                    className="w-full text-left text-base font-medium text-gray-800 dark:text-gray-200 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 px-2 py-2 rounded"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+                <div className="flex gap-3 mt-2">
+                  <a
+                    href="https://github.com/gabrielcaixeta01"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                    className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200/70 dark:hover:bg-gray-700/70 transition-colors duration-300"
+                  >
+                    <FaGithub size={20} />
+                  </a>
+                  <a
+                    href="https://linkedin.com/in/gabriel-caixeta-romero"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200/70 dark:hover:bg-gray-700/70 transition-colors duration-300"
+                  >
+                    <FaLinkedin size={20} />
+                  </a>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
 
         {/* Navegação Desktop */}
         <div className="hidden md:flex items-center space-x-6">
@@ -201,70 +256,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Side Menu Mobile */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            id="mobile-menu"
-            ref={mobileMenuRef}
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -40 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
-            className="fixed top-0 left-0 h-full w-64 bg-white/95 dark:bg-gray-900/95 shadow-2xl z-50 flex flex-col py-8 px-6 gap-4 border-r border-gray-200 dark:border-gray-800"
-          >
-            <button
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="self-end mb-4 p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800"
-              aria-label="Fechar menu"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                strokeWidth={2}
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-            {sections.map((item) => (
-              <button
-                key={item.key}
-                onClick={() => scrollToSection(item.key)}
-                className="w-full text-left text-lg font-medium text-gray-800 dark:text-gray-200 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 px-2 py-3 rounded"
-              >
-                {item.label}
-              </button>
-            ))}
-            <div className="flex gap-3 mt-6">
-              <a
-                href="https://github.com/gabrielcaixeta01"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200/70 dark:hover:bg-gray-700/70 transition-colors duration-300"
-              >
-                <FaGithub size={20} />
-              </a>
-              <a
-                href="https://linkedin.com/in/gabriel-caixeta-romero"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200/70 dark:hover:bg-gray-700/70 transition-colors duration-300"
-              >
-                <FaLinkedin size={20} />
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* ...existing code... */}
     </nav>
   );
 }

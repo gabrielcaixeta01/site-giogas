@@ -6,8 +6,8 @@ import { LanguageProvider } from "../contexts/LanguageContext";
 
 
 export const metadata = {
-  title: "Gabriel Caixeta - Portfólio",
-  description: "Portfólio de Gabriel Caixeta, desenvolvedor web full-stack.",
+  title: "GIOGÁS",
+  description: "Distribuidora de Gás no Rio de Janeiro",
 };
 
 export default function RootLayout({
