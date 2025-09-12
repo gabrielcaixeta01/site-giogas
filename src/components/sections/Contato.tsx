@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { FiMail, FiCheck, FiPhone, FiMapPin } from "react-icons/fi";
+import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 
 const container = {
   hidden: { opacity: 0, y: 24 },
@@ -19,19 +18,9 @@ const item = {
 };
 
 export default function Contato() {
-  const [copied, setCopied] = useState(false);
-
   const email = "contato@giogas.com.br";
   const telefone = "(21) 4002-8922";
   const endereco = "Av. Brasil, 1234 - Rio de Janeiro, RJ";
-
-  const copyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(email);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1400);
-    } catch {}
-  };
 
   return (
     <section
@@ -65,18 +54,15 @@ export default function Contato() {
             variants={item}
             className="contact-links-grid flex flex-col gap-6 mt-8"
           >
-            <button
-              onClick={copyEmail}
-              className="contact-link group flex flex-row items-center gap-2 text-left"
-              aria-label="Copiar e-mail"
-            >
+            <div className="contact-link flex items-center gap-3">
               <FiMail className="contact-icon text-xl flex-shrink-0" />
-              <span className="contact-label text-sm">E-mail</span>
-              <span className="contact-value text-sm font-medium">{email}</span>
-              <span className="contact-action contact-label text-xs ml-2">
-                {copied ? <FiCheck /> : "Copiar"}
-              </span>
-            </button>
+              <div className="flex flex-col min-w-0 flex-1">
+                <span className="contact-label text-sm">E-mail</span>
+                <span className="contact-value text-sm font-medium">
+                  {email}
+                </span>
+              </div>
+            </div>
 
             <div className="contact-link flex items-center gap-3">
               <FiPhone className="contact-icon text-xl flex-shrink-0" />

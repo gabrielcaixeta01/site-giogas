@@ -71,6 +71,7 @@ export default function Navbar() {
 
   // Adapte as seções do menu
   const sections = [
+    { key: "hero", label: "Início" },
     { key: "apresentacao", label: "Apresentação" },
     { key: "servico", label: "Serviços" },
     { key: "contato", label: "Contato" },
