@@ -106,7 +106,6 @@ export default function Navbar() {
               />
             </svg>
           </button>
-          {/* Dropdown Mobile */}
           <AnimatePresence>
             {isMobileDropdownOpen && (
               <motion.div
@@ -177,9 +176,7 @@ export default function Navbar() {
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setIsLanguageDropdownOpen((open) => !open)}
-              className={`flex items-center space-x-1 p-2 rounded-full transition-colors duration-300 cursor-pointer ${
-                resolvedTheme === "dark" ? "bg-gray-900" : "bg-white"
-              }`}
+              className="flex items-center space-x-1 p-2 rounded-full transition-colors duration-300 cursor-pointer"
               aria-label="Change language"
               aria-expanded={isLanguageDropdownOpen}
             >
@@ -230,7 +227,7 @@ export default function Navbar() {
                 setTheme(resolvedTheme === "dark" ? "light" : "dark")
               }
               aria-label="Toggle theme"
-              className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200/70 dark:hover:bg-gray-700/70 transition-colors duration-300"
+              className="p-2 rounded-full text-gray-700 dark:text-gray-300 transition-colors duration-300"
             >
               {resolvedTheme === "dark" ? (
                 <BsSun size={18} />

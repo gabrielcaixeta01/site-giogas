@@ -34,7 +34,7 @@ export default function Servicos() {
         <h2 className="text-4xl md:text-5xl font-bold text-blue-900 dark:text-blue-200 mb-6">
           {t.servicos.title}
         </h2>
-        <p className="text-lg text-gray-900 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-900 dark:text-gray-300 mb-12 max-w-2xl mx-auto text-justify">
           {t.servicos.description}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -47,7 +47,7 @@ export default function Servicos() {
               <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-2">
                 {servico.titulo}
               </h3>
-              <p className="text-gray-900 dark:text-gray-200 text-base">
+              <p className="text-gray-900 dark:text-gray-200 text-base text-justify">
                 {servico.descricao}
               </p>
             </div>
