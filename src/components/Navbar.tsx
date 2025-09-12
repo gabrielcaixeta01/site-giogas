@@ -1,7 +1,7 @@
 "use client";
 import { useTheme } from "next-themes";
 import { useEffect, useState, useRef } from "react";
-import { FaGithub, FaLinkedin, FaChevronDown } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 import { BsSun, BsMoon } from "react-icons/bs";
 import { BR, US } from "country-flag-icons/react/3x2";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -132,26 +132,6 @@ export default function Navbar() {
                     {item.label}
                   </button>
                 ))}
-                <div className="flex gap-3 mt-2">
-                  <a
-                    href="https://github.com/gabrielcaixeta01"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub"
-                    className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200/70 dark:hover:bg-gray-700/70 transition-colors duration-300"
-                  >
-                    <FaGithub size={20} />
-                  </a>
-                  <a
-                    href="https://linkedin.com/in/gabriel-caixeta-romero"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn"
-                    className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200/70 dark:hover:bg-gray-700/70 transition-colors duration-300"
-                  >
-                    <FaLinkedin size={20} />
-                  </a>
-                </div>
               </motion.div>
             )}
           </AnimatePresence>
