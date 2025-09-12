@@ -32,7 +32,7 @@ const servicos = [
 
 export default function Servicos() {
   return (
-    <section id="servico" className="py-20 px-4 bg-blue-50 dark:bg-blue-950">
+    <section id="servico" className="py-20 bg-blue-50 dark:bg-blue-950">
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-blue-900 dark:text-blue-200 mb-6">
           Nossos Serviços

@@ -36,7 +36,7 @@ export default function Contato() {
   return (
     <section
       id="contato"
-      className="relative scroll-mt-5 min-h-screen flex items-center justify-center px-4 py-16"
+      className="relative scroll-mt-5 w-screen min-h-screen flex items-center justify-center py-16"
     >
       {/* blobs discretos de fundo (mais suaves no claro) */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">

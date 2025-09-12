@@ -2,7 +2,10 @@ import React from "react";
 
 export default function Apresentacao() {
   return (
-    <section id="apresentacao" style={{ padding: "2rem 0", textAlign: "center" }}>
+    <section
+      id="apresentacao"
+      className="w-screen min-h-screen flex flex-col items-center justify-center text-center"
+    >
       <h1
         style={{ fontSize: "2.5rem", fontWeight: "bold", marginBottom: "1rem" }}
       >

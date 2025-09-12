@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex flex-col items-center justify-center min-h-[60vh] py-16 px-4 text-center bg-gradient-to-br from-blue-200 via-blue-50 to-blue-100 dark:from-blue-950 dark:via-gray-900 dark:to-blue-900"
+      className="relative flex flex-col items-center justify-center min-h-[60vh] py-16 text-center bg-gradient-to-br from-blue-200 via-blue-50 to-blue-100 dark:from-blue-950 dark:via-gray-900 dark:to-blue-900"
     >
       {/* Blobs decorativos */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
