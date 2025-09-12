@@ -36,14 +36,8 @@ export default function Contato() {
   return (
     <section
       id="contato"
-      className="relative scroll-mt-5 w-screen min-h-screen flex items-center justify-center py-16"
+      className="relative scroll-mt-5 w-screen min-h-screen flex items-center justify-center py-1"
     >
-      {/* blobs discretos de fundo (mais suaves no claro) */}
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-cyan-300/15 blur-3xl" />
-        <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-fuchsia-300/15 blur-3xl" />
-        <div className="absolute inset-0 opacity-[0.06] bg-[radial-gradient(#0000000f_1px,transparent_1px)] [background-size:22px_22px] dark:opacity-[0.07] dark:bg-[radial-gradient(#ffffff_1px,transparent_1px)]" />
-      </div>
 
       <motion.div
         variants={container}
