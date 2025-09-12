@@ -115,7 +115,7 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -10, scale: 0.95 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
-                className="absolute left-0 mt-2 w-56 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl shadow-2xl py-4 px-4 z-40 flex flex-col gap-2"
+                className="absolute left-0 mt-2 w-56 bg-white dark:bg-gray-900 rounded-xl shadow-2xl py-4 px-4 z-40 flex flex-col gap-2"
                 style={{
                   background:
                     resolvedTheme === "dark"
@@ -172,30 +172,13 @@ export default function Navbar() {
 
         {/* Ícones + tema + idioma (direita) */}
         <div className="flex items-center space-x-2">
-          <a
-            href="https://github.com/gabrielcaixeta01"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200/70 dark:hover:bg-gray-700/70 transition-colors duration-300 hidden sm:block"
-          >
-            <FaGithub size={18} />
-          </a>
-          <a
-            href="https://linkedin.com/in/gabriel-caixeta-romero"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200/70 dark:hover:bg-gray-700/70 transition-colors duration-300 hidden sm:block"
-          >
-            <FaLinkedin size={18} />
-          </a>
-
           {/* Seletor de idioma */}
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setIsLanguageDropdownOpen((open) => !open)}
-              className="flex items-center space-x-1 p-2 rounded-full transition-colors duration-300 cursor-pointer border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"
+              className={`flex items-center space-x-1 p-2 rounded-full transition-colors duration-300 cursor-pointer ${
+                resolvedTheme === "dark" ? "bg-gray-900" : "bg-white"
+              }`}
               aria-label="Change language"
               aria-expanded={isLanguageDropdownOpen}
             >
@@ -215,7 +198,9 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -10, scale: 0.95 }}
                   transition={{ duration: 0.2, ease: "easeOut" }}
-                  className="language-dropdown absolute right-0 mt-1 backdrop-blur-lg bg-white/90 dark:bg-gray-900/90 border border-gray-200/50 dark:border-gray-700/50 rounded-xl shadow-lg py-2 min-w-[120px] z-40"
+                  className={`language-dropdown absolute right-0 mt-1 rounded-xl shadow-lg py-2 min-w-[120px] z-40 ${
+                    resolvedTheme === "dark" ? "bg-gray-900" : "bg-white"
+                  }`}
                 >
                   {[
                     { key: "pt", flag: BR, label: t.navbar.portuguese },

@@ -38,7 +38,6 @@ export default function Contato() {
       id="contato"
       className="relative scroll-mt-5 w-screen min-h-screen flex items-center justify-center py-1"
     >
-
       <motion.div
         variants={container}
         initial="hidden"
@@ -62,22 +61,19 @@ export default function Contato() {
             Nossa equipe está pronta para atender você no Rio de Janeiro!
           </motion.p>
 
-          <motion.div variants={item} className="contact-links-grid">
+          <motion.div
+            variants={item}
+            className="contact-links-grid flex flex-col gap-6 mt-8"
+          >
             <button
               onClick={copyEmail}
-              className="contact-link group flex items-center justify-between gap-3"
+              className="contact-link group flex flex-row items-center gap-2 text-left"
               aria-label="Copiar e-mail"
             >
-              <div className="contact-content flex items-center gap-3 min-w-0 flex-1">
-                <FiMail className="contact-icon text-xl flex-shrink-0" />
-                <div className="flex flex-col min-w-0 flex-1">
-                  <span className="contact-label text-sm truncate">E-mail</span>
-                  <span className="contact-value text-sm font-medium truncate">
-                    {email}
-                  </span>
-                </div>
-              </div>
-              <span className="contact-action contact-label text-xs flex-shrink-0">
+              <FiMail className="contact-icon text-xl flex-shrink-0" />
+              <span className="contact-label text-sm">E-mail</span>
+              <span className="contact-value text-sm font-medium">{email}</span>
+              <span className="contact-action contact-label text-xs ml-2">
                 {copied ? <FiCheck /> : "Copiar"}
               </span>
             </button>
