@@ -1,8 +1,9 @@
 // src/app/layout.tsx
 import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from "../components/Navbar";
 import { LanguageProvider } from "../contexts/LanguageContext";
+
 
 export const metadata = {
   title: "Gabriel Caixeta - Portfólio",
@@ -19,8 +20,8 @@ export default function RootLayout({
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <LanguageProvider>
-            <Navbar />
-            <main>{children}</main>
+              <Navbar />
+              <main>{children}</main>
           </LanguageProvider>
         </ThemeProvider>
       </body>

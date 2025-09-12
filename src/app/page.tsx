@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
-import Hero from "../components/sections/Hero/Hero";
-import Apresentacao from "../components/sections/Apresentacao/Apresentacao";
-import Servicos from "../components/sections/Servicos/Servicos";
-import Contato from "../components/sections/Contato/Contato";
+import Hero from "../components/sections/Hero";
+import Apresentacao from "../components/sections/Apresentacao";
+import Servicos from "../components/sections/Servicos";
+import Contato from "../components/sections/Contato";
 
 export default function Home() {
   return (
