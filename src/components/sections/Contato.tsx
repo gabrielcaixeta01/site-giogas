@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const container = {
   hidden: { opacity: 0, y: 24 },
@@ -18,6 +19,7 @@ const item = {
 };
 
 export default function Contato() {
+  const { t } = useLanguage();
   const email = "contato@giogas.com.br";
   const telefone = "(21) 4002-8922";
   const endereco = "Av. Brasil, 1234 - Rio de Janeiro, RJ";
@@ -39,15 +41,14 @@ export default function Contato() {
             variants={item}
             className="contact-title text-4xl md:text-5xl font-bold tracking-tight mb-4"
           >
-            Fale com a GIOGÁS
+            {t.contato.title}
           </motion.h2>
 
           <motion.p
             variants={item}
             className="contact-desc text-base md:text-lg leading-relaxed mb-8"
           >
-            Entre em contato com a GIOGÁS para dúvidas, pedidos ou suporte.
-            Nossa equipe está pronta para atender você no Rio de Janeiro!
+            {t.contato.description}
           </motion.p>
 
           <motion.div
@@ -57,7 +58,7 @@ export default function Contato() {
             <div className="contact-link flex items-center gap-3">
               <FiMail className="contact-icon text-xl flex-shrink-0" />
               <div className="flex flex-col min-w-0 flex-1">
-                <span className="contact-label text-sm">E-mail</span>
+                <span className="contact-label text-sm">{t.contato.email}</span>
                 <span className="contact-value text-sm font-medium">
                   {email}
                 </span>
@@ -67,7 +68,9 @@ export default function Contato() {
             <div className="contact-link flex items-center gap-3">
               <FiPhone className="contact-icon text-xl flex-shrink-0" />
               <div className="flex flex-col min-w-0 flex-1">
-                <span className="contact-label text-sm truncate">Telefone</span>
+                <span className="contact-label text-sm truncate">
+                  {t.contato.telefone}
+                </span>
                 <span className="contact-value text-sm font-medium truncate">
                   {telefone}
                 </span>
@@ -77,7 +80,9 @@ export default function Contato() {
             <div className="contact-link flex items-center gap-3">
               <FiMapPin className="contact-icon text-xl flex-shrink-0" />
               <div className="flex flex-col min-w-0 flex-1">
-                <span className="contact-label text-sm truncate">Endereço</span>
+                <span className="contact-label text-sm truncate">
+                  {t.contato.endereco}
+                </span>
                 <span className="contact-value text-sm font-medium truncate">
                   {endereco}
                 </span>

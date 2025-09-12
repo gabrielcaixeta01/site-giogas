@@ -1,8 +1,10 @@
 "use client";
 
 import React from "react";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
   return (
     <section
       id="hero"
@@ -14,19 +16,18 @@ export default function Hero() {
         <div className="absolute bottom-0 right-1/2 translate-x-1/2 w-[320px] h-[320px] rounded-full bg-yellow-300/30 blur-2xl" />
       </div>
       <h1 className="text-5xl md:text-6xl font-extrabold text-blue-900 dark:text-blue-200 mb-6 drop-shadow-lg">
-        GIOGÁS
+        {t.hero.title}
       </h1>
       <p className="text-lg md:text-2xl text-gray-900 dark:text-gray-200 max-w-2xl mb-8">
-        Energia que conecta o Rio de Janeiro.
+        {t.hero.subtitle}
         <br />
-        Distribuição de gás com segurança, qualidade e agilidade para sua casa
-        ou empresa.
+        {t.hero.description}
       </p>
       <a
         href="#contato"
         className="inline-block px-8 py-3 rounded-full bg-blue-700 text-white font-semibold text-lg shadow-lg hover:bg-blue-800 transition-colors"
       >
-        Solicite um orçamento
+        {t.hero.button}
       </a>
     </section>
   );

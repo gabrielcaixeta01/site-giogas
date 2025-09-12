@@ -71,10 +71,10 @@ export default function Navbar() {
 
   // Adapte as seções do menu
   const sections = [
-    { key: "hero", label: "Início" },
-    { key: "apresentacao", label: "Apresentação" },
-    { key: "servico", label: "Serviços" },
-    { key: "contato", label: "Contato" },
+    { key: "hero", label: t.navbar.home },
+    { key: "apresentacao", label: t.navbar.apresentacao },
+    { key: "servico", label: t.navbar.servico },
+    { key: "contato", label: t.navbar.contato },
   ];
 
   return (
@@ -213,7 +213,7 @@ export default function Navbar() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05, duration: 0.2 }}
                       onClick={() => handleLanguageChange(lang.key)}
-                      className="w-full px-3 py-2 text-left flex items-center space-x-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 cursor-pointer"
+                      className="w-full px-3 py-2 text-left flex items-center space-x-2 text-sm text-gray-700 dark:text-gray-300 cursor-pointer"
                     >
                       <lang.flag style={{ width: "16px", height: "11px" }} />
                       <span>{lang.label}</span>
