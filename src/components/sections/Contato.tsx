@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
+import { FiMail, FiPhone } from "react-icons/fi";
 import { useLanguage } from "../../contexts/LanguageContext";
 
 const container = {
@@ -20,9 +20,9 @@ const item = {
 
 export default function Contato() {
   const { t } = useLanguage();
-  const email = "contato@giogas.com.br";
-  const telefone = "(21) 4002-8922";
-  const endereco = "Av. Brasil, 1234 - Rio de Janeiro, RJ";
+  const email = "giuseppe@giogas.com.br";
+  const emailComercial = "comercial@giogas.com.br";
+  const telefone = "+55 21 98879-4509";
 
   return (
     <section
@@ -64,6 +64,15 @@ export default function Contato() {
                 </span>
               </div>
             </div>
+            <div className="contact-link flex items-center gap-3">
+              <FiMail className="contact-icon text-xl flex-shrink-0" />
+              <div className="flex flex-col min-w-0 flex-1">
+                <span className="contact-label text-sm">Comercial:</span>
+                <span className="contact-value text-sm font-medium">
+                  {emailComercial}
+                </span>
+              </div>
+            </div>
 
             <div className="contact-link flex items-center gap-3">
               <FiPhone className="contact-icon text-xl flex-shrink-0" />
@@ -73,18 +82,6 @@ export default function Contato() {
                 </span>
                 <span className="contact-value text-sm font-medium truncate">
                   {telefone}
-                </span>
-              </div>
-            </div>
-
-            <div className="contact-link flex items-center gap-3">
-              <FiMapPin className="contact-icon text-xl flex-shrink-0" />
-              <div className="flex flex-col min-w-0 flex-1">
-                <span className="contact-label text-sm truncate">
-                  {t.contato.endereco}
-                </span>
-                <span className="contact-value text-sm font-medium truncate">
-                  {endereco}
                 </span>
               </div>
             </div>

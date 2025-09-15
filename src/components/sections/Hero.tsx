@@ -5,6 +5,12 @@ import { useLanguage } from "../../contexts/LanguageContext";
 
 export default function Hero() {
   const { t } = useLanguage();
+  // Função para scroll suave até a seção de contato
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) section.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section
       id="hero"
@@ -22,12 +28,13 @@ export default function Hero() {
         <br />
         {t.hero.description}
       </p>
-      <a
-        href="#contato"
+      <button
+        type="button"
+        onClick={() => scrollToSection("contato")}
         className="inline-block px-8 py-3 rounded-full bg-blue-700 text-white font-medium text-lg shadow-lg hover:bg-blue-800 transition-colors"
       >
         {t.hero.button}
-      </a>
+      </button>
     </section>
   );
 }
