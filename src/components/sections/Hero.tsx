@@ -14,10 +14,10 @@ export default function Hero() {
           "linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg) 100%)",
       }}
     >
-  <h1 className="text-5xl md:text-6xl font-light mb-6 drop-shadow-lg">
+      <h1 className="text-5xl md:text-6xl font-light mb-6 drop-shadow-lg">
         {t.hero.title}
       </h1>
-  <p className="text-lg md:text-2xl max-w-2xl mb-8 text-justify font-light">
+      <p className="text-lg md:text-2xl max-w-2xl mb-8 text-justify font-light">
         {t.hero.subtitle}
         <br />
         {t.hero.description}
