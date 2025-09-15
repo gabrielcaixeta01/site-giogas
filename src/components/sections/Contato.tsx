@@ -27,7 +27,7 @@ export default function Contato() {
   return (
     <section
       id="contato"
-      className="relative scroll-mt-5 w-full min-h-screen flex items-center justify-center py-1"
+      className="relative scroll-mt-5 w-full min-h-screen flex items-center justify-center py-1 pt-32 pb-32"
     >
       <motion.div
         variants={container}

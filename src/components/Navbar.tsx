@@ -46,7 +46,16 @@ export default function Navbar() {
 
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
-    if (section) section.scrollIntoView({ behavior: "smooth" });
+    if (section) {
+      let yOffset = -120;
+      if (id === "hero") yOffset = -200;
+      if (id === "apresentacao") yOffset = -120;
+      if (id === "servico") yOffset = -120;
+      if (id === "contato") yOffset = -120;
+      const y =
+        section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
     setIsMobileDropdownOpen(false); // Fecha o dropdown ao navegar
   };
 

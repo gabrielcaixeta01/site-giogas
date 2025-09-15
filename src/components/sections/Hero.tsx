@@ -8,13 +8,19 @@ export default function Hero() {
   // Função para scroll suave até a seção de contato
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
-    if (section) section.scrollIntoView({ behavior: "smooth" });
+    if (section) {
+      let yOffset = -120;
+      if (id === "contato") yOffset = -200;
+      const y =
+        section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
   };
 
   return (
     <section
       id="hero"
-      className="w-full min-h-screen flex flex-col items-center justify-center text-center py-20"
+      className="w-full min-h-screen flex flex-col items-center justify-center text-center py-20 pt-32"
       style={{
         background:
           "linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg) 100%)",
