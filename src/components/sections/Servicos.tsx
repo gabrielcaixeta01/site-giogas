@@ -31,10 +31,10 @@ export default function Servicos() {
   return (
     <section id="servico" className="py-20 bg-blue-50 dark:bg-blue-950">
       <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-blue-900 dark:text-blue-200 mb-6">
+        <h2 className="text-4xl md:text-5xl font-light mb-6" style={{ color: 'var(--color-fg)' }}>
           {t.servicos.title}
         </h2>
-        <p className="text-lg text-gray-900 dark:text-gray-300 mb-12 max-w-2xl mx-auto text-justify">
+        <p className="text-lg mb-12 max-w-2xl mx-auto text-justify" style={{ color: 'var(--color-fg)' }}>
           {t.servicos.description}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -44,10 +44,10 @@ export default function Servicos() {
               className="bg-white dark:bg-blue-900/40 rounded-2xl shadow-md p-8 flex flex-col items-center hover:scale-[1.03] transition-transform"
             >
               {servico.icon}
-              <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-2">
+              <h3 className="text-xl font-light mb-2" style={{ color: 'var(--color-fg)' }}>
                 {servico.titulo}
               </h3>
-              <p className="text-gray-900 dark:text-gray-200 text-base text-justify">
+              <p className="text-base text-justify" style={{ color: 'var(--color-fg)' }}>
                 {servico.descricao}
               </p>
             </div>

@@ -8,7 +8,7 @@ const translations = {
     navbar: {
       home: "Início",
       apresentacao: "Apresentação",
-      servico: "Serviço",
+      servico: "Serviços",
       contato: "Contato",
       portuguese: "Português",
       english: "English",

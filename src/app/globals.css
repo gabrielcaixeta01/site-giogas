@@ -1,9 +1,14 @@
 @import "tailwindcss";
 
-/* Aqui entram os tokens, :root, variáveis de tema etc. */
+/* Tokens de cor para tema claro/escuro */
 :root {
   --color-bg: #ffffff;
   --color-fg: #1a202c;
+}
+
+.dark {
+  --color-bg: #0a0a0a;
+  --color-fg: #ededed;
 }
 
 /* Reset básico */
@@ -14,22 +19,12 @@ html,
 body,
 #__next {
   height: 100%;
-}
-body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  background-color: var(--color-bg);
-  color: var(--color-fg) !important;
+  color: var(--color-fg);
+  background-color: var(--color-bg) !important;
 }
 
-/* main {
-  padding: 1rem;
-} */
-
-/* Seções ocupam toda a largura e têm espaçamento vertical */
 section {
-  width: 100vw;
-  min-width: 100vw;
+  width: 100%;
   min-height: 100vh;
   margin: 0;
   padding: 0 2rem;
@@ -57,43 +52,4 @@ section {
   .apresentacao-card {
     padding: 1.5rem 1rem;
   }
-}
-
-/* Tema escuro */
-.dark body {
-  --color-bg: #0a0a0a;
-  --color-fg: #ededed;
-  background-color: var(--color-bg);
-  color: var(--color-fg) !important;
-}
-
-/* Tema claro (opcional, para garantir) */
-.light body {
-  --color-bg: #ffffff;
-  --color-fg: #1a202c;
-  background-color: var(--color-bg);
-  color: var(--color-fg) !important;
-}
-
-/* Corrige cor de texto de botões, links e títulos no modo claro */
-button,
-a,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #1a202c !important;
-}
-
-.dark button,
-.dark a,
-.dark h1,
-.dark h2,
-.dark h3,
-.dark h4,
-.dark h5,
-.dark h6 {
-  color: #ededed !important;
 }

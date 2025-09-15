@@ -39,7 +39,7 @@ export default function Contato() {
         <motion.div variants={item} className="contact-card p-8 md:p-10">
           <motion.h2
             variants={item}
-            className="contact-title text-4xl md:text-5xl font-bold tracking-tight mb-4"
+            className="contact-title text-4xl md:text-5xl font-light tracking-tight mb-4"
           >
             {t.contato.title}
           </motion.h2>

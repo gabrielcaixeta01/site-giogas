@@ -86,7 +86,7 @@ export default function Navbar() {
             ref={menuButtonRef}
             onMouseDown={(e) => e.stopPropagation()}
             onClick={() => setIsMobileDropdownOpen((open) => !open)}
-            className="p-2 rounded-lg text-gray-900 dark:text-gray-100 hover:bg-gray-200/70 dark:hover:bg-gray-700/70 transition-all duration-300 relative z-50"
+            className="p-2 rounded-lg hover:bg-gray-200/70 dark:hover:bg-gray-700/70 transition-all duration-300 relative z-50"
             aria-label="Abrir menu dropdown"
             aria-expanded={isMobileDropdownOpen}
             aria-controls="mobile-dropdown"
@@ -127,7 +127,7 @@ export default function Navbar() {
                   <button
                     key={item.key}
                     onClick={() => scrollToSection(item.key)}
-                    className="w-full text-left text-base font-medium text-gray-800 dark:text-gray-200 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 px-2 py-2 rounded"
+                    className="w-full text-left text-base font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 px-2 py-2 rounded"
                   >
                     {item.label}
                   </button>
@@ -143,7 +143,7 @@ export default function Navbar() {
             <button
               key={item.key}
               onClick={() => scrollToSection(item.key)}
-              className="text-base font-medium text-gray-800 dark:text-gray-200 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 px-2 py-1 rounded"
+              className="text-base font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 px-2 py-1 rounded"
             >
               {item.label}
             </button>
@@ -190,7 +190,7 @@ export default function Navbar() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05, duration: 0.2 }}
                       onClick={() => handleLanguageChange(lang.key)}
-                      className="w-full px-3 py-2 text-left flex items-center space-x-2 text-sm text-gray-700 dark:text-gray-300 cursor-pointer"
+                      className="w-full px-3 py-2 text-left flex items-center space-x-2 text-sm cursor-pointer"
                     >
                       <lang.flag style={{ width: "16px", height: "11px" }} />
                       <span>{lang.label}</span>
@@ -207,7 +207,7 @@ export default function Navbar() {
                 setTheme(resolvedTheme === "dark" ? "light" : "dark")
               }
               aria-label="Toggle theme"
-              className="p-2 rounded-full text-gray-700 dark:text-gray-300 transition-colors duration-300"
+              className="p-2 rounded-full transition-colors duration-300"
             >
               {resolvedTheme === "dark" ? (
                 <BsSun size={18} />
