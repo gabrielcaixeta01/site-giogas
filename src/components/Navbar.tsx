@@ -1,10 +1,17 @@
 "use client";
 import { useTheme } from "next-themes";
 import { useEffect, useState, useRef } from "react";
-import { FaChevronDown } from "react-icons/fa";
+import {
+  FaChevronDown,
+  FaLinkedin,
+  FaInstagram,
+  FaWhatsapp,
+} from "react-icons/fa";
 import { BsSun, BsMoon } from "react-icons/bs";
 import { BR, US } from "country-flag-icons/react/3x2";
 import { useLanguage } from "../contexts/LanguageContext";
+import LogoGiogas from "./LogoGiogas";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
@@ -83,12 +90,19 @@ export default function Navbar() {
     { key: "hero", label: t.navbar.home },
     { key: "apresentacao", label: t.navbar.apresentacao },
     { key: "servico", label: t.navbar.servico },
+    { key: "parceiros", label: t.navbar.parceiros || "Parceiros" },
     { key: "contato", label: t.navbar.contato },
   ];
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-sm border-b border-gray-200/20 dark:border-gray-700/20 py-2 px-4">
       <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
+        {/* Logo GIOGÁS */}
+        <div className="flex items-center mr-4">
+          <Link href="/" aria-label="Página inicial">
+            <LogoGiogas className="h-12 w-auto" />
+          </Link>
+        </div>
         {/* Botão hamburger (Mobile) */}
         <div className="relative md:hidden">
           <button
@@ -161,6 +175,35 @@ export default function Navbar() {
 
         {/* Ícones + tema + idioma (direita) */}
         <div className="flex items-center space-x-2">
+          {/* Ícones sociais */}
+          <a
+            href="https://www.linkedin.com/company/giogas/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="p-2 rounded-full transition-colors"
+          >
+            <FaLinkedin size={20} />
+          </a>
+          <a
+            href="https://www.instagram.com/giogasdistribuidora/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="p-2 rounded-full transition-colors"
+          >
+            <FaInstagram size={20} />
+          </a>
+          <a
+            href="https://wa.me/5521999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+            className="p-2 rounded-full transition-colors"
+          >
+            <FaWhatsapp size={20} />
+          </a>
+
           {/* Seletor de idioma */}
           <div className="relative" ref={dropdownRef}>
             <button

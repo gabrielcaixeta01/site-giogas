@@ -3,6 +3,7 @@ import React from "react";
 import Hero from "../components/sections/Hero";
 import Apresentacao from "../components/sections/Apresentacao";
 import Servicos from "../components/sections/Servicos";
+import Parceiros from "../components/sections/Parceiros";
 import Contato from "../components/sections/Contato";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
         <Hero />
         <Apresentacao />
         <Servicos />
+        <Parceiros />
         <Contato />
       </main>
     </div>
