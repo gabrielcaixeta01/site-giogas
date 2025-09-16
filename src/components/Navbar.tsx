@@ -150,6 +150,36 @@ export default function Navbar() {
                       {item.label}
                     </button>
                   ))}
+                  {/* Ícones sociais só no mobile */}
+                  <div className="flex items-center justify-center gap-4 mt-4 md:hidden">
+                    <a
+                      href="https://www.linkedin.com/company/giogas/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="LinkedIn"
+                      className="p-2 rounded-full transition-colors"
+                    >
+                      <FaLinkedin size={22} />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/giogasdistribuidora/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram"
+                      className="p-2 rounded-full transition-colors"
+                    >
+                      <FaInstagram size={22} />
+                    </a>
+                    <a
+                      href="https://wa.me/5521999999999"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="WhatsApp"
+                      className="p-2 rounded-full transition-colors"
+                    >
+                      <FaWhatsapp size={22} />
+                    </a>
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -205,13 +235,13 @@ export default function Navbar() {
 
         {/* Ícones + tema + idioma (direita) */}
         <div className="flex items-center space-x-2">
-          {/* Ícones sociais */}
+          {/* Ícones sociais só em telas md+ */}
           <a
             href="https://www.linkedin.com/company/giogas/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="p-2 rounded-full transition-colors"
+            className="p-2 rounded-full transition-colors hidden md:inline-flex"
           >
             <FaLinkedin size={20} />
           </a>
@@ -220,7 +250,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
-            className="p-2 rounded-full transition-colors"
+            className="p-2 rounded-full transition-colors hidden md:inline-flex"
           >
             <FaInstagram size={20} />
           </a>
@@ -229,7 +259,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp"
-            className="p-2 rounded-full transition-colors"
+            className="p-2 rounded-full transition-colors hidden md:inline-flex"
           >
             <FaWhatsapp size={20} />
           </a>
