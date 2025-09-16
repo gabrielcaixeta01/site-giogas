@@ -21,7 +21,7 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
   }, [images.length, interval]);
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto aspect-[16/6] rounded-xl overflow-hidden shadow-lg">
+    <div className="relative w-full max-w-4xl mx-auto aspect-[16/6] sm:aspect-[16/8] xs:aspect-square rounded-xl overflow-hidden shadow-lg">
       {images.map((img, idx) => (
         <Image
           key={img.src + "-" + idx + "-" + current}
@@ -32,7 +32,8 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
             idx === current ? "opacity-100 z-10" : "opacity-0 z-0"
           }`}
           draggable={false}
-          sizes="(max-width: 768px) 100vw, 900px"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 900px"
+          quality={90}
           priority={idx === 0}
         />
       ))}

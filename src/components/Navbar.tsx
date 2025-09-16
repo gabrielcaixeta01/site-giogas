@@ -96,18 +96,75 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-sm border-b border-gray-200/20 dark:border-gray-700/20 py-2 px-4">
       <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
-        {/* Esquerda: Logo + botões das seções */}
-        <div className="flex items-center gap-8">
+        {/* Esquerda: Hamburguer no mobile, logo e navegação no desktop */}
+        <div className="flex items-center gap-2 flex-1">
+          {/* Botão hamburger (Mobile) */}
+          <div className="relative md:hidden">
+            <button
+              ref={menuButtonRef}
+              onMouseDown={(e) => e.stopPropagation()}
+              onClick={() => setIsMobileDropdownOpen((open) => !open)}
+              className="p-2 rounded-lg hover:bg-gray-200/70 dark:hover:bg-gray-700/70 transition-all duration-300 relative z-50"
+              aria-label="Abrir menu dropdown"
+              aria-expanded={isMobileDropdownOpen}
+              aria-controls="mobile-dropdown"
+            >
+              <svg
+                className="w-7 h-7"
+                fill="none"
+                strokeWidth={2}
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+            <AnimatePresence>
+              {isMobileDropdownOpen && (
+                <motion.div
+                  id="mobile-dropdown"
+                  ref={mobileDropdownRef}
+                  initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                  className="absolute left-0 mt-2 w-56 bg-white dark:bg-gray-900 rounded-xl shadow-2xl py-4 px-4 z-40 flex flex-col gap-2"
+                  style={{
+                    background:
+                      resolvedTheme === "dark"
+                        ? "rgba(17,24,39,0.95)"
+                        : "rgba(255,255,255,0.95)",
+                  }}
+                >
+                  {sections.map((item) => (
+                    <button
+                      key={item.key}
+                      onClick={() => scrollToSection(item.key)}
+                      className="w-full text-left text-base font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 px-2 py-2 rounded"
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+          {/* Logo só em telas md+ */}
           <Link
             href="/"
             aria-label="Página inicial"
-            className="flex items-center select-none"
+            className="hidden md:flex items-center select-none"
           >
             <span
               style={{
                 color: "#0164B1",
                 fontFamily: "Montserrat, Poppins, Open Sans, Arial, sans-serif",
-                fontWeight: 100,
+                fontWeight: 500,
                 fontSize: "2rem",
                 letterSpacing: "0.01em",
                 lineHeight: 1,
@@ -142,62 +199,6 @@ export default function Navbar() {
               </button>
             ))}
           </div>
-        </div>
-        {/* Botão hamburger (Mobile) */}
-        <div className="relative md:hidden">
-          <button
-            ref={menuButtonRef}
-            onMouseDown={(e) => e.stopPropagation()}
-            onClick={() => setIsMobileDropdownOpen((open) => !open)}
-            className="p-2 rounded-lg hover:bg-gray-200/70 dark:hover:bg-gray-700/70 transition-all duration-300 relative z-50"
-            aria-label="Abrir menu dropdown"
-            aria-expanded={isMobileDropdownOpen}
-            aria-controls="mobile-dropdown"
-          >
-            <svg
-              className="w-7 h-7"
-              fill="none"
-              strokeWidth={2}
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
-          <AnimatePresence>
-            {isMobileDropdownOpen && (
-              <motion.div
-                id="mobile-dropdown"
-                ref={mobileDropdownRef}
-                initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
-                className="absolute left-0 mt-2 w-56 bg-white dark:bg-gray-900 rounded-xl shadow-2xl py-4 px-4 z-40 flex flex-col gap-2"
-                style={{
-                  background:
-                    resolvedTheme === "dark"
-                      ? "rgba(17,24,39,0.95)"
-                      : "rgba(255,255,255,0.95)",
-                }}
-              >
-                {sections.map((item) => (
-                  <button
-                    key={item.key}
-                    onClick={() => scrollToSection(item.key)}
-                    className="w-full text-left text-base font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 px-2 py-2 rounded"
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
         </div>
 
         {/* Navegação Desktop movida para a esquerda */}
