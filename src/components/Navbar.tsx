@@ -10,7 +10,6 @@ import {
 import { BsSun, BsMoon } from "react-icons/bs";
 import { BR, US } from "country-flag-icons/react/3x2";
 import { useLanguage } from "../contexts/LanguageContext";
-import LogoGiogas from "./LogoGiogas";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -97,11 +96,52 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-sm border-b border-gray-200/20 dark:border-gray-700/20 py-2 px-4">
       <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
-        {/* Logo GIOGÁS */}
-        <div className="flex items-center mr-4">
-          <Link href="/" aria-label="Página inicial">
-            <LogoGiogas className="h-12 w-auto" />
+        {/* Esquerda: Logo + botões das seções */}
+        <div className="flex items-center gap-8">
+          <Link
+            href="/"
+            aria-label="Página inicial"
+            className="flex items-center select-none"
+          >
+            <span
+              style={{
+                color: "#0164B1",
+                fontFamily: "Montserrat, Poppins, Open Sans, Arial, sans-serif",
+                fontWeight: 100,
+                fontSize: "2rem",
+                letterSpacing: "0.01em",
+                lineHeight: 1,
+                display: "inline-block",
+              }}
+            >
+              GIO
+            </span>
+            <span
+              style={{
+                color: "#8BACCB",
+                fontFamily: "Montserrat, Poppins, Open Sans, Arial, sans-serif",
+                fontWeight: 500,
+                fontSize: "2rem",
+                letterSpacing: "0.01em",
+                lineHeight: 1,
+                display: "inline-block",
+              }}
+            >
+              GÁS
+            </span>
           </Link>
+          {/* Navegação Desktop */}
+          <div className="hidden md:flex items-center space-x-6">
+            {sections.map((item) => (
+              <button
+                key={item.key}
+                onClick={() => scrollToSection(item.key)}
+                className="text-base font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 px-2 py-1 rounded"
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
         </div>
         {/* Botão hamburger (Mobile) */}
         <div className="relative md:hidden">
@@ -160,18 +200,7 @@ export default function Navbar() {
           </AnimatePresence>
         </div>
 
-        {/* Navegação Desktop */}
-        <div className="hidden md:flex items-center space-x-6">
-          {sections.map((item) => (
-            <button
-              key={item.key}
-              onClick={() => scrollToSection(item.key)}
-              className="text-base font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 px-2 py-1 rounded"
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
+        {/* Navegação Desktop movida para a esquerda */}
 
         {/* Ícones + tema + idioma (direita) */}
         <div className="flex items-center space-x-2">
