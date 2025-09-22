@@ -1,5 +1,6 @@
 import React from "react";
 import { FaQuoteLeft } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 type Depoimento = {
   nome: string;
@@ -22,20 +23,17 @@ const depoimentos: Depoimento[] = [
     mensagem:
       "Fiquei muito satisfeito com o resultado final. O serviço foi realizado dentro do prazo e com um padrão de qualidade excelente. Recomendo sem hesitar!",
   },
-  {
-    nome: "Ana Paula",
-    mensagem:
-      "Profissionais extremamente competentes e educados. Desde o primeiro contato até a finalização do serviço, tudo ocorreu perfeitamente. Parabéns pelo trabalho!",
-  },
-  {
-    nome: "Roberto Lima",
-    mensagem:
-      "Superou minhas expectativas! O suporte foi ágil e eficiente, e o serviço ficou impecável. Indico para todos que buscam qualidade e confiança.",
-  },
 ];
 
 const Depoimentos: React.FC = () => (
-  <section id="depoimentos" className="py-12 bg-gray-100 dark:bg-gray-900">
+  <motion.section
+    id="depoimentos"
+    className="py-12 bg-gray-100 dark:bg-gray-900"
+    initial={{ opacity: 0, y: 60 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: false, amount: 0.3 }}
+    transition={{ duration: 0.7, ease: "easeOut" }}
+  >
     <div className="max-w-5xl mx-auto text-center">
       <h2
         className="text-4xl md:text-5xl font-light mb-8"
@@ -44,7 +42,7 @@ const Depoimentos: React.FC = () => (
         Depoimentos
       </h2>
       <p
-        className="text-lg md:text-xl font-normal"
+        className="text-base md:text-lg font-normal"
         style={{ maxWidth: 520, margin: "0 auto" }}
       >
         O que nossos clientes estão falando sobre a experiência com nossos
@@ -54,7 +52,7 @@ const Depoimentos: React.FC = () => (
         {depoimentos.map((depo, idx) => (
           <div
             key={idx}
-            className="bg-white/90 dark:bg-blue-900/40 rounded-2xl shadow-md p-8 max-w-xs text-center flex flex-col items-center hover:scale-[1.03] transition-transform"
+            className="bg-white/90 dark:bg-blue-900/40 rounded-2xl shadow-md p-8 max-w-xs text-center flex flex-col items-center "
           >
             <span className="mb-4 text-blue-700 dark:text-blue-300">
               <FaQuoteLeft size={40} />
@@ -65,7 +63,7 @@ const Depoimentos: React.FC = () => (
         ))}
       </div>
     </div>
-  </section>
+  </motion.section>
 );
 
 export default Depoimentos;
