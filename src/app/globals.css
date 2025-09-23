@@ -1,3 +1,8 @@
+/* Seção Apresentação com azul institucional e texto branco */
+.secaoapresentacao {
+  background: #175fae;
+  color: #fff;
+}
 main {
   scroll-behavior: smooth;
 }
@@ -34,27 +39,16 @@ body {
 */
 @import "tailwindcss";
 
-/* Tokens de cor para tema claro/escuro */
-:root {
-  --color-bg: #ffffff;
-  --color-fg: #1a202c;
-}
-
-.dark {
-  --color-bg: #0a0a0a;
-  --color-fg: #ededed;
-}
-
 /* Reset básico */
 * {
   box-sizing: border-box;
 }
+
 html,
 body,
 #__next {
   height: 100%;
-  color: var(--color-fg);
-  background-color: var(--color-bg) !important;
+  background-color: #fff !important;
 }
 
 section {

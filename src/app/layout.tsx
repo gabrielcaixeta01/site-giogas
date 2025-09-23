@@ -1,7 +1,6 @@
 // src/app/layout.tsx
 
 import "./globals.css";
-import { ThemeProvider } from "../components/ThemeProvider";
 import Navbar from "../components/Navbar";
 import { LanguageProvider } from "../contexts/LanguageContext";
 
@@ -18,12 +17,10 @@ export default function RootLayout({
   return (
     <html lang="pt-br" suppressHydrationWarning>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <LanguageProvider>
-            <Navbar />
-            <main>{children}</main>
-          </LanguageProvider>
-        </ThemeProvider>
+        <LanguageProvider>
+          <Navbar />
+          <main>{children}</main>
+        </LanguageProvider>
       </body>
     </html>
   );

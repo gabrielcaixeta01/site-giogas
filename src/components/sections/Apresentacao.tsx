@@ -6,7 +6,7 @@ export default function Apresentacao() {
   return (
     <section
       id="apresentacao"
-      className="w-full min-h-screen flex flex-col items-center justify-center text-center pt-32 pb-32"
+      className="secaoapresentacao w-full min-h-screen flex flex-col items-center justify-center text-center pt-32 pb-32"
     >
       <h1 className="text-5xl md:text-6xl font-light mb-6">
         {t.apresentacao.title}

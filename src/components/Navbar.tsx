@@ -1,5 +1,4 @@
 "use client";
-import { useTheme } from "next-themes";
 import { useEffect, useState, useRef } from "react";
 import {
   FaChevronDown,
@@ -7,34 +6,23 @@ import {
   FaInstagram,
   FaWhatsapp,
 } from "react-icons/fa";
-import { BsSun, BsMoon } from "react-icons/bs";
 import { BR, US } from "country-flag-icons/react/3x2";
 import { useLanguage } from "../contexts/LanguageContext";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
-  const { setTheme, resolvedTheme } = useTheme();
   const { language, setLanguage, t } = useLanguage();
-
-  const [mounted, setMounted] = useState(false);
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
-
   const dropdownRef = useRef<HTMLDivElement>(null);
   const mobileDropdownRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
-  useEffect(() => setMounted(true), []);
-
-  // Close dropdown/menu when clicking outside (mas ignora clique no botão do menu)
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
-
-      // Se clicou no próprio botão, não fecha aqui (deixa o onClick cuidar do toggle)
       if (menuButtonRef.current?.contains(target)) return;
-
       if (dropdownRef.current && !dropdownRef.current.contains(target)) {
         setIsLanguageDropdownOpen(false);
       }
@@ -45,7 +33,6 @@ export default function Navbar() {
         setIsMobileDropdownOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
@@ -62,7 +49,7 @@ export default function Navbar() {
         section.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
-    setIsMobileDropdownOpen(false); // Fecha o dropdown ao navegar
+    setIsMobileDropdownOpen(false);
   };
 
   const handleLanguageChange = (lang: string) => {
@@ -84,7 +71,6 @@ export default function Navbar() {
     );
   };
 
-  // Adapte as seções do menu
   const sections = [
     { key: "hero", label: t.navbar.home },
     { key: "apresentacao", label: t.navbar.apresentacao },
@@ -134,18 +120,13 @@ export default function Navbar() {
                   exit={{ opacity: 0, y: -10, scale: 0.95 }}
                   transition={{ duration: 0.25, ease: "easeOut" }}
                   className="absolute left-0 mt-2 w-56 bg-white dark:bg-gray-900 rounded-xl shadow-2xl py-4 px-4 z-40 flex flex-col gap-2"
-                  style={{
-                    background:
-                      resolvedTheme === "dark"
-                        ? "rgba(17,24,39,0.95)"
-                        : "rgba(255,255,255,0.95)",
-                  }}
+                  // background dinâmico removido junto com theme switcher
                 >
                   {sections.map((item) => (
                     <button
                       key={item.key}
                       onClick={() => scrollToSection(item.key)}
-                      className="w-full text-left text-base font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 px-2 py-2 rounded"
+                      className="w-full text-left text-base font-medium hover:text-blue-700 transition-colors duration-300 px-2 py-2 rounded"
                     >
                       {item.label}
                     </button>
@@ -288,9 +269,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -10, scale: 0.95 }}
                   transition={{ duration: 0.2, ease: "easeOut" }}
-                  className={`language-dropdown absolute right-0 mt-1 rounded-xl shadow-lg py-2 min-w-[120px] z-40 ${
-                    resolvedTheme === "dark" ? "bg-gray-900" : "bg-white"
-                  }`}
+                  className="language-dropdown absolute right-0 mt-1 rounded-xl shadow-lg py-2 min-w-[120px] z-40 bg-white"
                 >
                   {[
                     { key: "pt", flag: BR, label: t.navbar.portuguese },
@@ -312,22 +291,6 @@ export default function Navbar() {
               )}
             </AnimatePresence>
           </div>
-
-          {mounted && (
-            <button
-              onClick={() =>
-                setTheme(resolvedTheme === "dark" ? "light" : "dark")
-              }
-              aria-label="Toggle theme"
-              className="p-2 rounded-full transition-colors duration-300"
-            >
-              {resolvedTheme === "dark" ? (
-                <BsSun size={18} />
-              ) : (
-                <BsMoon size={18} />
-              )}
-            </button>
-          )}
         </div>
       </div>
 
