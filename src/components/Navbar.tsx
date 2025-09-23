@@ -8,7 +8,6 @@ import {
 } from "react-icons/fa";
 import { BR, US } from "country-flag-icons/react/3x2";
 import { useLanguage } from "../contexts/LanguageContext";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
