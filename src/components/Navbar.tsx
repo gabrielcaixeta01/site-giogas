@@ -39,13 +39,11 @@ export default function Navbar() {
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
     if (section) {
-      let yOffset = -120;
-      if (id === "hero") yOffset = -200;
-      if (id === "apresentacao") yOffset = -120;
-      if (id === "servico") yOffset = -120;
-      if (id === "contato") yOffset = -120;
+      // Calcula o topo da seção e remove qualquer offset para mostrar a seção sozinha
+      const nav = document.querySelector("nav");
+      const navHeight = nav ? (nav as HTMLElement).offsetHeight : 0;
       const y =
-        section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        section.getBoundingClientRect().top + window.pageYOffset - navHeight;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
     setIsMobileDropdownOpen(false);
@@ -74,8 +72,8 @@ export default function Navbar() {
     { key: "hero", label: t.navbar.home },
     { key: "apresentacao", label: t.navbar.apresentacao },
     { key: "servico", label: t.navbar.servico },
-    { key: "depoimentos", label: t.navbar.depoimentos || "Depoimentos" },
     { key: "parceiros", label: t.navbar.parceiros || "Parceiros" },
+    { key: "depoimentos", label: t.navbar.depoimentos || "Depoimentos" },
     { key: "contato", label: t.navbar.contato },
   ];
 
@@ -119,7 +117,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -10, scale: 0.95 }}
                   transition={{ duration: 0.25, ease: "easeOut" }}
-                  className="absolute left-0 mt-2 w-56 bg-white dark:bg-gray-900 rounded-xl shadow-2xl py-4 px-4 z-40 flex flex-col gap-2"
+                  className="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-2xl py-4 px-4 z-40 flex flex-col gap-2"
                   // background dinâmico removido junto com theme switcher
                 >
                   {sections.map((item) => (

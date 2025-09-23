@@ -59,7 +59,8 @@ section {
 @media (max-width: 600px) {
   section {
     padding: 0 1rem;
-    min-height: 60vh;
+    min-height: 100vh;
+    margin-bottom: 0;
   }
   .apresentacao-card {
     padding: 1.5rem 1rem;
