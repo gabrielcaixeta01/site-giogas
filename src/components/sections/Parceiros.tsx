@@ -111,8 +111,8 @@ export default function ParceirosCarousel() {
                 const endX = e.changedTouches[0].clientX;
                 if (typeof startX === "number") {
                   const diff = endX - startX;
-                  if (diff > 40) prev();
-                  else if (diff < -40) next();
+                  if (diff > 40) prev(); // direita → anterior
+                  else if (diff < -40) next(); // esquerda → próximo
                 }
                 touchStartX.current = null;
               }}
@@ -120,9 +120,9 @@ export default function ParceirosCarousel() {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentIndex}
-                  initial={{ opacity: 0, x: 240 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -240 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                   transition={{ duration: 0.28, ease: "easeInOut" }}
                   className="h-full flex items-center justify-center"
                 >
@@ -135,7 +135,7 @@ export default function ParceirosCarousel() {
                           alt={current.name}
                           width={280}
                           height={80}
-                          className="h-16 sm:h-20 w-auto object-contain"
+                          className="h-16 sm:h-20 w-auto object-contain rounded-xl"
                         />
                       </div>
                     </div>
