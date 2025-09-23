@@ -1,11 +1,6 @@
-/* Fundo azul escuro para a seção de contato */
-.contato {
-  background: #858585;
-}
-/* Seção Apresentação com azul institucional e texto branco */
 .apresentacao {
-  background: #175fae;
-  color: #fff;
+  background: linear-gradient(to bottom, #175fae 0%, #ffffff 100%);
+  color: #175fae;
 }
 
 @import "tailwindcss";
