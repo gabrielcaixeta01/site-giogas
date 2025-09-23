@@ -1,3 +1,4 @@
+@import "tailwindcss";
 /* Seção Hero com gradiente azul vivo */
 .hero {
   background: #175fae;
@@ -40,7 +41,7 @@
   color: #ffffff;
 }
 
-@import "tailwindcss";
+
 
 * {
   box-sizing: border-box;
