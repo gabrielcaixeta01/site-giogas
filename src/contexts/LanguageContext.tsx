@@ -34,22 +34,22 @@ const translations = {
       residencial: {
         title: "Gás Residencial",
         description:
-          "Entrega rápida e segura de gás para residências em todo o Rio de Janeiro. Atendimento personalizado e suporte 24h.",
+          "Entrega rápida e segura\nAtendimento personalizado\nSuporte 24h para residências",
       },
       comercial: {
         title: "Gás Comercial",
         description:
-          "Soluções em gás para comércios, restaurantes e condomínios. Contratos flexíveis e acompanhamento técnico especializado.",
+          "Soluções para comércios, restaurantes e condomínios\nContratos flexíveis\nAcompanhamento técnico especializado",
       },
       seguranca: {
         title: "Segurança e Manutenção",
         description:
-          "Serviços de inspeção, manutenção preventiva e instalação de sistemas de gás, garantindo máxima segurança para seu negócio ou residência.",
+          "Inspeção e manutenção preventiva\nInstalação de sistemas de gás\nMáxima segurança garantida",
       },
       logistica: {
         title: "Logística e Distribuição",
         description:
-          "Frota própria e logística eficiente para garantir o abastecimento contínuo de gás em toda a região metropolitana.",
+          "Frota própria e logística eficiente\nAbastecimento contínuo\nCobertura em toda a região metropolitana",
       },
     },
     contato: {
@@ -66,6 +66,12 @@ const translations = {
       title: "Nossos Parceiros",
       subtitle:
         "Relações que ampliam alcance e qualidade — juntos entregamos mais.",
+      estrategicas: "Parcerias estratégicas",
+    },
+    depoimentos: {
+      title: "Depoimentos",
+      subtitle:
+        "O que nossos clientes dizem sobre a experiência com nossos serviços",
     },
   },
   en: {
@@ -98,22 +104,22 @@ const translations = {
       residencial: {
         title: "Residential Gas",
         description:
-          "Fast and safe gas delivery for homes throughout Rio de Janeiro. Personalized service and 24h support.",
+          "Fast and safe delivery\nPersonalized service\n24h support for homes",
       },
       comercial: {
         title: "Commercial Gas",
         description:
-          "Gas solutions for businesses, restaurants and condominiums. Flexible contracts and specialized technical support.",
+          "Solutions for businesses, restaurants and condos\nFlexible contracts\nSpecialized technical support",
       },
       seguranca: {
         title: "Safety and Maintenance",
         description:
-          "Inspection, preventive maintenance and installation of gas systems, ensuring maximum safety for your business or home.",
+          "Inspection and preventive maintenance\nGas system installation\nMaximum safety guaranteed",
       },
       logistica: {
         title: "Logistics and Distribution",
         description:
-          "Own fleet and efficient logistics to ensure continuous gas supply throughout the metropolitan region.",
+          "Own fleet and efficient logistics\nContinuous supply\nCoverage throughout the metro area",
       },
     },
     contato: {
@@ -130,6 +136,11 @@ const translations = {
       title: "Our Partners",
       subtitle:
         "Relationships that expand reach and quality — together we deliver more.",
+      estrategicas: "Strategic partnerships",
+    },
+    depoimentos: {
+      title: "Testimonials",
+      subtitle: "What our clients say about their experience with our services",
     },
   },
 };

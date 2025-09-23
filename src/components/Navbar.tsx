@@ -150,7 +150,7 @@ export default function Navbar() {
                       <FaInstagram size={22} />
                     </a>
                     <a
-                      href="https://wa.me/5521999999999"
+                      href="https://wa.me/5521988794509"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="WhatsApp"
@@ -202,7 +202,7 @@ export default function Navbar() {
             <FaInstagram size={20} />
           </a>
           <a
-            href="https://wa.me/5521999999999"
+            href="https://wa.me/5521988794509"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp"

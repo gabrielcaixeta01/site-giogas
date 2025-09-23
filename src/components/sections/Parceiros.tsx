@@ -78,7 +78,7 @@ export default function ParceirosCarousel() {
         {/* Header */}
         <div className="text-center mb-10">
           <span className="inline-block text-[11px] tracking-[0.2em] uppercase text-zinc-400">
-            Parcerias estratégicas
+            {t.parceiros.estrategicas}
           </span>
           <h2 className="mt-2 text-3xl sm:text-4xl font-light tracking-tight">
             {title}

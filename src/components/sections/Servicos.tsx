@@ -11,38 +11,22 @@ export default function Servicos() {
     {
       icon: <FiHome className="text-2xl" />,
       titulo: t.servicos.residencial.title,
-      bullets: [
-        "Entrega rápida e segura",
-        "Atendimento personalizado",
-        "Suporte 24h para residências",
-      ],
+      bullets: t.servicos.residencial.description.split("\n"),
     },
     {
       icon: <FiBriefcase className="text-2xl" />,
       titulo: t.servicos.comercial.title,
-      bullets: [
-        "Soluções para comércios e restaurantes",
-        "Contratos flexíveis",
-        "Acompanhamento técnico especializado",
-      ],
+      bullets: t.servicos.comercial.description.split("\n"),
     },
     {
       icon: <FiShield className="text-2xl" />,
       titulo: t.servicos.seguranca.title,
-      bullets: [
-        "Inspeção e manutenção preventiva",
-        "Instalação de sistemas de gás",
-        "Máxima segurança garantida",
-      ],
+      bullets: t.servicos.seguranca.description.split("\n"),
     },
     {
       icon: <FiTruck className="text-2xl" />,
       titulo: t.servicos.logistica.title,
-      bullets: [
-        "Frota própria e logística eficiente",
-        "Abastecimento contínuo",
-        "Cobertura em toda a região metropolitana",
-      ],
+      bullets: t.servicos.logistica.description.split("\n"),
     },
   ];
   return (
@@ -58,7 +42,7 @@ export default function Servicos() {
           {t.servicos.title}
         </h2>
         <p className="text-base md:text-lg mb-12 max-w-2xl mx-auto text-center text-gray-500">
-          Soluções em gás para residências, comércios e empresas.
+          {t.servicos.description}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {servicos.map((servico, idx) => (
