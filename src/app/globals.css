@@ -1,3 +1,15 @@
+/* Seção Parceiros: fundo preto/cinza escuro, cards transparentes/cinza, formal */
+.parceiros {
+  background: #101114;
+  color: #f3f3f3;
+}
+.parceiros-card {
+  background: rgba(30, 32, 36, 0.72);
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(2px);
+}
 /* Seção Serviços com gradiente invertido: branco em cima, azul embaixo */
 .servicos {
   background: linear-gradient(to bottom, #abd7fb 0%, #ffffff 100%);

@@ -75,12 +75,13 @@ export default function Navbar() {
     { key: "hero", label: t.navbar.home },
     { key: "apresentacao", label: t.navbar.apresentacao },
     { key: "servico", label: t.navbar.servico },
+    { key: "depoimentos", label: t.navbar.depoimentos || "Depoimentos" },
     { key: "parceiros", label: t.navbar.parceiros || "Parceiros" },
     { key: "contato", label: t.navbar.contato },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-sm border-b border-gray-200/20 dark:border-gray-700/20 py-2 px-4">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-200 py-2 px-4">
       <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
         {/* Esquerda: Hamburguer no mobile, logo e navegação no desktop */}
         <div className="flex items-center gap-2 flex-1">
@@ -165,39 +166,7 @@ export default function Navbar() {
               )}
             </AnimatePresence>
           </div>
-          {/* Logo só em telas md+ */}
-          <Link
-            href="/"
-            aria-label="Página inicial"
-            className="hidden md:flex items-center select-none"
-          >
-            <span
-              style={{
-                color: "#0164B1",
-                fontFamily: "Montserrat, Poppins, Open Sans, Arial, sans-serif",
-                fontWeight: 500,
-                fontSize: "2rem",
-                letterSpacing: "0.01em",
-                lineHeight: 1,
-                display: "inline-block",
-              }}
-            >
-              GIO
-            </span>
-            <span
-              style={{
-                color: "#8BACCB",
-                fontFamily: "Montserrat, Poppins, Open Sans, Arial, sans-serif",
-                fontWeight: 500,
-                fontSize: "2rem",
-                letterSpacing: "0.01em",
-                lineHeight: 1,
-                display: "inline-block",
-              }}
-            >
-              GÁS
-            </span>
-          </Link>
+          {/* Logo removido para navbar minimalista */}
           {/* Navegação Desktop */}
           <div className="hidden md:flex items-center space-x-6">
             {sections.map((item) => (

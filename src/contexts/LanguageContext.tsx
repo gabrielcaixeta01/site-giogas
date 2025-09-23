@@ -9,6 +9,7 @@ const translations = {
       home: "Início",
       apresentacao: "Apresentação",
       servico: "Serviços",
+      depoimentos: "Depoimentos",
       parceiros: "Parceiros",
       contato: "Contato",
       portuguese: "Português",
@@ -61,12 +62,18 @@ const translations = {
       copy: "Copiar",
       copied: "Copiado!",
     },
+    parceiros: {
+      title: "Nossos Parceiros",
+      subtitle:
+        "Relações que ampliam alcance e qualidade — juntos entregamos mais.",
+    },
   },
   en: {
     navbar: {
       home: "Home",
       apresentacao: "About",
       servico: "Services",
+      depoimentos: "Testimonials",
       parceiros: "Partners",
       contato: "Contact",
       portuguese: "Português",
@@ -118,6 +125,11 @@ const translations = {
       endereco: "Address:",
       copy: "Copy",
       copied: "Copied!",
+    },
+    parceiros: {
+      title: "Our Partners",
+      subtitle:
+        "Relationships that expand reach and quality — together we deliver more.",
     },
   },
 };

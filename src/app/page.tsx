@@ -10,7 +10,7 @@ import Contato from "../components/sections/Contato";
 export default function Home() {
   return (
     <div className="w-full min-h-screen font-sans">
-      <main className="pt-32 flex flex-col ">
+      <main className="pt-32 flex flex-col">
         <Hero />
         <Apresentacao />
         <Servicos />
