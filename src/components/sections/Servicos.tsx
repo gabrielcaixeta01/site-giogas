@@ -52,16 +52,13 @@ export default function Servicos() {
     >
       <div className="max-w-5xl mx-auto text-center">
         <h2
-          className="text-4xl md:text-5xl font-light mb-6"
+          className="text-4xl md:text-5xl font-light mb-3"
           style={{ color: "var(--color-fg)" }}
         >
           {t.servicos.title}
         </h2>
-        <p
-          className="text-lg mb-12 max-w-2xl mx-auto text-justify"
-          style={{ color: "var(--color-fg)" }}
-        >
-          {t.servicos.description}
+        <p className="text-base md:text-lg mb-12 max-w-2xl mx-auto text-center text-gray-500">
+          Soluções em gás para residências, comércios e empresas.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {servicos.map((servico, idx) => (
