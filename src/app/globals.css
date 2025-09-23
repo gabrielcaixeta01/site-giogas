@@ -1,3 +1,22 @@
+/* Seção Hero com gradiente azul vivo */
+.hero {
+  background: #175fae;
+  background-image: url("/patterns/diagonal.svg");
+  background-size: cover;
+  background-repeat: repeat;
+  /* Pattern translúcido */
+  position: relative;
+}
+/* Opacidade do pattern na hero */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
 /* Seção Parceiros: fundo preto/cinza escuro, cards transparentes/cinza, formal */
 .parceiros {
   background: #101114;
@@ -40,6 +59,7 @@ section {
   margin: 0;
   padding-left: 2rem;
   padding-right: 2rem;
+  /* Removido padding-top e padding-bottom para evitar faixa branca acima da hero */
   background: transparent;
   display: flex;
   flex-direction: column;
@@ -58,7 +78,8 @@ section {
 
 @media (max-width: 600px) {
   section {
-    padding: 4rem 1rem 4rem 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     min-height: 100vh;
     margin-bottom: 0;
   }
