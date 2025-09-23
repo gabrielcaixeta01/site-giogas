@@ -52,9 +52,9 @@ const translations = {
       },
     },
     contato: {
-      title: "Fale com a GIOGÁS",
+      title: "Entre em contato",
       description:
-        "Entre em contato com a GIOGÁS para dúvidas, pedidos ou suporte. Nossa equipe está pronta para atender você no Rio de Janeiro!",
+        "Entre em contato para dúvidas, pedidos ou suporte. Nossa equipe está pronta para atender você no Rio de Janeiro!",
       email: "E-mail:",
       telefone: "Telefone:",
       endereco: "Endereço:",
@@ -110,9 +110,9 @@ const translations = {
       },
     },
     contato: {
-      title: "Contact GIOGÁS",
+      title: "Contact us",
       description:
-        "Contact GIOGÁS for questions, orders or support. Our team is ready to assist you in Rio de Janeiro!",
+        "Contact for questions, orders or support. Our team is ready to assist you in Rio de Janeiro!",
       email: "Email:",
       telefone: "Phone:",
       endereco: "Address:",
