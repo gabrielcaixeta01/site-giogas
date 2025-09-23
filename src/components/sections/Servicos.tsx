@@ -48,7 +48,7 @@ export default function Servicos() {
   return (
     <section
       id="servico"
-      className="servicos w-full min-h-screen flex flex-col items-center justify-center text-center"
+      className="servicos w-full min-h-screen flex flex-col items-center justify-center text-center pb-28 md:pb-40"
     >
       <div className="max-w-5xl mx-auto text-center">
         <h2
@@ -64,7 +64,7 @@ export default function Servicos() {
           {servicos.map((servico, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl shadow-md p-8 flex flex-col items-center hover:scale-[1.03] transition-transform"
+              className="bg-white rounded-2xl shadow-md p-5 sm:p-8 flex flex-col items-center hover:scale-[1.03] transition-transform"
             >
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 text-blue-600">
                 {servico.icon}

@@ -24,7 +24,7 @@
 }
 .parceiros-card {
   background: rgba(30, 32, 36, 0.72);
-  border-radius: 1.25rem;
+  border-radius: 2rem !important;
   box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.18);
   border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(2px);
@@ -85,5 +85,11 @@ section {
   }
   .apresentacao-card {
     padding: 1.5rem 1rem;
+  }
+}
+
+@media (min-width: 601px) {
+  .parceiros-card {
+    border-radius: 2rem !important;
   }
 }

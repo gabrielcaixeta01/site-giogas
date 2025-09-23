@@ -16,6 +16,8 @@ const basePartners: Partner[] = [
 ];
 
 export default function ParceirosCarousel() {
+  // Ref para swipe touch
+  const touchStartX = useRef<number | null>(null);
   const { t } = useLanguage();
   const title = t?.parceiros?.title ?? "Nossos Parceiros";
   const subtitle =
@@ -88,17 +90,33 @@ export default function ParceirosCarousel() {
         {/* Carousel */}
         <div className="relative max-w-2xl mx-auto flex items-center">
           {/* Botões */}
+          {/* Botões: só aparecem em md+ */}
           <button
             onClick={prev}
             aria-label="Anterior"
-            className="absolute -left-8 md:-left-12 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/10 border border-white/15 hover:bg-white/20 transition"
+            className="hidden md:block absolute -left-8 md:-left-12 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/10 border border-white/15 hover:bg-white/20 transition"
             style={{ boxShadow: "0 2px 8px 0 rgba(0,0,0,0.18)" }}
           >
             <ChevronLeft />
           </button>
           <div className="flex-1">
             {/* Card visível */}
-            <div className="h-64 sm:h-72 overflow-hidden">
+            <div
+              className="min-h-[18rem] sm:min-h-[20rem] flex items-center justify-center"
+              onTouchStart={(e) => {
+                touchStartX.current = e.touches[0].clientX;
+              }}
+              onTouchEnd={(e) => {
+                const startX = touchStartX.current;
+                const endX = e.changedTouches[0].clientX;
+                if (typeof startX === "number") {
+                  const diff = endX - startX;
+                  if (diff > 40) prev();
+                  else if (diff < -40) next();
+                }
+                touchStartX.current = null;
+              }}
+            >
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentIndex}
@@ -108,7 +126,7 @@ export default function ParceirosCarousel() {
                   transition={{ duration: 0.28, ease: "easeInOut" }}
                   className="h-full flex items-center justify-center"
                 >
-                  <div className="parceiros-card w-full max-w-md p-6 sm:p-8">
+                  <div className="parceiros-card w-72 h-72 sm:w-80 sm:h-80 max-w-full p-4 sm:p-6 mx-auto flex flex-col justify-center rounded-2xl">
                     {/* Logo */}
                     <div className="flex justify-center">
                       <div className="h-16 sm:h-20 w-auto">
@@ -148,7 +166,7 @@ export default function ParceirosCarousel() {
           <button
             onClick={next}
             aria-label="Próximo"
-            className="absolute -right-8 md:-right-12 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/10 border border-white/15 hover:bg-white/20 transition"
+            className="hidden md:block absolute -right-8 md:-right-12 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/10 border border-white/15 hover:bg-white/20 transition"
             style={{ boxShadow: "0 2px 8px 0 rgba(0,0,0,0.18)" }}
           >
             <ChevronRight />
