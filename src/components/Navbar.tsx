@@ -14,6 +14,7 @@ export default function Navbar() {
   const { language, setLanguage, t } = useLanguage();
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("hero");
   const dropdownRef = useRef<HTMLDivElement>(null);
   const mobileDropdownRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
@@ -36,6 +37,35 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Detecta a seção ativa com base no scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const sectionIds = [
+        "hero",
+        "apresentacao",
+        "servico",
+        "parceiros",
+        "depoimentos",
+        "contato",
+      ];
+      let current = "hero";
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 80 && rect.bottom > 80) {
+            current = id;
+            break;
+          }
+        }
+      }
+      setActiveSection(current);
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
     if (section) {
@@ -47,6 +77,7 @@ export default function Navbar() {
       window.scrollTo({ top: y, behavior: "smooth" });
     }
     setIsMobileDropdownOpen(false);
+    setActiveSection(id);
   };
 
   const handleLanguageChange = (lang: string) => {
@@ -78,7 +109,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-200 py-2 px-4">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-md py-2 px-4">
       <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
         {/* Esquerda: Hamburguer no mobile, logo e navegação no desktop */}
         <div className="flex items-center gap-2 flex-1">
@@ -163,14 +194,19 @@ export default function Navbar() {
               )}
             </AnimatePresence>
           </div>
-          {/* Logo removido para navbar minimalista */}
           {/* Navegação Desktop */}
           <div className="hidden md:flex items-center space-x-6">
             {sections.map((item) => (
               <button
                 key={item.key}
                 onClick={() => scrollToSection(item.key)}
-                className="text-base font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 px-2 py-1 rounded"
+                className={`text-base font-medium text-gray-800 cursor-pointer border-b-2 px-2 py-1 transition ease-in-out duration-300
+                  ${
+                    activeSection === item.key
+                      ? "border-blue-700"
+                      : "border-transparent"
+                  }
+                  hover:translate-y-1`}
               >
                 {item.label}
               </button>

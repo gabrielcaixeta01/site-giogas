@@ -72,7 +72,7 @@ const Depoimentos: React.FC = () => {
       <div className="relative max-w-6xl mx-auto px-4">
         <motion.h2
           variants={item}
-          className="text-center text-4xl md:text-5xl font-semibold tracking-tight text-blue-950"
+          className="text-center text-4xl md:text-5xl font-light tracking-tight text-blue-950"
         >
           {t.depoimentos.title}
         </motion.h2>

@@ -1,11 +1,24 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import { FiBriefcase, FiShield, FiTruck } from "react-icons/fi";
 import { useLanguage } from "../../contexts/LanguageContext";
 
 export default function Servicos() {
   const { t } = useLanguage();
+  const container = {
+    hidden: { opacity: 0, y: 24 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, staggerChildren: 0.08 },
+    },
+  };
+  const item = {
+    hidden: { opacity: 0, y: 14 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.45 } },
+  };
   // Bullets resumidos e refinados manualmente para cada serviço
   const servicos = [
     {
@@ -29,20 +42,31 @@ export default function Servicos() {
       id="servico"
       className="servicos w-full min-h-screen flex flex-col items-center justify-center text-center pb-28 md:pb-40"
     >
-      <div className="max-w-5xl mx-auto text-center">
-        <h2
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.3 }}
+        variants={container}
+        className="max-w-5xl mx-auto text-center"
+      >
+        <motion.h2
+          variants={item}
           className="text-4xl md:text-5xl font-light mb-3"
           style={{ color: "var(--color-fg)" }}
         >
           {t.servicos.title}
-        </h2>
-        <p className="text-base md:text-lg mb-12 max-w-2xl mx-auto text-center text-gray-500">
+        </motion.h2>
+        <motion.p
+          variants={item}
+          className="text-base md:text-lg mb-12 max-w-2xl mx-auto text-center text-gray-500"
+        >
           {t.servicos.description}
-        </p>
+        </motion.p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
           {servicos.map((servico, idx) => (
-            <div
+            <motion.div
               key={idx}
+              variants={item}
               className="bg-white rounded-2xl shadow-md p-5 sm:p-8 flex flex-col items-center hover:scale-[1.03] transition-transform"
             >
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 text-blue-600">
@@ -64,10 +88,10 @@ export default function Servicos() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

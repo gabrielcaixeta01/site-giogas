@@ -55,7 +55,7 @@ export default function Contato() {
         >
           <motion.h2
             variants={item}
-            className="contact-title text-4xl md:text-5xl font-semibold tracking-tight mb-3"
+            className="contact-title text-4xl md:text-5xl font-light tracking-tight mb-3"
           >
             {t.contato.title}
           </motion.h2>

@@ -83,7 +83,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             type="button"
             onClick={() => scrollToSection("contato")}
-            className="mt-8 inline-flex items-center px-6 py-3 rounded-full font-semibold bg-white text-[#175fae] shadow-lg hover:shadow-blue-500/40 hover:bg-[#e6f0fa] transition"
+            className="mt-8 inline-flex items-center px-6 py-3 rounded-full font-light bg-white text-[#175fae] shadow-lg hover:shadow-blue-500/40 hover:bg-[#e6f0fa] transition"
           >
             {t.hero.button}
           </motion.button>

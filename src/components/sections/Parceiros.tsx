@@ -140,7 +140,7 @@ export default function ParceirosCarousel() {
                       </div>
                     </div>
                     {/* Nome */}
-                    <h3 className="text-center mt-4 sm:mt-5 text-lg sm:text-xl font-medium">
+                    <h3 className="text-center mt-4 sm:mt-5 text-lg sm:text-xl font-light border-b border-gray-800 pb-1">
                       {current.name}
                     </h3>
                   </div>
