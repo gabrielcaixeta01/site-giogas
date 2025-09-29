@@ -19,23 +19,19 @@ const translations = {
       title: "GIOGÁS",
       subtitle: "Energia que conecta o Rio de Janeiro.",
       description:
-        "Distribuição de gás com segurança, qualidade e agilidade para sua casa ou empresa.",
+        "Distribuição de gás com segurança, qualidade e agilidade para sua empresa.",
       button: "Solicite um orçamento",
     },
     apresentacao: {
       title: "Bem-vindo à GIOGÁS",
       description:
-        "A GIOGÁS é uma empresa especializada na distribuição de gás no Rio de Janeiro, comprometida com a segurança, qualidade e atendimento ágil para residências, comércios e indústrias. Conte com nossa experiência para garantir energia eficiente e confiável no seu dia a dia.",
+        "A GIOGÁS é uma empresa especializada na distribuição de gás no Rio de Janeiro, comprometida com a segurança, qualidade e atendimento ágil para comércios e indústrias. Conte com nossa experiência para garantir energia eficiente e confiável no seu dia a dia.",
     },
     servicos: {
       title: "Nossos Serviços",
       description:
-        "A GIOGÁS oferece soluções completas em distribuição de gás, segurança e suporte técnico para residências, comércios e indústrias no Rio de Janeiro.",
-      residencial: {
-        title: "Gás Residencial",
-        description:
-          "Entrega rápida e segura\nAtendimento personalizado\nSuporte 24h para residências",
-      },
+        "A GIOGÁS oferece soluções completas em distribuição de gás, segurança e suporte técnico para comércios e indústrias no Rio de Janeiro.",
+      
       comercial: {
         title: "Gás Comercial",
         description:
@@ -89,23 +85,18 @@ const translations = {
       title: "GIOGÁS",
       subtitle: "Energy that connects Rio de Janeiro.",
       description:
-        "Gas distribution with safety, quality and agility for your home or business.",
+        "Gas distribution with safety, quality and agility for your business.",
       button: "Request a quote",
     },
     apresentacao: {
       title: "Welcome to GIOGÁS",
       description:
-        "GIOGÁS is a company specialized in gas distribution in Rio de Janeiro, committed to safety, quality and fast service for homes, businesses and industries. Count on our experience to ensure efficient and reliable energy every day.",
+        "GIOGÁS is a company specialized in gas distribution in Rio de Janeiro, committed to safety, quality and fast service for businesses and industries. Count on our experience to ensure efficient and reliable energy every day.",
     },
     servicos: {
       title: "Our Services",
       description:
-        "GIOGÁS offers complete solutions in gas distribution, safety and technical support for homes, businesses and industries in Rio de Janeiro.",
-      residencial: {
-        title: "Residential Gas",
-        description:
-          "Fast and safe delivery\nPersonalized service\n24h support for homes",
-      },
+        "GIOGÁS offers complete solutions in gas distribution, safety and technical support for businesses and industries in Rio de Janeiro.",
       comercial: {
         title: "Commercial Gas",
         description:

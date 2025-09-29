@@ -1,18 +1,13 @@
 "use client";
 
 import React from "react";
-import { FiHome, FiBriefcase, FiShield, FiTruck } from "react-icons/fi";
+import { FiBriefcase, FiShield, FiTruck } from "react-icons/fi";
 import { useLanguage } from "../../contexts/LanguageContext";
 
 export default function Servicos() {
   const { t } = useLanguage();
   // Bullets resumidos e refinados manualmente para cada serviço
   const servicos = [
-    {
-      icon: <FiHome className="text-2xl" />,
-      titulo: t.servicos.residencial.title,
-      bullets: t.servicos.residencial.description.split("\n"),
-    },
     {
       icon: <FiBriefcase className="text-2xl" />,
       titulo: t.servicos.comercial.title,
@@ -44,7 +39,7 @@ export default function Servicos() {
         <p className="text-base md:text-lg mb-12 max-w-2xl mx-auto text-center text-gray-500">
           {t.servicos.description}
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
           {servicos.map((servico, idx) => (
             <div
               key={idx}
