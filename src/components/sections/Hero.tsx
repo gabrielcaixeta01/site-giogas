@@ -1,4 +1,8 @@
 "use client";
+{
+  /* Película transparente sobre o vídeo */
+}
+<div className="absolute inset-0 bg-black/30 z-0 pointer-events-none" />;
 
 import React from "react";
 import Image from "next/image";
@@ -24,6 +28,15 @@ export default function Hero() {
       id="hero"
       className="hero relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden py-10"
     >
+      {/* Vídeo de fundo */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        src="/bg-hero.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
       {/* pattern discreto sobre a hero */}
       <div className="absolute inset-0 bg-[url('/patterns/diagonal.svg')] opacity-[0.06] pointer-events-none z-0" />
       {/* halo claro atrás do logo/título */}
