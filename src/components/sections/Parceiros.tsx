@@ -73,7 +73,11 @@ export default function ParceirosCarousel() {
   const current = partners[currentIndex] ?? { name: "", logo: "" };
 
   return (
-    <section id="parceiros" className="parceiros scroll-mt-24 py-32">
+    <section
+      id="parceiros"
+      className="parceiros scroll-mt-24 min-h-screen flex flex-col justify-center"
+      style={{ justifyContent: "center" }}
+    >
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-10">

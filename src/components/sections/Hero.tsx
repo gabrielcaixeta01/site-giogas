@@ -60,15 +60,15 @@ export default function Hero() {
         {/* Topo: título e subtítulo */}
         <div className="w-full flex flex-col items-center z-20 mb-24 md:mb-0 pt-16">
           <h1
-            className="text-[clamp(4rem,12vw,10rem)] font-bold flex gap-2 md:gap-4 select-none drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)]"
+            className="text-[clamp(4rem,12vw,10rem)] font-bold flex gap-1 md:gap-2 select-none drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)]"
             style={{ fontFamily: "Montserrat, sans-serif" }}
           >
             {["G", "I", "O"].map((letra, i) => (
               <motion.span
                 key={letra}
-                initial={{ opacity: 0, x: -60 }}
+                initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.7, delay: i * 0.25, ease: "easeOut" }}
+                transition={{ duration: 0.5, delay: i * 0.25, ease: "easeOut" }}
                 className="text-white"
               >
                 {letra}
@@ -77,10 +77,10 @@ export default function Hero() {
             {["G", "Á", "S"].map((letra, i) => (
               <motion.span
                 key={letra}
-                initial={{ opacity: 0, x: -60 }}
+                initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{
-                  duration: 0.7,
+                  duration: 0.5,
                   delay: (i + 3) * 0.25,
                   ease: "easeOut",
                 }}
