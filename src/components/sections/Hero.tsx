@@ -27,7 +27,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="hero relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden py-10"
+      className="hero relative min-h-screen flex flex-col justify-between items-center text-center overflow-hidden pt-6 pb-10"
     >
       {/* Vídeo de fundo */}
       <div className="absolute inset-0 w-full h-full z-0">
@@ -55,11 +55,12 @@ export default function Hero() {
           />
         )}
       </div>
-      
-      <div className="w-full flex flex-col items-center gap-10 md:gap-14 relative z-10">
-        <div className="w-full flex justify-center pt-10 z-20">
+
+      <div className="w-full flex flex-col gap-10 md:gap-14 relative z-10">
+        {/* Topo: título e subtítulo */}
+        <div className="w-full flex flex-col items-center z-20 mb-24 md:mb-0 pt-16">
           <h1
-            className="text-[clamp(4rem,12vw,10rem)] font-bold flex gap-2 md:gap-4 items-center select-none"
+            className="text-[clamp(4rem,12vw,10rem)] font-bold flex gap-2 md:gap-4 select-none"
             style={{ fontFamily: "Montserrat, sans-serif" }}
           >
             {["G", "I", "O"].map((letra, i) => (
@@ -73,7 +74,7 @@ export default function Hero() {
                 {letra}
               </motion.span>
             ))}
-            {["G", "A", "S"].map((letra, i) => (
+            {["G", "Á", "S"].map((letra, i) => (
               <motion.span
                 key={letra}
                 initial={{ opacity: 0, x: -60 }}
@@ -89,31 +90,36 @@ export default function Hero() {
               </motion.span>
             ))}
           </h1>
-        </div>
-        <div className="max-w-2xl mx-auto px-2 flex flex-col items-center">
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-base md:text-xl mb-7 text-center font-light text-white/80"
+            className="text-base md:text-xl font-semilight text-gray-800"
           >
-            {t.hero.subtitle}
+            Energia que conecta o Rio de Janeiro.
           </motion.p>
+        </div>
+        {/* Meio: descrição centralizada */}
+        <div className="flex flex-col items-center justify-center flex-1">
           <motion.span
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-sm md:text-lg font-normal text-white/60 mb-2 block text-center"
+            className="text-sm md:text-lg font-normal text-gray-500 block text-center max-w-xl mx-auto"
           >
-            {t.hero.description}
+            Distribuição de gás com segurança, qualidade e agilidade para sua
+            empresa.
           </motion.span>
+        </div>
+        {/* Base: botão e ícone de scroll */}
+        <div className="w-full flex flex-col items-center py-40 mt-20 left-0 z-30 pb-8">
           <motion.button
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             type="button"
             onClick={() => scrollToSection("contato")}
-            className="mt-8 inline-flex items-center px-6 py-3 rounded-full font-semibold bg-white text-[#175fae] shadow-lg hover:shadow-blue-500/40 hover:bg-[#e6f0fa] transition"
+            className="inline-flex items-center px-6 py-3 rounded-full font-semibold bg-white text-[#175fae] shadow-lg hover:shadow-blue-500/40 hover:bg-[#e6f0fa] transition"
           >
             {t.hero.button}
           </motion.button>

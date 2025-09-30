@@ -7,6 +7,8 @@
   background-repeat: repeat;
   /* Pattern translúcido */
   position: relative;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
 /* Opacidade do pattern na hero */
 .hero::before {
@@ -41,8 +43,6 @@
   color: #ffffff;
 }
 
-
-
 * {
   box-sizing: border-box;
 }
@@ -65,7 +65,9 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 /* Cards de apresentação continuam centralizados e com sombra */
