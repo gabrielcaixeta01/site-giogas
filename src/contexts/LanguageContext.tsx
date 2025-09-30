@@ -76,7 +76,7 @@ const translations = {
       cta: { label: "Conheça nossos serviços" },
     },
     servicos: {
-      title: "Produtos e Serviços",
+      title: "Produtos & Serviços",
       produtosTitle: "Tecnologia que impulsiona eficiência",
       produtos: [
         {
@@ -154,7 +154,7 @@ const translations = {
     },
     apresentacao: {
       title: "Welcome to GIOGÁS",
-      description:`
+      description: `
         Giogás has over 30 years of experience in Compressed Natural Gas (CNG), Liquefied Natural Gas (LNG), and Biomethane systems. Based in Rio de Janeiro, we operate nationwide, providing equipment, installation, maintenance, and infrastructure projects.  
 
         Our mission is to deliver safe, efficient, and customized solutions with the best cost-benefit ratio.  
