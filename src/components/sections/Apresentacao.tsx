@@ -160,11 +160,13 @@ export default function Apresentacao() {
             ].map(({ Icon, title, desc }, i) => (
               <div
                 key={i}
-                className="rounded-xl bg-white/6 border border-white/10 p-5 backdrop-blur-md shadow-md"
+                className="rounded-xl bg-white/6 border border-white/10 p-5 backdrop-blur-md shadow-md flex flex-col gap-2"
               >
-                <Icon className="h-6 w-6 text-white mb-3" aria-hidden />
-                <h4 className="text-white/90 font-medium">{title}</h4>
-                <p className="mt-2 text-white/75 text-sm leading-relaxed">
+                <div className="flex items-center gap-3 mb-1">
+                  <Icon className="h-6 w-6 text-white" aria-hidden />
+                  <h4 className="text-white/90 font-medium text-base">{title}</h4>
+                </div>
+                <p className="text-white/75 text-sm leading-relaxed">
                   {desc}
                 </p>
               </div>
