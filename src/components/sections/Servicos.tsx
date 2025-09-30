@@ -2,7 +2,15 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-// ...existing code...
+import {
+  FiClipboard,
+  FiRepeat,
+  FiUsers,
+  FiTool,
+  FiBookOpen,
+  FiRefreshCw,
+  FiSearch,
+} from "react-icons/fi";
 import { useLanguage } from "../../contexts/LanguageContext";
 
 export default function Servicos() {
@@ -19,7 +27,15 @@ export default function Servicos() {
     hidden: { opacity: 0, y: 14 },
     show: { opacity: 1, y: 0, transition: { duration: 0.45 } },
   };
-  // ...existing code...
+  const servicosIcons = [
+    <FiClipboard key="serv-0" className="text-2xl" />, // Venda e representação
+    <FiRepeat key="serv-1" className="text-2xl" />, // Locação
+    <FiUsers key="serv-2" className="text-2xl" />, // Consultoria
+    <FiTool key="serv-3" className="text-2xl" />, // Montagem
+    <FiBookOpen key="serv-4" className="text-2xl" />, // Treinamento
+    <FiRefreshCw key="serv-5" className="text-2xl" />, // Revisão/manutenção
+    <FiSearch key="serv-6" className="text-2xl" />, // Perícias
+  ];
   return (
     <section
       id="servico"
@@ -30,32 +46,60 @@ export default function Servicos() {
         whileInView="show"
         viewport={{ once: false, amount: 0.3 }}
         variants={container}
-        className="max-w-5xl mx-auto text-center"
+        className="max-w-5xl text-left"
       >
-        {/* Subtítulo Serviços */}
         <motion.h2
           variants={item}
-          className="text-3xl md:text-4xl font-semibold mt-10 mb-4 text-blue-700"
+          className="text-4xl md:text-6xl font-light mt-10 mb-10 text-gray-900 text-center md:text-left w-full"
         >
           Serviços
         </motion.h2>
-        {/* Card de tópicos de serviços */}
-        <div className="flex w-full justify-center mb-12">
-          <motion.div
-            variants={item}
-            className="w-full max-w-2xl bg-white/95 rounded-2xl px-6 py-8 shadow-md text-left"
-          >
-            <ul className="list-disc pl-6 space-y-2 text-gray-700">
-              {t.servicos.servicos.map((servico: string, idx: number) => (
-                <li key={idx} className="text-base leading-snug">
-                  {servico}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+        {/* Primeira linha: 4 cards */}
+        <div className="w-full mb-12 flex flex-col md:flex-row md:justify-between gap-5">
+          {t.servicos.servicos
+            .slice(0, 4)
+            .map((servico: string, idx: number) => (
+              <motion.div
+                key={idx}
+                variants={item}
+                className="flex flex-col items-center w-full bg-white/95 px-3 py-3 sm:px-5 sm:py-7 transition-shadow hover:shadow-lg rounded-2xl group text-sm sm:text-base md:min-w-[200px] md:max-w-xs lg:mx-2"
+              >
+                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mb-3">
+                  {servicosIcons[idx]}
+                </div>
+                <div className="flex-1 w-full text-center font-light">
+                  <h4
+                    className="text-base sm:text-lg font-light mb-1"
+                    style={{ color: "var(--color-fg)" }}
+                  >
+                    {servico}
+                  </h4>
+                </div>
+              </motion.div>
+            ))}
         </div>
-
-        {/* Produtos removidos - conteúdo agora está em Produtos.tsx */}
+        {/* Segunda linha: 3 cards centralizados */}
+        <div className="w-full mb-12 flex flex-col lg:flex-row lg:justify-center gap-5">
+          {t.servicos.servicos.slice(4).map((servico: string, idx: number) => (
+            <motion.div
+              key={idx + 4}
+              variants={item}
+              className="flex flex-col items-center w-full bg-white/95 px-3 py-3 sm:px-5 sm:py-7 transition-shadow hover:shadow-lg rounded-2xl group text-sm sm:text-base md:min-w-[200px] md:max-w-xs lg:mx-2"
+            >
+              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mb-3">
+                {servicosIcons[idx + 4]}
+              </div>
+              <div className="flex-1 w-full text-center font-light">
+                <h4
+                  className="text-base sm:text-lg font-light mb-1"
+                  style={{ color: "var(--color-fg)" }}
+                >
+                  {servico}
+                </h4>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
     </section>
   );
