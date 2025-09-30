@@ -5,7 +5,7 @@ import { useLanguage } from "../../contexts/LanguageContext";
 export default function Apresentacao() {
   const { t } = useLanguage();
   return (
-    <section id="apresentacao" className="apresentacao py-20">
+    <section id="apresentacao" className="apresentacao py-32">
       <div className="max-w-3xl mx-auto px-4">
         <div className="rounded-2xl bg-white/8 backdrop-blur-md border border-white/15 p-8 md:p-10 text-center shadow-[0_20px_60px_-20px_rgba(0,0,0,.35)]">
           <Image

@@ -59,8 +59,8 @@ const Depoimentos: React.FC = () => {
       viewport={{ once: true, amount: 0.3 }}
       variants={container}
       className="
-        relative py-20
-        bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200
+        relative
+        bg-gradient-to-br from-blue-50 via-blue-100 py-32 to-blue-200
       "
     >
       {/* glow suave no fundo */}

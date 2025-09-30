@@ -73,7 +73,7 @@ export default function ParceirosCarousel() {
   const current = partners[currentIndex] ?? { name: "", logo: "" };
 
   return (
-    <section id="parceiros" className="parceiros scroll-mt-24 py-20">
+    <section id="parceiros" className="parceiros scroll-mt-24 py-32">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-10">

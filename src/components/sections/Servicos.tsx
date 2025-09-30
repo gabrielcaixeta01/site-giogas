@@ -40,7 +40,7 @@ export default function Servicos() {
   return (
     <section
       id="servico"
-      className="servicos w-full min-h-screen flex flex-col items-center justify-center text-center pb-28 md:pb-40"
+      className="servicos w-full min-h-screen flex flex-col items-center justify-center text-center py-32 md:pb-40"
     >
       <motion.div
         initial="hidden"
