@@ -2,7 +2,18 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FiBriefcase, FiShield, FiTruck } from "react-icons/fi";
+import {
+  FiBox,
+  FiSettings,
+  FiTool,
+  FiTruck,
+  FiPackage,
+  FiUsers,
+  FiClipboard,
+  FiBookOpen,
+  FiRefreshCw,
+  FiSearch,
+} from "react-icons/fi";
 import { useLanguage } from "../../contexts/LanguageContext";
 
 export default function Servicos() {
@@ -19,23 +30,13 @@ export default function Servicos() {
     hidden: { opacity: 0, y: 14 },
     show: { opacity: 1, y: 0, transition: { duration: 0.45 } },
   };
-  // Bullets resumidos e refinados manualmente para cada serviço
-  const servicos = [
-    {
-      icon: <FiBriefcase className="text-2xl" />,
-      titulo: t.servicos.comercial.title,
-      bullets: t.servicos.comercial.description.split("\n"),
-    },
-    {
-      icon: <FiShield className="text-2xl" />,
-      titulo: t.servicos.seguranca.title,
-      bullets: t.servicos.seguranca.description.split("\n"),
-    },
-    {
-      icon: <FiTruck className="text-2xl" />,
-      titulo: t.servicos.logistica.title,
-      bullets: t.servicos.logistica.description.split("\n"),
-    },
+  // Ícones coerentes para produtos
+  const produtosIcons = [
+    <FiBox key="prod-0" className="text-2xl" />, // Boosters
+    <FiSettings key="prod-1" className="text-2xl" />, // Compressores
+    <FiTool key="prod-2" className="text-2xl" />, // Equipamentos
+    <FiTruck key="prod-3" className="text-2xl" />, // Kits veículos pesados
+    <FiPackage key="prod-4" className="text-2xl" />, // Peças/acessórios
   ];
   return (
     <section
@@ -56,40 +57,74 @@ export default function Servicos() {
         >
           {t.servicos.title}
         </motion.h2>
-        <motion.p
+
+        {/* Produtos */}
+        <motion.h3
           variants={item}
-          className="text-base md:text-lg mb-12 max-w-2xl mx-auto text-center text-gray-500"
+          className="text-2xl md:text-3xl font-semibold mt-10 mb-4 text-blue-700"
         >
-          {t.servicos.description}
-        </motion.p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
-          {servicos.map((servico, idx) => (
-            <motion.div
-              key={idx}
-              variants={item}
-              className="bg-white rounded-2xl shadow-md p-5 sm:p-8 flex flex-col items-center hover:scale-[1.03] transition-transform"
-            >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 text-blue-600">
-                {servico.icon}
-              </div>
-              <h3
-                className="text-xl font-light mb-2"
-                style={{ color: "var(--color-fg)" }}
+          {t.servicos.produtosTitle}
+        </motion.h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center mb-12">
+          {t.servicos.produtos.map(
+            (produto: { title: string; desc: string }, idx: number) => (
+              <motion.div
+                key={idx}
+                variants={item}
+                className="bg-white rounded-2xl shadow-md p-5 sm:p-8 flex flex-col items-center hover:scale-[1.03] transition-transform"
               >
-                {servico.titulo}
-              </h3>
-              <ul
-                className="text-base text-left list-disc pl-5 space-y-1"
-                style={{ color: "var(--color-fg)" }}
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 text-blue-600">
+                  {produtosIcons[idx]}
+                </div>
+                <h4
+                  className="text-lg font-medium mb-1"
+                  style={{ color: "var(--color-fg)" }}
+                >
+                  {produto.title}
+                </h4>
+                <p className="text-base text-gray-600">{produto.desc}</p>
+              </motion.div>
+            )
+          )}
+        </div>
+
+        {/* Serviços */}
+        <motion.h3
+          variants={item}
+          className="text-2xl md:text-3xl font-semibold mt-10 mb-4 text-blue-700"
+        >
+          {t.servicos.servicosTitle}
+        </motion.h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+          {t.servicos.servicos.map((servico: string, idx: number) => {
+            // Ícones diferentes para cada serviço (opcional, pode repetir se quiser)
+            const icons = [
+              <FiClipboard key="serv-0" className="text-2xl" />, // Venda
+              <FiPackage key="serv-1" className="text-2xl" />, // Locação
+              <FiUsers key="serv-2" className="text-2xl" />, // Consultoria
+              <FiTool key="serv-3" className="text-2xl" />, // Montagem
+              <FiBookOpen key="serv-4" className="text-2xl" />, // Treinamento
+              <FiRefreshCw key="serv-5" className="text-2xl" />, // Revisão/manutenção
+              <FiSearch key="serv-6" className="text-2xl" />, // Perícias
+            ];
+            return (
+              <motion.div
+                key={idx}
+                variants={item}
+                className="bg-white rounded-2xl shadow-md p-5 sm:p-8 flex flex-col items-center hover:scale-[1.03] transition-transform"
               >
-                {servico.bullets.map((bullet: string, i: number) => (
-                  <li key={i} className="leading-snug">
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 text-blue-600">
+                  {icons[idx]}
+                </div>
+                <h4
+                  className="text-lg font-medium mb-1"
+                  style={{ color: "var(--color-fg)" }}
+                >
+                  {servico}
+                </h4>
+              </motion.div>
+            );
+          })}
         </div>
       </motion.div>
     </section>

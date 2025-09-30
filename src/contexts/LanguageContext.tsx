@@ -24,39 +24,48 @@ const translations = {
     },
     apresentacao: {
       title: "Bem-vindo à GIOGÁS",
-      description:
-        "A GIOGÁS é uma empresa especializada na distribuição de gás no Rio de Janeiro, comprometida com a segurança, qualidade e atendimento ágil para comércios e indústrias. Conte com nossa experiência para garantir energia eficiente e confiável no seu dia a dia.",
+      description: `
+        A Giogás tem mais de 30 anos de experiência em sistemas de Gás Natural Comprimido (GNC), Gás Natural Liquefeito (GNL) e Biometano. Com sede no Rio de Janeiro, atua em todo o Brasil oferecendo equipamentos, instalação, manutenção e projetos de infraestrutura.  
+
+        Nosso compromisso é fornecer soluções seguras, eficientes e personalizadas, com o melhor custo-benefício.  
+
+        Atendemos diferentes setores com energia limpa: postos de combustíveis, frotistas de ônibus e caminhões, indústrias, agro (usinas, frigoríficos e confinamentos) e aterros sanitários.  
+        `,
       mvv: {
         mission: {
           title: "Missão",
-          desc: "Fornecer gás com segurança e agilidade.",
+          desc: "Oferecer soluções completas e seguras em gás natural e biometano, com foco em eficiência, sustentabilidade e confiabilidade.",
         },
         vision: {
           title: "Visão",
-          desc: "Ser referência em distribuição no RJ.",
+          desc: "Ser referência nacional em equipamentos, serviços e projetos de gás natural e biometano, reconhecida pela inovação, ética e compromisso em superar expectativas.",
         },
         values: {
           title: "Valores",
-          desc: "Confiança, qualidade e responsabilidade.",
+          desc: "Atuar com transparência, ética e foco no cliente, oferecendo soluções sob medida e construindo relações de confiança.",
         },
       },
       diferenciais: {
         title: "Diferenciais",
-        agilidade: {
-          title: "Atendimento ágil",
-          desc: "Orçamento e retorno rápidos.",
-        },
-        entrega: {
-          title: "Entrega programada",
-          desc: "Logística confiável no RJ.",
-        },
-        especializada: {
-          title: "Equipe especializada",
-          desc: "Profissionais experientes e capacitados.",
-        },
         seguranca: {
-          title: "Segurança garantida",
-          desc: "Boas práticas e conformidade técnica.",
+          title: "Segurança",
+          desc: "Atuamos com rigor técnico e responsabilidade, garantindo a integridade de pessoas, processos e operações.",
+        },
+        inovacao: {
+          title: "Inovação e tecnologia",
+          desc: "Buscamos constantemente o que há de mais moderno para entregar eficiência, confiabilidade e resultados de alto desempenho.",
+        },
+        sustentabilidade: {
+          title: "Sustentabilidade",
+          desc: "Promovemos o uso de energias limpas e renováveis, contribuindo para um futuro mais responsável.",
+        },
+        excelencia: {
+          title: "Excelência operacional",
+          desc: "Nossa equipe altamente qualificada garante qualidade em cada etapa, do projeto à manutenção.",
+        },
+        parcerias: {
+          title: "Parcerias duradouras",
+          desc: "Cultivamos relacionamentos sólidos, construídos com confiança, respeito e entrega consistente de valor.",
         },
       },
       metrics: {
@@ -67,25 +76,40 @@ const translations = {
       cta: { label: "Conheça nossos serviços" },
     },
     servicos: {
-      title: "Nossos Serviços",
-      description:
-        "A GIOGÁS oferece soluções completas em distribuição de gás, segurança e suporte técnico para comércios e indústrias no Rio de Janeiro.",
-
-      comercial: {
-        title: "Gás Comercial",
-        description:
-          "Soluções para comércios, restaurantes e condomínios\nContratos flexíveis\nAcompanhamento técnico especializado",
-      },
-      seguranca: {
-        title: "Segurança e Manutenção",
-        description:
-          "Inspeção e manutenção preventiva\nInstalação de sistemas de gás\nMáxima segurança garantida",
-      },
-      logistica: {
-        title: "Logística e Distribuição",
-        description:
-          "Frota própria e logística eficiente\nAbastecimento contínuo\nCobertura em toda a região metropolitana",
-      },
+      title: "Produtos e Serviços",
+      produtosTitle: "Tecnologia que impulsiona eficiência",
+      produtos: [
+        {
+          title: "Boosters tropicalizados",
+          desc: "Fabricação própria, feitos para o clima e as condições do Brasil.",
+        },
+        {
+          title: "Compressores e sistemas de compressão",
+          desc: "Robustez e confiabilidade para qualquer operação.",
+        },
+        {
+          title: "Equipamentos para postos e indústrias",
+          desc: "Infraestrutura completa de abastecimento.",
+        },
+        {
+          title: "Kits e sistemas para veículos pesados",
+          desc: "Ônibus e caminhões mais econômicos e sustentáveis.",
+        },
+        {
+          title: "Peças e acessórios originais",
+          desc: "Reposição segura e com garantia.",
+        },
+      ],
+      servicosTitle: "Do projeto à operação",
+      servicos: [
+        "Venda e representação de equipamentos",
+        "Locação flexível de equipamentos",
+        "Consultoria e projetos de engenharia",
+        "Montagem de bases e instalações",
+        "Treinamento e capacitação de equipes",
+        "Revisão, manutenção e reforma de equipamentos",
+        "Perícias e avaliações técnicas",
+      ],
     },
     contato: {
       title: "Entre em contato",
@@ -130,36 +154,48 @@ const translations = {
     },
     apresentacao: {
       title: "Welcome to GIOGÁS",
-      description:
-        "GIOGÁS is a company specialized in gas distribution in Rio de Janeiro...",
+      description:`
+        Giogás has over 30 years of experience in Compressed Natural Gas (CNG), Liquefied Natural Gas (LNG), and Biomethane systems. Based in Rio de Janeiro, we operate nationwide, providing equipment, installation, maintenance, and infrastructure projects.  
+
+        Our mission is to deliver safe, efficient, and customized solutions with the best cost-benefit ratio.  
+
+        We serve a wide range of sectors with clean energy: fuel stations, bus and truck fleets, industries, agribusiness (sugar mills, slaughterhouses, and feedlots), and landfills.  
+        `,
       mvv: {
         mission: {
           title: "Mission",
-          desc: "Provide gas with safety and agility.",
+          desc: "Provide complete and safe solutions in natural gas and biomethane, with a focus on efficiency, sustainability, and reliability.",
         },
         vision: {
           title: "Vision",
-          desc: "Be a reference in distribution in RJ.",
+          desc: "Be a national benchmark in natural gas and biomethane equipment, services, and projects, recognized for innovation, ethics, and commitment to exceeding expectations.",
         },
-        values: { title: "Values", desc: "Trust, quality and responsibility." },
+        values: {
+          title: "Values",
+          desc: "Act with transparency, ethics, and customer focus, delivering tailored solutions and building trust-based relationships.",
+        },
       },
       diferenciais: {
         title: "Differentials",
-        agilidade: {
-          title: "Agile service",
-          desc: "Quick quotes and response.",
-        },
-        entrega: {
-          title: "Scheduled delivery",
-          desc: "Reliable logistics in RJ.",
-        },
-        especializada: {
-          title: "Specialized team",
-          desc: "Experienced and qualified professionals.",
-        },
         seguranca: {
-          title: "Guaranteed safety",
-          desc: "Best practices and technical compliance.",
+          title: "Safety",
+          desc: "We operate with technical rigor and responsibility, ensuring the integrity of people, processes, and operations.",
+        },
+        inovacao: {
+          title: "Innovation & technology",
+          desc: "We constantly seek the latest advancements to deliver efficiency, reliability, and high-performance results.",
+        },
+        sustentabilidade: {
+          title: "Sustainability",
+          desc: "We promote the use of clean and renewable energy, contributing to a more responsible future.",
+        },
+        excelencia: {
+          title: "Operational excellence",
+          desc: "Our highly qualified team ensures quality at every stage, from project to maintenance.",
+        },
+        parcerias: {
+          title: "Long-term partnerships",
+          desc: "We cultivate solid relationships built on trust, respect, and consistent value delivery.",
         },
       },
       metrics: {
@@ -169,24 +205,40 @@ const translations = {
       cta: { label: "See our services" },
     },
     servicos: {
-      title: "Our Services",
-      description:
-        "GIOGÁS offers complete solutions in gas distribution, safety and technical support for businesses and industries in Rio de Janeiro.",
-      comercial: {
-        title: "Commercial Gas",
-        description:
-          "Solutions for businesses, restaurants and condos\nFlexible contracts\nSpecialized technical support",
-      },
-      seguranca: {
-        title: "Safety and Maintenance",
-        description:
-          "Inspection and preventive maintenance\nGas system installation\nMaximum safety guaranteed",
-      },
-      logistica: {
-        title: "Logistics and Distribution",
-        description:
-          "Own fleet and efficient logistics\nContinuous supply\nCoverage throughout the metro area",
-      },
+      title: "Products & Services",
+      produtosTitle: "Technology that drives efficiency",
+      produtos: [
+        {
+          title: "Tropicalized boosters",
+          desc: "In-house manufacturing, made for Brazil's climate and conditions.",
+        },
+        {
+          title: "Compressors and compression systems",
+          desc: "Robustness and reliability for any operation.",
+        },
+        {
+          title: "Equipment for stations and industries",
+          desc: "Complete refueling infrastructure.",
+        },
+        {
+          title: "Kits and systems for heavy vehicles",
+          desc: "Buses and trucks that are more economical and sustainable.",
+        },
+        {
+          title: "Original parts and accessories",
+          desc: "Safe replacement with warranty.",
+        },
+      ],
+      servicosTitle: "From project to operation",
+      servicos: [
+        "Equipment sales and representation",
+        "Flexible equipment rental",
+        "Consulting and engineering projects",
+        "Base assembly and installations",
+        "Team training and qualification",
+        "Equipment overhaul, maintenance and refurbishment",
+        "Technical inspections and evaluations",
+      ],
     },
     contato: {
       title: "Contact us",
@@ -222,10 +274,11 @@ type ApresentacaoType = {
   };
   diferenciais: {
     title: string;
-    agilidade: { title: string; desc: string };
-    entrega: { title: string; desc: string };
-    especializada: { title: string; desc: string };
     seguranca: { title: string; desc: string };
+    inovacao: { title: string; desc: string };
+    sustentabilidade: { title: string; desc: string };
+    excelencia: { title: string; desc: string };
+    parcerias: { title: string; desc: string };
   };
   metrics: {
     clientes: { value: string; label: string };

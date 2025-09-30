@@ -10,12 +10,13 @@ function scrollToSection(id: string) {
 }
 import { useLanguage } from "../../contexts/LanguageContext";
 import {
-  Truck,
   ShieldCheck,
-  BadgeCheck,
-  Timer,
-  Wrench,
+  Lightbulb,
+  Leaf,
+  Award,
+  Handshake,
   MapPin,
+  BadgeCheck,
 } from "lucide-react";
 
 import { useCountUpOnView } from "./useCountUpOnView";
@@ -58,20 +59,31 @@ export default function Apresentacao() {
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-stretch">
           {/* Card introdutório */}
           <div className="flex-1 max-w-3xl rounded-2xl bg-white/8 backdrop-blur-md border border-white/15 p-8 md:p-10 text-left shadow-[0_20px_60px_-20px_rgba(0,0,0,.35)]">
-            <Image
-              src="/logo-redonda.png"
-              alt="Logo Giogas redonda"
-              width={96}
-              height={96}
-              className="mx-auto mb-6 rounded-full shadow-lg"
-              priority
-            />
-            <h2 className="text-[clamp(1.6rem,3.5vw,2.2rem)] font-semibold tracking-[-0.025em] text-white [text-shadow:0_6px_24px_rgba(0,0,0,.18)]">
-              {t.apresentacao.title}
-            </h2>
-            <p className="mt-5 text-[clamp(1rem,2vw,1.125rem)] leading-[1.75] text-white/90 text-justify">
-              {t.apresentacao.description}
-            </p>
+            <div className="flex items-center gap-5 justify-left mb-4">
+              <h2 className="text-[clamp(1.05rem,2.2vw,1.5rem)] sm:text-[clamp(1.3rem,3vw,2rem)] font-semibold tracking-[-0.025em] text-white [text-shadow:0_6px_24px_rgba(0,0,0,.18)] m-0">
+                {t.apresentacao.title}
+              </h2>
+
+              <Image
+                src="/logo-redonda.png"
+                alt="Logo Giogas redonda"
+                width={64}
+                height={64}
+                className="rounded-full shadow-lg"
+                priority
+              />
+            </div>
+            {(t.apresentacao.description || "")
+              .split(/\n\n+/)
+              .filter(Boolean)
+              .map((par, idx) => (
+                <p
+                  key={idx}
+                  className="text-[clamp(0.92rem,1.3vw,1.02rem)] leading-[1.7] text-white/90 text-justify mb-4 last:mb-0"
+                >
+                  {par.trim()}
+                </p>
+              ))}
           </div>
           {/* MVV vertical */}
           <div className="flex-1 flex flex-col gap-6 justify-center">
@@ -80,21 +92,21 @@ export default function Apresentacao() {
                 title: t.apresentacao.mvv?.mission?.title ?? "Missão",
                 desc:
                   t.apresentacao.mvv?.mission?.desc ??
-                  "Fornecer gás com segurança e agilidade.",
+                  "Fornecer soluções completas e seguras em sistemas de gás natural e biometano, aliando tecnologia, qualidade e experiência para garantir a eficiência operacional de nossos clientes, sempre com foco na sustentabilidade e na confiabilidade.",
                 Icon: ShieldCheck,
               },
               {
                 title: t.apresentacao.mvv?.vision?.title ?? "Visão",
                 desc:
                   t.apresentacao.mvv?.vision?.desc ??
-                  "Ser referência em distribuição no RJ.",
+                  "Ser referência nacional no fornecimento de equipamentos, serviços e projetos de gás natural e biometano, reconhecida pela inovação, pela ética e pelo compromisso em superar as expectativas dos clientes em todos os segmentos em que atuamos.",
                 Icon: MapPin,
               },
               {
                 title: t.apresentacao.mvv?.values?.title ?? "Valores",
                 desc:
                   t.apresentacao.mvv?.values?.desc ??
-                  "Confiança, qualidade e responsabilidade.",
+                  "Compromisso com o cliente: escutamos, entendemos e oferecemos soluções sob medida, priorizando transparência e ética em todas as relações.",
                 Icon: BadgeCheck,
               },
             ].map(({ title, desc, Icon }, i) => (
@@ -122,43 +134,51 @@ export default function Apresentacao() {
           <h3 className="text-white/95 text-3xl font-semibold tracking-tight mb-4 border-b border-white/30 pb-2">
             {t.apresentacao.diferenciais?.title ?? "Diferenciais"}
           </h3>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
             {[
-              {
-                Icon: Timer,
-                title:
-                  t.apresentacao.diferenciais?.agilidade?.title ??
-                  "Atendimento ágil",
-                desc:
-                  t.apresentacao.diferenciais?.agilidade?.desc ??
-                  "Orçamento e retorno rápidos.",
-              },
-              {
-                Icon: Truck,
-                title:
-                  t.apresentacao.diferenciais?.entrega?.title ??
-                  "Entrega programada",
-                desc:
-                  t.apresentacao.diferenciais?.entrega?.desc ??
-                  "Logística confiável no RJ.",
-              },
-              {
-                Icon: Wrench,
-                title:
-                  t.apresentacao.diferenciais?.especializada?.title ??
-                  "Equipe especializada",
-                desc:
-                  t.apresentacao.diferenciais?.especializada?.desc ??
-                  "Profissionais experientes e capacitados.",
-              },
               {
                 Icon: ShieldCheck,
                 title:
-                  t.apresentacao.diferenciais?.seguranca?.title ??
-                  "Segurança garantida",
+                  t.apresentacao.diferenciais?.seguranca?.title ?? "Segurança",
                 desc:
                   t.apresentacao.diferenciais?.seguranca?.desc ??
-                  "Boas práticas e conformidade técnica.",
+                  "Atuamos com rigor técnico e responsabilidade, garantindo a integridade de pessoas, processos e operações.",
+              },
+              {
+                Icon: Lightbulb,
+                title:
+                  t.apresentacao.diferenciais?.inovacao?.title ??
+                  "Inovação e tecnologia",
+                desc:
+                  t.apresentacao.diferenciais?.inovacao?.desc ??
+                  "Buscamos constantemente o que há de mais moderno para entregar eficiência, confiabilidade e resultados de alto desempenho.",
+              },
+              {
+                Icon: Leaf,
+                title:
+                  t.apresentacao.diferenciais?.sustentabilidade?.title ??
+                  "Sustentabilidade",
+                desc:
+                  t.apresentacao.diferenciais?.sustentabilidade?.desc ??
+                  "Promovemos o uso de energias limpas e renováveis, contribuindo para um futuro mais responsável.",
+              },
+              {
+                Icon: Award,
+                title:
+                  t.apresentacao.diferenciais?.excelencia?.title ??
+                  "Excelência operacional",
+                desc:
+                  t.apresentacao.diferenciais?.excelencia?.desc ??
+                  "Nossa equipe altamente qualificada garante qualidade em cada etapa, do projeto à manutenção.",
+              },
+              {
+                Icon: Handshake,
+                title:
+                  t.apresentacao.diferenciais?.parcerias?.title ??
+                  "Parcerias duradouras",
+                desc:
+                  t.apresentacao.diferenciais?.parcerias?.desc ??
+                  "Cultivamos relacionamentos sólidos, construídos com confiança, respeito e entrega consistente de valor.",
               },
             ].map(({ Icon, title, desc }, i) => (
               <div
