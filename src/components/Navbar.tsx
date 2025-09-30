@@ -103,6 +103,7 @@ export default function Navbar() {
     { key: "hero", label: t.navbar.home },
     { key: "apresentacao", label: t.navbar.apresentacao },
     { key: "servico", label: t.navbar.servico },
+    { key: "produtos", label: t.navbar.produtos || "Produtos" },
     { key: "parceiros", label: t.navbar.parceiros || "Parceiros" },
     { key: "depoimentos", label: t.navbar.depoimentos || "Depoimentos" },
     { key: "contato", label: t.navbar.contato },

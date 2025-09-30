@@ -6,6 +6,7 @@ import Servicos from "../components/sections/Servicos";
 import Parceiros from "../components/sections/Parceiros";
 import Depoimentos from "../components/sections/Depoimentos";
 import Contato from "../components/sections/Contato";
+import Produtos from "../components/sections/Produtos";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <Hero />
         <Apresentacao />
         <Servicos />
+        <Produtos />
         <Parceiros />
         <Depoimentos />
         <Contato />
