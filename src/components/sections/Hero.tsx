@@ -1,17 +1,14 @@
 "use client";
-{
-  /* Película transparente sobre o vídeo */
-}
+
 <div className="absolute inset-0 bg-black/30 z-0 pointer-events-none" />;
 
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { useLanguage } from "../../contexts/LanguageContext";
 
 export default function Hero() {
   const { t } = useLanguage();
-  // Função para scroll suave até a seção de contato
+
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
     if (section) {
@@ -52,26 +49,40 @@ export default function Hero() {
       <div className="absolute bottom-10 right-10 w-28 h-28 bg-cyan-200/20 rounded-full blur-2xl pointer-events-none" />
       {/* ...outros elementos decorativos podem ser adicionados aqui... */}
       <div className="w-full flex flex-col items-center gap-10 md:gap-14 relative z-10">
-        <div className="flex justify-center items-center mt-2 mb-2">
-          <motion.div
-            className="relative w-36 h-36 md:w-56 md:h-56 rounded-full bg-white flex items-center justify-center shadow-lg"
-            animate={{ y: [0, -18, 0] }}
-            transition={{
-              duration: 2.2,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "easeInOut",
-            }}
+        {/* Título animado GIOGAS, maior e no topo */}
+        {/* Título GIOGAS no topo da hero, como primeiro elemento visível */}
+        <div className="w-full flex justify-center pt-10 z-20">
+          <h1
+            className="text-[clamp(4rem,12vw,10rem)] font-bold flex gap-2 md:gap-4 items-center select-none"
+            style={{ fontFamily: "Montserrat, sans-serif" }}
           >
-            <Image
-              src="/logo-transparente.png"
-              alt="Logo Giogás"
-              width={120}
-              height={120}
-              className="object-contain w-24 h-24 md:w-40 md:h-40"
-              priority
-            />
-          </motion.div>
+            {["G", "I", "O"].map((letra, i) => (
+              <motion.span
+                key={letra}
+                initial={{ opacity: 0, x: -60 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, delay: i * 0.25, ease: "easeOut" }}
+                className="text-white"
+              >
+                {letra}
+              </motion.span>
+            ))}
+            {["G", "A", "S"].map((letra, i) => (
+              <motion.span
+                key={letra}
+                initial={{ opacity: 0, x: -60 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                  duration: 0.7,
+                  delay: (i + 3) * 0.25,
+                  ease: "easeOut",
+                }}
+                className="bg-gradient-to-r from-blue-800 to-blue-400 bg-clip-text text-transparent"
+              >
+                {letra}
+              </motion.span>
+            ))}
+          </h1>
         </div>
         <div className="max-w-2xl mx-auto px-2 flex flex-col items-center">
           <motion.p
@@ -96,7 +107,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             type="button"
             onClick={() => scrollToSection("contato")}
-            className="mt-8 inline-flex items-center px-6 py-3 rounded-full font-light bg-white text-[#175fae] shadow-lg hover:shadow-blue-500/40 hover:bg-[#e6f0fa] transition"
+            className="mt-8 inline-flex items-center px-6 py-3 rounded-full font-semibold bg-white text-[#175fae] shadow-lg hover:shadow-blue-500/40 hover:bg-[#e6f0fa] transition"
           >
             {t.hero.button}
           </motion.button>
