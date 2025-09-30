@@ -1,0 +1,59 @@
+import { useEffect, useRef, useState } from "react";
+
+/**
+ * Hook para animar um número de zero até o valor final, apenas quando inView for true.
+ * @param endValue Valor final (número ou string começando com '+')
+ * @param duration Duração da animação em ms
+ * @param inView Se true, inicia a animação
+ */
+export function useCountUpOnView(
+  endValue: string | number,
+  duration = 1200,
+  inView = true
+) {
+  const [value, setValue] = useState(0);
+  const raf = useRef<number | null>(null);
+  const prevEndValue = useRef<string | number>(endValue);
+
+  useEffect(() => {
+    // Reset se o valor mudar ou sair de view
+    if (!inView) {
+      setValue(0);
+      prevEndValue.current = endValue;
+      return;
+    }
+    // Só anima se entrou em view ou valor mudou
+    if (prevEndValue.current !== endValue) {
+      setValue(0);
+      prevEndValue.current = endValue;
+    }
+    const start = 0;
+    let end =
+      typeof endValue === "string"
+        ? parseInt(endValue.replace(/\D/g, ""))
+        : endValue;
+    if (isNaN(end)) end = 0;
+    const startTime = performance.now();
+
+    function animate(now: number) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const current = Math.floor(start + (end - start) * progress);
+      setValue(current);
+      if (progress < 1) {
+        raf.current = requestAnimationFrame(animate);
+      } else {
+        setValue(end);
+      }
+    }
+    raf.current = requestAnimationFrame(animate);
+    return () => {
+      if (raf.current !== null) cancelAnimationFrame(raf.current);
+    };
+  }, [endValue, duration, inView]);
+
+  // Mantém o sinal de + se existir
+  const prefix =
+    typeof endValue === "string" && endValue.trim().startsWith("+") ? "+" : "";
+  return prefix + value;
+}

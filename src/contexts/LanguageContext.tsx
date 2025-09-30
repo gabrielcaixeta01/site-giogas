@@ -26,6 +26,45 @@ const translations = {
       title: "Bem-vindo à GIOGÁS",
       description:
         "A GIOGÁS é uma empresa especializada na distribuição de gás no Rio de Janeiro, comprometida com a segurança, qualidade e atendimento ágil para comércios e indústrias. Conte com nossa experiência para garantir energia eficiente e confiável no seu dia a dia.",
+      mvv: {
+        mission: {
+          title: "Missão",
+          desc: "Fornecer gás com segurança e agilidade.",
+        },
+        vision: {
+          title: "Visão",
+          desc: "Ser referência em distribuição no RJ.",
+        },
+        values: {
+          title: "Valores",
+          desc: "Confiança, qualidade e responsabilidade.",
+        },
+      },
+      diferenciais: {
+        title: "Diferenciais",
+        agilidade: {
+          title: "Atendimento ágil",
+          desc: "Orçamento e retorno rápidos.",
+        },
+        entrega: {
+          title: "Entrega programada",
+          desc: "Logística confiável no RJ.",
+        },
+        especializada: {
+          title: "Equipe especializada",
+          desc: "Profissionais experientes e capacitados.",
+        },
+        seguranca: {
+          title: "Segurança garantida",
+          desc: "Boas práticas e conformidade técnica.",
+        },
+      },
+      metrics: {
+        clientes: { value: "+500", label: "Clientes atendidos" },
+        anos: { value: "+10", label: "Anos de experiência" },
+        cobertura: { value: "RJ", label: "Cobertura regional" },
+      },
+      cta: { label: "Conheça nossos serviços" },
     },
     servicos: {
       title: "Nossos Serviços",
@@ -92,7 +131,42 @@ const translations = {
     apresentacao: {
       title: "Welcome to GIOGÁS",
       description:
-        "GIOGÁS is a company specialized in gas distribution in Rio de Janeiro, committed to safety, quality and fast service for businesses and industries. Count on our experience to ensure efficient and reliable energy every day.",
+        "GIOGÁS is a company specialized in gas distribution in Rio de Janeiro...",
+      mvv: {
+        mission: {
+          title: "Mission",
+          desc: "Provide gas with safety and agility.",
+        },
+        vision: {
+          title: "Vision",
+          desc: "Be a reference in distribution in RJ.",
+        },
+        values: { title: "Values", desc: "Trust, quality and responsibility." },
+      },
+      diferenciais: {
+        title: "Differentials",
+        agilidade: {
+          title: "Agile service",
+          desc: "Quick quotes and response.",
+        },
+        entrega: {
+          title: "Scheduled delivery",
+          desc: "Reliable logistics in RJ.",
+        },
+        especializada: {
+          title: "Specialized team",
+          desc: "Experienced and qualified professionals.",
+        },
+        seguranca: {
+          title: "Guaranteed safety",
+          desc: "Best practices and technical compliance.",
+        },
+      },
+      metrics: {
+        clientes: { value: "+500", label: "Clients served" },
+        anos: { value: "+10", label: "Years of experience" },
+      },
+      cta: { label: "See our services" },
     },
     servicos: {
       title: "Our Services",
@@ -138,10 +212,34 @@ const translations = {
   },
 };
 
+type ApresentacaoType = {
+  title: string;
+  description: string;
+  mvv: {
+    mission: { title: string; desc: string };
+    vision: { title: string; desc: string };
+    values: { title: string; desc: string };
+  };
+  diferenciais: {
+    title: string;
+    agilidade: { title: string; desc: string };
+    entrega: { title: string; desc: string };
+    especializada: { title: string; desc: string };
+    seguranca: { title: string; desc: string };
+  };
+  metrics: {
+    clientes: { value: string; label: string };
+    anos: { value: string; label: string };
+  };
+  cta: { label: string };
+};
+
 interface LanguageContextType {
   language: string;
   setLanguage: (lang: string) => void;
-  t: typeof translations.pt;
+  t: Omit<typeof translations.pt, "apresentacao"> & {
+    apresentacao: ApresentacaoType;
+  };
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
