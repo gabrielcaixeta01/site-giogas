@@ -60,7 +60,7 @@ export default function Hero() {
         {/* Topo: título e subtítulo */}
         <div className="w-full flex flex-col items-center z-20 mb-24 md:mb-0 pt-16">
           <h1
-            className="text-[clamp(4rem,12vw,10rem)] font-bold flex gap-2 md:gap-4 select-none"
+            className="text-[clamp(4rem,12vw,10rem)] font-bold flex gap-2 md:gap-4 select-none drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)]"
             style={{ fontFamily: "Montserrat, sans-serif" }}
           >
             {["G", "I", "O"].map((letra, i) => (
@@ -84,7 +84,7 @@ export default function Hero() {
                   delay: (i + 3) * 0.25,
                   ease: "easeOut",
                 }}
-                className="bg-gradient-to-r from-blue-800 to-blue-400 bg-clip-text text-transparent"
+                className="bg-gradient-to-r from-blue-800 via-blue-600 to-blue-400 bg-clip-text text-transparent animate-gradient"
               >
                 {letra}
               </motion.span>
@@ -94,7 +94,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-base md:text-xl font-semilight text-gray-800"
+            className="text-lg md:text-2xl font-semilight text-gray-800"
           >
             Energia que conecta o Rio de Janeiro.
           </motion.p>
@@ -105,7 +105,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-sm md:text-lg font-normal text-gray-500 block text-center max-w-xl mx-auto"
+            className="text-sm md:text-lg font-normal text-gray-500/90 block text-center max-w-xl mx-auto"
           >
             Distribuição de gás com segurança, qualidade e agilidade para sua
             empresa.
