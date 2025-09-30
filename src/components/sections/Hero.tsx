@@ -3,11 +3,15 @@
 <div className="absolute inset-0 bg-black/30 z-0 pointer-events-none" />;
 
 import React from "react";
+import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useLanguage } from "../../contexts/LanguageContext";
 
 export default function Hero() {
   const { t } = useLanguage();
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
 
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
@@ -26,31 +30,33 @@ export default function Hero() {
       className="hero relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden py-10"
     >
       {/* Vídeo de fundo */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover z-0"
-        src="/bg-hero.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
-      {/* pattern discreto sobre a hero */}
-      <div className="absolute inset-0 bg-[url('/patterns/diagonal.svg')] opacity-[0.06] pointer-events-none z-0" />
-      {/* halo claro atrás do logo/título */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-white/10 rounded-full blur-3xl" />
+      <div className="absolute inset-0 w-full h-full z-0">
+        {!videoLoaded && !videoError && (
+          <Image
+            src="/load-image.png"
+            alt="Carregando..."
+            fill
+            className="w-full h-full object-cover"
+            style={{ objectFit: "cover" }}
+            priority
+          />
+        )}
+        {!videoError && (
+          <video
+            className="w-full h-full object-cover"
+            src="/bg-hero.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            onLoadedData={() => setVideoLoaded(true)}
+            onError={() => setVideoError(true)}
+            style={{ display: videoLoaded ? "block" : "none" }}
+          />
+        )}
       </div>
-      {/* blobs decorativos */}
-      <div className="absolute -top-20 -left-20 w-72 h-72 bg-cyan-400/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-10 right-1/3 w-40 h-40 bg-blue-300/20 rounded-full blur-2xl pointer-events-none" />
-      <div className="absolute bottom-24 left-1/4 w-32 h-32 bg-cyan-300/20 rounded-full blur-2xl pointer-events-none" />
-      <div className="absolute top-1/2 left-0 w-24 h-24 bg-blue-200/20 rounded-full blur-2xl pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-28 h-28 bg-cyan-200/20 rounded-full blur-2xl pointer-events-none" />
-      {/* ...outros elementos decorativos podem ser adicionados aqui... */}
+      
       <div className="w-full flex flex-col items-center gap-10 md:gap-14 relative z-10">
-        {/* Título animado GIOGAS, maior e no topo */}
-        {/* Título GIOGAS no topo da hero, como primeiro elemento visível */}
         <div className="w-full flex justify-center pt-10 z-20">
           <h1
             className="text-[clamp(4rem,12vw,10rem)] font-bold flex gap-2 md:gap-4 items-center select-none"
