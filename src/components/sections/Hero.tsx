@@ -1,7 +1,5 @@
 "use client";
 
-<div className="absolute inset-0 bg-black/30 z-0 pointer-events-none" />;
-
 import React from "react";
 import { useState } from "react";
 import Image from "next/image";

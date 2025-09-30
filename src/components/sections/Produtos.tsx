@@ -35,6 +35,8 @@ export default function Produtos() {
         backgroundSize: "cover",
       }}
     >
+        {/* Transiçãoção suave do branco para o fundo */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-24 sm:h-32 bg-gradient-to-b from-white to-transparent" />
       <motion.div
         initial="hidden"
         whileInView="show"

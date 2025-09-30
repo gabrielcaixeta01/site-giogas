@@ -71,7 +71,7 @@ const translations = {
       },
       metrics: {
         clientes: { value: "+500", label: "Clientes atendidos" },
-        anos: { value: "+10", label: "Anos de experiência" },
+        anos: { value: "+30", label: "Anos de experiência" },
         cobertura: { value: "RJ", label: "Cobertura regional" },
       },
       cta: { label: "Conheça nossos serviços" },
@@ -202,7 +202,7 @@ const translations = {
       },
       metrics: {
         clientes: { value: "+500", label: "Clients served" },
-        anos: { value: "+10", label: "Years of experience" },
+        anos: { value: "+30", label: "Years of experience" },
       },
       cta: { label: "See our services" },
     },

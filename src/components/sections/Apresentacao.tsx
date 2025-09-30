@@ -183,10 +183,10 @@ export default function Apresentacao() {
             ].map(({ Icon, title, desc }, i) => (
               <div
                 key={i}
-                className="rounded-xl bg-white/6 border border-white/10 p-5 backdrop-blur-md shadow-md flex flex-col gap-2 transition-transform duration-200 hover:-translate-y-1 hover:scale-[1.03]"
+                className="rounded-xl bg-white/6 border border-white/10 p-5 backdrop-blur-md shadow-md flex flex-col gap-2 items-center text-center transition-transform duration-200 hover:-translate-y-1 hover:scale-[1.03]"
               >
-                <div className="flex items-center gap-3 mb-1">
-                  <Icon className="h-6 w-6 text-white" aria-hidden />
+                <div className="flex flex-col items-center gap-2 mb-1">
+                  <Icon className="h-7 w-7 text-white mb-1" aria-hidden />
                   <h4 className="text-white/90 font-medium text-base">
                     {title}
                   </h4>
@@ -208,7 +208,7 @@ export default function Apresentacao() {
                   "Clientes atendidos",
               },
               {
-                value: t.apresentacao.metrics?.anos?.value ?? "+10",
+                value: t.apresentacao.metrics?.anos?.value ?? "+30",
                 label:
                   t.apresentacao.metrics?.anos?.label ?? "Anos de experiência",
               },

@@ -50,12 +50,12 @@ export default function Servicos() {
       >
         <motion.h2
           variants={item}
-          className="text-4xl md:text-6xl font-light mt-10 mb-10 text-gray-900 text-center md:text-left w-full"
+          className="text-4xl md:text-6xl font-light mt-10 mb-10 text-gray-800 text-center md:text-left md:pl-5 w-full"
         >
           Serviços
         </motion.h2>
         {/* Primeira linha: 4 cards */}
-        <div className="w-full mb-12 flex flex-col md:flex-row md:justify-between gap-5">
+        <div className="w-full mb-2 sm:mb-6 flex flex-col md:flex-row md:justify-between gap-2">
           {t.servicos.servicos
             .slice(0, 4)
             .map((servico: string, idx: number) => (
@@ -79,7 +79,7 @@ export default function Servicos() {
             ))}
         </div>
         {/* Segunda linha: 3 cards centralizados */}
-        <div className="w-full mb-12 flex flex-col lg:flex-row lg:justify-center gap-5">
+        <div className="w-full mb-12 flex flex-col lg:flex-row lg:justify-center gap-2">
           {t.servicos.servicos.slice(4).map((servico: string, idx: number) => (
             <motion.div
               key={idx + 4}
@@ -101,6 +101,8 @@ export default function Servicos() {
           ))}
         </div>
       </motion.div>
+      
     </section>
+    
   );
 }
