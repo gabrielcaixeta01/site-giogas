@@ -181,7 +181,7 @@ export default function Navbar() {
                       <FaInstagram size={22} />
                     </a>
                     <a
-                      href="https://wa.me/5521988794509"
+                      href="https://wa.me/5521988794509?text=Ol%C3%A1%2C%20vi%20os%20servi%C3%A7os%20no%20site%20da%20GIOG%C3%81S%20e%20gostaria%20de%20saber%20mais%20detalhes."
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="WhatsApp"
@@ -238,7 +238,7 @@ export default function Navbar() {
             <FaInstagram size={20} />
           </a>
           <a
-            href="https://wa.me/5521988794509"
+            href="https://wa.me/5521988794509?text=Ol%C3%A1%2C%20vi%20os%20servi%C3%A7os%20no%20site%20da%20GIOG%C3%81S%20e%20gostaria%20de%20saber%20mais%20detalhes."
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp"

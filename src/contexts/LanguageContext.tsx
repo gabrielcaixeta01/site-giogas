@@ -31,7 +31,7 @@ const translations = {
       title: "Nossos Serviços",
       description:
         "A GIOGÁS oferece soluções completas em distribuição de gás, segurança e suporte técnico para comércios e indústrias no Rio de Janeiro.",
-      
+
       comercial: {
         title: "Gás Comercial",
         description:
@@ -51,10 +51,11 @@ const translations = {
     contato: {
       title: "Entre em contato",
       description:
-        "Entre em contato para dúvidas, pedidos ou suporte. Nossa equipe está pronta para atender você no Rio de Janeiro!",
+        "Fale com nossa equipe para dúvidas, pedidos ou suporte no Rio de Janeiro.",
       email: "E-mail:",
       telefone: "Telefone:",
       endereco: "Endereço:",
+      whatsapp: "Fale no WhatsApp",
       copy: "Copiar",
       copied: "Copiado!",
     },
@@ -116,10 +117,11 @@ const translations = {
     contato: {
       title: "Contact us",
       description:
-        "Contact for questions, orders or support. Our team is ready to assist you in Rio de Janeiro!",
+        "Talk to our team for questions, orders or support in Rio de Janeiro.",
       email: "Email:",
       telefone: "Phone:",
       endereco: "Address:",
+      whatsapp: "Talk on WhatsApp",
       copy: "Copy",
       copied: "Copied!",
     },

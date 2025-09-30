@@ -1,12 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FaWhatsapp } from "react-icons/fa";
 import { FiMail, FiPhone } from "react-icons/fi";
 import { useLanguage } from "../../contexts/LanguageContext";
 
 const container = {
   hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, staggerChildren: 0.08 } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, staggerChildren: 0.08 },
+  },
 };
 
 const item = {
@@ -41,7 +46,7 @@ export default function Contato() {
         variants={container}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: false, amount: 0.3 }}
         className="relative w-full max-w-3xl px-4"
       >
         <motion.div
@@ -162,6 +167,23 @@ export default function Contato() {
             </a>
           </motion.div>
         </motion.div>
+        {/* Botão WhatsApp abaixo do card */}
+        <div className="w-full mt-4">
+          <a
+            href="https://wa.me/5521988794509?text=Ol%C3%A1%2C%20vi%20os%20servi%C3%A7os%20no%20site%20da%20GIOG%C3%81S%20e%20gostaria%20de%20saber%20mais%20detalhes."
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+            className="w-full"
+          >
+            <button className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl bg-white hover:bg-green-50 text-green-700 font-light text-lg shadow-lg transition-all duration-150 border border-green-200 hover:border-green-400">
+              <span className="contact-icon grid place-items-center text-xl h-10 w-10 rounded-full bg-green-100 text-green-700 border border-green-200 group-hover:bg-green-200 group-hover:text-green-800 transition">
+                <FaWhatsapp size={24} />
+              </span>
+              {t.contato.whatsapp}
+            </button>
+          </a>
+        </div>
       </motion.div>
     </section>
   );
