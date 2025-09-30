@@ -1,63 +1,79 @@
 import React from "react";
+import { Carousel } from "../Carousel";
 import { useLanguage } from "../../contexts/LanguageContext";
-import { FaQuoteLeft } from "react-icons/fa";
-import { motion } from "framer-motion";
+import Image from "next/image";
 
-type Depoimento = {
+interface Depoimento {
   nome: string;
-  mensagem: {
-    pt: string;
-    en: string;
-  };
-};
+  empresa: string;
+  logo: string;
+  mensagem: string;
+}
 
 const depoimentos: Depoimento[] = [
   {
-    nome: "João Silva",
-    mensagem: {
-      pt: "Excelente serviço! Recomendo a todos. O atendimento foi rápido, eficiente e superou minhas expectativas. Com certeza voltarei a contratar!",
-      en: "Excellent service! I recommend it to everyone. The service was fast, efficient, and exceeded my expectations. I will definitely hire again!",
-    },
+    nome: "Luiz (Posto de Combustível)",
+    empresa: "Santa Elisa",
+    logo: "/images/santaelisa-logo.png",
+    mensagem:
+      "Com a Giogás, acabaram as filas de gás na nossa rede de postos. Nunca mais tivemos problemas de parada nos equipamentos. Recebemos soluções adequadas para nossa realidade e atendimento sempre ágil quando precisamos.",
   },
   {
-    nome: "Maria Souza",
-    mensagem: {
-      pt: "Atendimento de qualidade e muita atenção aos detalhes. A equipe foi muito prestativa e resolveu todas as minhas dúvidas. Fiquei muito satisfeita com o resultado final!",
-      en: "Quality service and great attention to detail. The team was very helpful and answered all my questions. I was very pleased with the final result!",
-    },
+    nome: "Seu Zé (Consórcio de Transporte Público)",
+    empresa: "R.T. Goiânia",
+    logo: "/images/rtgoiania-logo.png",
+    mensagem:
+      "No início do projeto piloto não tínhamos conhecimento. A Giogás esteve ao nosso lado, orientando em cada etapa. Graças a esse suporte, o projeto foi um sucesso e agora estamos expandindo, descarbonizando o transporte público da cidade de Goiânia.",
   },
   {
-    nome: "Carlos Pereira",
-    mensagem: {
-      pt: "Fiquei muito satisfeito com o resultado final. O serviço foi realizado dentro do prazo e com um padrão de qualidade excelente. Recomendo sem hesitar!",
-      en: "I was very satisfied with the final result. The service was completed on time and with excellent quality standards. I recommend without hesitation!",
-    },
+    nome: "Fernando (Logística e Transporte Pesado)",
+    empresa: "Reiter",
+    logo: "/images/reiter-logo.png",
+    mensagem:
+      "A Giogás dimensionou e montou toda a infraestrutura necessária para nossas garagens, garantindo que nossa frota de mais de 24 carretas operasse sem interrupções. Performance e abastecimento contínuo, sem falhas.",
+  },
+  {
+    nome: "Rodrigo (Energia Sustentável)",
+    empresa: "ZEG",
+    logo: "/images/zeg-logo.png",
+    mensagem:
+      "A Giogás foi peça fundamental no desenvolvimento da nossa planta. Sempre com equipe à disposição, realizou o dimensionamento, o start e o comissionamento, garantindo total suporte ao nosso projeto.",
+  },
+  {
+    nome: "Sequeto (Montadora de Veículos Pesados)",
+    empresa: "Scania",
+    logo: "/images/scania-logo.png",
+    mensagem:
+      "A Giogás participou ativamente da transição da frota a diesel para o GNV. Desenvolveu projetos sob medida, apresentou parceiros e fornecedores, auxiliou na homologação de equipamentos e esteve conosco em cada etapa.",
+  },
+  {
+    nome: "(Equipamentos Gás - GNV/Biometano)",
+    empresa: "Rimag",
+    logo: "/images/rimag-logo.png",
+    mensagem:
+      "A Giogás fez a reforma completa dos nossos equipamentos, trazendo revitalização, manutenção e custo-benefício. Sempre preocupada em atender nossas necessidades com parceiros e soluções adequadas.",
+  },
+  {
+    nome: "Fernando Meier (Energia e Combustíveis)",
+    empresa: "Vibra",
+    logo: "/images/vibra-logo.png",
+    mensagem:
+      "Agradecemos à Giogás pelo apoio no desenvolvimento da ZEG Vibra, na abertura de novos mercados no Mato Grosso e na condução de projetos junto a importantes stakeholders.",
+  },
+  {
+    nome: "Rafael (Energia e Mobilidade Sustentável)",
+    empresa: "Itaipu",
+    logo: "/images/itaipu-logo.png",
+    mensagem:
+      "A Giogás montou toda a infraestrutura necessária para que pudéssemos rodar com ônibus a gás e a biometano na usina. Atendimento alinhado à demanda e fundamental para o sucesso do projeto.",
   },
 ];
 
-const container = {
-  hidden: { opacity: 0, y: 24 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, staggerChildren: 0.08 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45 } },
-};
-
 const Depoimentos: React.FC = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   return (
-    <motion.section
+    <section
       id="depoimentos"
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.3 }}
-      variants={container}
       className="
         relative
         bg-gradient-to-br from-blue-50 via-blue-100 py-32 to-blue-200
@@ -70,67 +86,48 @@ const Depoimentos: React.FC = () => {
       </div>
 
       <div className="relative max-w-6xl mx-auto px-4">
-        <motion.h2
-          variants={item}
-          className="text-center text-4xl md:text-5xl font-light tracking-tight text-blue-950"
-        >
+        <h2 className="text-center text-4xl md:text-5xl font-light tracking-tight text-blue-950">
           {t.depoimentos.title}
-        </motion.h2>
+        </h2>
 
-        <motion.p
-          variants={item}
-          className="mt-3 text-center text-base md:text-lg text-blue-900/80 max-w-2xl mx-auto"
-        >
+        <p className="mt-3 text-center text-base md:text-lg text-blue-900/80 max-w-2xl mx-auto">
           {t.depoimentos.subtitle}
-        </motion.p>
+        </p>
 
-        {/* grid responsivo: 1 → 2 → 3 colunas */}
-        <div
-          className="
-            mt-12 grid gap-6
-            grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
-          "
-        >
-          {depoimentos.map((depo, idx) => (
-            <motion.article
-              key={idx}
-              variants={item}
-              className="
-                group h-full
-                bg-white/90 backdrop-blur
-                rounded-2xl shadow-lg ring-1 ring-blue-100
-                p-7 flex flex-col
-                transition-transform duration-150
-                hover:-translate-y-1 hover:shadow-xl
-              "
-            >
-              {/* ícone/aspas em badge */}
-              <div
-                className="
-                  mb-5 inline-grid place-items-center
-                  h-12 w-12 rounded-full
-                  bg-blue-100 text-blue-700 ring-1 ring-blue-200
-                "
+        {/* Carrossel de depoimentos */}
+        <div className="mt-12">
+          <Carousel visible={3}>
+            {depoimentos.map((depo, idx) => (
+              <article
+                key={idx}
+                className="group h-full bg-white/90 backdrop-blur rounded-2xl shadow-lg ring-1 ring-blue-100 p-7 flex flex-col items-center text-center transition-transform duration-150 hover:-translate-y-1 hover:shadow-xl"
               >
-                <FaQuoteLeft />
-              </div>
-
-              {/* texto do depoimento */}
-              <p className="text-slate-700 leading-relaxed italic">
-                “{depo.mensagem[language as "pt" | "en"]}”
-              </p>
-
-              {/* nome */}
-              <div className="mt-6 pt-4 border-t border-blue-100">
-                <strong className="text-blue-900 font-medium">
-                  {depo.nome}
-                </strong>
-              </div>
-            </motion.article>
-          ))}
+                <div className="flex flex-col items-center gap-2 mb-3">
+                  <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center shadow-md mb-1">
+                    <Image
+                      src={depo.logo}
+                      alt={depo.empresa}
+                      width={44}
+                      height={44}
+                      className="object-contain max-h-10"
+                    />
+                  </div>
+                  <div className="text-blue-900 font-semibold text-base leading-tight">
+                    {depo.empresa}
+                  </div>
+                  <div className="text-blue-800/80 text-xs font-light">
+                    {depo.nome}
+                  </div>
+                </div>
+                <p className="text-slate-700 leading-relaxed italic text-sm">
+                  “{depo.mensagem}”
+                </p>
+              </article>
+            ))}
+          </Carousel>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
