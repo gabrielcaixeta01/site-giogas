@@ -50,7 +50,7 @@ export default function Servicos() {
       >
         <motion.h2
           variants={item}
-          className="text-4xl md:text-6xl font-light mt-10 mb-10 text-gray-800 text-center md:text-left md:pl-5 w-full"
+          className="text-5xl md:text-6xl font-semibold mt-10 mb-5 text-white/90 text-center border-b border-gray-100/70 md:text-left md:pl-5 w-full"
         >
           Serviços
         </motion.h2>

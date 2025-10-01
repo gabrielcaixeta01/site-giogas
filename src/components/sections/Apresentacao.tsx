@@ -191,7 +191,7 @@ export default function Apresentacao() {
                     {title}
                   </h4>
                 </div>
-                <p className="text-white/75 text-sm leading-relaxed">{desc}</p>
+                <p className="text-white/75 text-sm text-justify sm:text-center leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>

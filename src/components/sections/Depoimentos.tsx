@@ -21,7 +21,7 @@ const depoimentos: Depoimento[] = [
   {
     nome: "Seu Zé (Consórcio de Transporte Público)",
     empresa: "R.T. Goiânia",
-    logo: "/images/logo-rtgoiania.png",
+    logo: "/images/logo-rt.png",
     mensagem:
       "No início do projeto piloto não tínhamos conhecimento. A Giogás esteve ao nosso lado, orientando em cada etapa. Graças a esse suporte, o projeto foi um sucesso e agora estamos expandindo, descarbonizando o transporte público da cidade de Goiânia.",
   },
