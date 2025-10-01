@@ -98,7 +98,7 @@ export default function Hero() {
           </motion.p>
         </div>
         {/* Meio: descrição centralizada */}
-        <div className="flex flex-col items-center h-[30vh] justify-start">
+        <div className="flex flex-col items-center h-[25vh] justify-start">
           <motion.span
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -109,7 +109,7 @@ export default function Hero() {
           </motion.span>
         </div>
         {/* Base: botão e ícone de scroll */}
-        <div className="w-full flex flex-col items-center justify-end h-[30vh] pb-10 z-30">
+        <div className="w-full flex flex-col items-center justify-end h-[30vh] pb-20 z-30">
           <motion.button
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -149,7 +149,7 @@ export default function Hero() {
         </div>
       </div>
       {/* gradiente de transição suave para a próxima seção */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 sm:h-32 bg-gradient-to-b from-transparent to-[#0868cf]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[5vh] bg-gradient-to-b from-transparent to-[#0868cf]" />
     </section>
   );
 }
