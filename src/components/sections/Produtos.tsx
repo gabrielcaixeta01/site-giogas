@@ -46,7 +46,7 @@ export default function Produtos() {
       >
         <motion.h2
           variants={item}
-          className="text-5xl md:text-6xl font-light mb-8 text-white drop-shadow-lg"
+          className="text-5xl md:text-6xl font-light mb-8 text-gray-800 drop-shadow-lg"
         >
           Produtos
         </motion.h2>
@@ -56,7 +56,7 @@ export default function Produtos() {
               <motion.div
                 key={idx}
                 variants={item}
-                className="flex flex-col sm:flex-row items-center sm:items-start w-full bg-white/95 px-3 py-3 sm:px-5 sm:py-7 transition-shadow hover:shadow-lg rounded-2xl group text-sm sm:text-base"
+                className="flex flex-col sm:flex-row items-center sm:items-start w-full border hover:translate-0.5 transition-transform border-blue-500 bg-white/95 px-3 py-3 sm:px-5 sm:py-7 rounded-2xl group text-sm sm:text-base"
               >
                 <div className="flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mb-3 sm:mb-0 sm:mr-6">
                   {produtosIcons[idx]}

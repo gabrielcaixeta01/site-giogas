@@ -15,27 +15,56 @@ const basePartners: Partner[] = [
   // adicione mais conforme precisar
 ];
 
+// helpers para swipe
+const SWIPE_CONFIDENCE = 4500;
+const swipePower = (offset: number, velocity: number) =>
+  Math.abs(offset) * velocity;
+
 export default function ParceirosCarousel() {
-  // Ref para swipe touch
-  const touchStartX = useRef<number | null>(null);
   const { t } = useLanguage();
   const title = t?.parceiros?.title ?? "Nossos Parceiros";
   const subtitle =
     t?.parceiros?.subtitle ??
     "Relações que ampliam alcance e qualidade — juntos entregamos mais.";
   const partners: Partner[] = useMemo(() => basePartners, []);
+
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0); // -1 prev, +1 next
+
   const AUTOPLAY_MS = 4000;
   const PAUSE_MS = 5500;
   const [isPaused, setIsPaused] = useState(false);
   const pauseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  const temporarilyPause = () => {
+    if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
+    setIsPaused(true);
+    pauseTimerRef.current = setTimeout(() => setIsPaused(false), PAUSE_MS);
+  };
+
+  const next = () => {
+    setDirection(1);
+    setCurrentIndex((i) => (i + 1) % partners.length);
+    temporarilyPause();
+  };
+  const prev = () => {
+    setDirection(-1);
+    setCurrentIndex((i) => (i - 1 + partners.length) % partners.length);
+    temporarilyPause();
+  };
+  const goTo = (i: number) => {
+    setDirection(i > currentIndex ? 1 : -1);
+    setCurrentIndex(i);
+    temporarilyPause();
+  };
+
   useEffect(() => {
     if (!partners.length) return;
     if (intervalRef.current) clearInterval(intervalRef.current);
     if (!isPaused) {
       intervalRef.current = setInterval(() => {
+        setDirection(1);
         setCurrentIndex((prev) => (prev + 1) % partners.length);
       }, AUTOPLAY_MS);
     }
@@ -51,32 +80,27 @@ export default function ParceirosCarousel() {
     };
   }, []);
 
-  const temporarilyPause = () => {
-    if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
-    setIsPaused(true);
-    pauseTimerRef.current = setTimeout(() => setIsPaused(false), PAUSE_MS);
-  };
-
-  const next = () => {
-    setCurrentIndex((i) => (i + 1) % partners.length);
-    temporarilyPause();
-  };
-  const prev = () => {
-    setCurrentIndex((i) => (i - 1 + partners.length) % partners.length);
-    temporarilyPause();
-  };
-  const goTo = (i: number) => {
-    setCurrentIndex(i);
-    temporarilyPause();
-  };
-
   const current = partners[currentIndex] ?? { name: "", logo: "" };
+
+  // variants com direção
+  const variants = {
+    enter: (dir: number) => ({
+      x: dir >= 0 ? 40 : -40,
+      opacity: 0.001,
+      scale: 0.98,
+    }),
+    center: { x: 0, opacity: 1, scale: 1 },
+    exit: (dir: number) => ({
+      x: dir >= 0 ? -40 : 40,
+      opacity: 0.001,
+      scale: 0.98,
+    }),
+  } as const;
 
   return (
     <section
       id="parceiros"
-      className="parceiros scroll-mt-24 min-h-screen flex flex-col justify-center"
-      style={{ justifyContent: "center" }}
+      className="parceiros scroll-mt-24 h-screen flex flex-col items-center justify-center"
     >
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
@@ -91,44 +115,42 @@ export default function ParceirosCarousel() {
             {subtitle}
           </p>
         </div>
+
         {/* Carousel */}
         <div className="relative max-w-2xl mx-auto flex items-center">
-          {/* Botões */}
-          {/* Botões: só aparecem em md+ */}
+          {/* Botões: só md+ */}
           <button
             onClick={prev}
             aria-label="Anterior"
             className="hidden md:block absolute -left-8 md:-left-12 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/10 border border-white/15 hover:bg-white/20 transition"
             style={{ boxShadow: "0 2px 8px 0 rgba(0,0,0,0.18)" }}
+            onMouseEnter={temporarilyPause}
           >
             <ChevronLeft />
           </button>
-          <div className="flex-1">
-            {/* Card visível */}
-            <div
-              className="min-h-[18rem] sm:min-h-[20rem] flex items-center justify-center"
-              onTouchStart={(e) => {
-                touchStartX.current = e.touches[0].clientX;
-              }}
-              onTouchEnd={(e) => {
-                const startX = touchStartX.current;
-                const endX = e.changedTouches[0].clientX;
-                if (typeof startX === "number") {
-                  const diff = endX - startX;
-                  if (diff > 40) prev(); // direita → anterior
-                  else if (diff < -40) next(); // esquerda → próximo
-                }
-                touchStartX.current = null;
-              }}
-            >
-              <AnimatePresence mode="wait">
+
+          <div className="flex-1" onMouseEnter={temporarilyPause}>
+            {/* Card visível com swipe/drag */}
+            <div className="min-h-[18rem] sm:min-h-[20rem] flex items-center justify-center">
+              <AnimatePresence initial={false} custom={direction} mode="wait">
                 <motion.div
                   key={currentIndex}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.28, ease: "easeInOut" }}
-                  className="h-full flex items-center justify-center"
+                  custom={direction}
+                  variants={variants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ type: "spring", stiffness: 420, damping: 40 }}
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.08}
+                  onDragStart={temporarilyPause}
+                  onDragEnd={(_, info) => {
+                    const power = swipePower(info.offset.x, info.velocity.x);
+                    if (power < -SWIPE_CONFIDENCE) next();
+                    else if (power > SWIPE_CONFIDENCE) prev();
+                  }}
+                  className="w-full flex items-center justify-center"
                 >
                   <div className="parceiros-card w-72 h-72 sm:w-80 sm:h-80 max-w-full p-4 sm:p-6 mx-auto flex flex-col justify-center rounded-2xl">
                     {/* Logo */}
@@ -151,6 +173,7 @@ export default function ParceirosCarousel() {
                 </motion.div>
               </AnimatePresence>
             </div>
+
             {/* Dots */}
             <div className="mt-6 flex justify-center gap-2">
               {partners.map((_, i) => (
@@ -167,11 +190,13 @@ export default function ParceirosCarousel() {
               ))}
             </div>
           </div>
+
           <button
             onClick={next}
             aria-label="Próximo"
             className="hidden md:block absolute -right-8 md:-right-12 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/10 border border-white/15 hover:bg-white/20 transition"
             style={{ boxShadow: "0 2px 8px 0 rgba(0,0,0,0.18)" }}
+            onMouseEnter={temporarilyPause}
           >
             <ChevronRight />
           </button>
@@ -191,11 +216,7 @@ function ChevronLeft() {
       stroke="currentColor"
       strokeWidth={2}
     >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M15.75 19.5 8.25 12l7.5-7.5"
-      />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
     </svg>
   );
 }
@@ -208,11 +229,7 @@ function ChevronRight() {
       stroke="currentColor"
       strokeWidth={2}
     >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="m8.25 4.5 7.5 7.5-7.5 7.5"
-      />
+      <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
     </svg>
   );
 }

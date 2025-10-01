@@ -85,7 +85,7 @@ const Depoimentos: React.FC = () => {
         <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-cyan-300/40 blur-[110px]" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-4">
+      <div className="relative max-w-6xl mx-auto">
         <h2 className="text-center text-4xl md:text-5xl font-light tracking-tight text-blue-950">
           {t.depoimentos.title}
         </h2>
@@ -100,7 +100,12 @@ const Depoimentos: React.FC = () => {
             {depoimentos.map((depo, idx) => (
               <article
                 key={idx}
-                className="group h-full bg-white/90 backdrop-blur rounded-2xl shadow-lg ring-1 ring-blue-100 p-7 flex flex-col items-center text-center transition-transform duration-150 hover:-translate-y-1 hover:shadow-xl"
+                className="
+                  group h-[360px] md:h-[340px]
+                  bg-white/90 backdrop-blur rounded-2xl shadow-lg ring-1 ring-blue-100
+                  p-7 flex flex-col items-center text-center justify-between
+                  transition-transform duration-150 hover:-translate-y-1 hover:shadow-xl
+                "
               >
                 <div className="flex flex-col items-center gap-2 mb-3">
                   <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center shadow-md mb-1">
