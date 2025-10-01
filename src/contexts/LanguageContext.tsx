@@ -114,7 +114,7 @@ const translations = {
     contato: {
       title: "Entre em contato",
       description:
-        "Fale com nossa equipe para dúvidas, pedidos ou suporte no Rio de Janeiro.",
+        "Fale com nossa equipe para dúvidas, pedidos ou suporte em todo o Brasil.",
       email: "E-mail:",
       telefone: "Telefone:",
       endereco: "Endereço:",
@@ -243,7 +243,7 @@ const translations = {
     contato: {
       title: "Contact us",
       description:
-        "Talk to our team for questions, orders or support in Rio de Janeiro.",
+        "Talk to our team for questions, orders or support throughout Brazil.",
       email: "Email:",
       telefone: "Phone:",
       endereco: "Address:",

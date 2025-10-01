@@ -29,7 +29,7 @@ export default function Produtos() {
   return (
     <section
       id="produtos"
-      className="produtos w-full min-h-screen flex flex-col items-center justify-center text-center py-32 md:pb-40 bg-center bg-no-repeat relative bg-cover md:bg-[length:100%_100%]"
+      className="produtos w-full min-h-screen flex flex-col items-center justify-center text-center py-40 md:pb-40 bg-center bg-no-repeat relative bg-cover md:bg-[length:100%_100%]"
       style={{
         backgroundImage: "url('/produtos-bg.jpg')",
         backgroundSize: "cover",
@@ -42,7 +42,7 @@ export default function Produtos() {
         whileInView="show"
         viewport={{ once: false, amount: 0.3 }}
         variants={container}
-        className="max-w-5xl mx-auto text-center"
+        className="max-w-5xl h-screen flex flex-col text-center items-center justify-center"
       >
         <motion.h2
           variants={item}
@@ -50,13 +50,13 @@ export default function Produtos() {
         >
           Produtos
         </motion.h2>
-        <div className="flex flex-col w-full gap-5 mb-12">
+        <div className="flex flex-col w-full gap-3 mb-12">
           {t.servicos.produtos.map(
             (produto: { title: string; desc: string }, idx: number) => (
               <motion.div
                 key={idx}
                 variants={item}
-                className="flex flex-col sm:flex-row items-center sm:items-start w-full border hover:translate-0.5 transition-transform border-blue-500 bg-white/95 px-3 py-3 sm:px-5 sm:py-7 rounded-2xl group text-sm sm:text-base"
+                className="flex flex-row items-center sm:items-start w-full border border-blue-500 bg-white/95 px-3 py-3 sm:px-3 sm:py-5 rounded-2xl group text-xs sm:text-base"
               >
                 <div className="flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mb-3 sm:mb-0 sm:mr-6">
                   {produtosIcons[idx]}

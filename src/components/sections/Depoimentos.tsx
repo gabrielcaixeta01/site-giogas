@@ -104,7 +104,7 @@ const Depoimentos: React.FC = () => {
                   group h-[360px] md:h-[340px]
                   bg-white/90 backdrop-blur rounded-2xl shadow-lg ring-1 ring-blue-100
                   p-7 flex flex-col items-center text-center justify-between
-                  transition-transform duration-150 hover:-translate-y-1 hover:shadow-xl
+                  transition-transform duration-150 hover:-translate-y-1 hover:shadow-lg
                 "
               >
                 <div className="flex flex-col items-center gap-2 mb-3">

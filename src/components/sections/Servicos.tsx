@@ -44,7 +44,7 @@ export default function Servicos() {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         variants={container}
         className="max-w-5xl text-left"
       >

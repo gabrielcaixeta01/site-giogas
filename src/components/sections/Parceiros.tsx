@@ -106,7 +106,7 @@ export default function ParceirosCarousel() {
   return (
     <section
       id="parceiros"
-      className="parceiros scroll-mt-24 h-screen flex flex-col items-center justify-center"
+      className="parceiros scroll-mt-24 h-screen flex flex-col items-center justify-center "
     >
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
@@ -171,10 +171,11 @@ export default function ParceirosCarousel() {
                         />
                       </div>
                     </div>
-                    {/* Nome */}
+                    {/* Nome se quiser ativar, descomente
                     <h3 className="text-center mt-4 sm:mt-5 text-lg sm:text-xl font-light border-b border-gray-800 pb-1">
                       {current.name}
                     </h3>
+                    */}
                   </div>
                 </motion.div>
               </AnimatePresence>

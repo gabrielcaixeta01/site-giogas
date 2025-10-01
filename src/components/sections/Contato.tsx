@@ -1,23 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { FiMail, FiPhone } from "react-icons/fi";
 import { useLanguage } from "../../contexts/LanguageContext";
-
-const container = {
-  hidden: { opacity: 0, y: 24 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, staggerChildren: 0.08 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45 } },
-};
 
 export default function Contato() {
   const { t } = useLanguage();
@@ -42,15 +27,8 @@ export default function Contato() {
         <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-cyan-500 blur-[120px]" />
       </div>
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: 0.3 }}
-        className="relative w-full max-w-3xl px-4"
-      >
-        <motion.div
-          variants={item}
+      <div className="relative w-full max-w-3xl px-4">
+        <div
           className="
             contact-card p-8 md:p-10
             bg-white/90 text-slate-900
@@ -58,24 +36,15 @@ export default function Contato() {
             ring-1 ring-slate-200
           "
         >
-          <motion.h2
-            variants={item}
-            className="contact-title text-4xl md:text-5xl font-light tracking-tight mb-3"
-          >
+          <h2 className="contact-title text-4xl md:text-5xl font-light tracking-tight mb-3">
             {t.contato.title}
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            variants={item}
-            className="contact-desc text-base md:text-lg leading-relaxed mb-8 text-justify text-slate-600"
-          >
+          <p className="contact-desc text-base md:text-lg leading-relaxed mb-8 text-justify text-slate-600">
             {t.contato.description}
-          </motion.p>
+          </p>
 
-          <motion.div
-            variants={item}
-            className="contact-links-grid flex flex-col gap-5 mt-6"
-          >
+          <div className="contact-links-grid flex flex-col gap-5 mt-6">
             {/* Email institucional */}
             <a
               href={`mailto:${email}`}
@@ -165,8 +134,9 @@ export default function Contato() {
                 </span>
               </div>
             </a>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
+
         {/* Botão WhatsApp abaixo do card */}
         <div className="w-full mt-4">
           <a
@@ -184,7 +154,7 @@ export default function Contato() {
             </button>
           </a>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

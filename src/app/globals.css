@@ -1,26 +1,5 @@
 @import "tailwindcss";
-/* Seção Hero com gradiente azul vivo */
-.hero {
-  background: #175fae;
-  background-image: url("/patterns/diagonal.svg");
-  background-size: cover;
-  background-repeat: repeat;
-  /* Pattern translúcido */
-  position: relative;
-  padding-top: 0 !important;
-  margin-top: 0 !important;
-}
-/* Opacidade do pattern na hero */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: inherit;
-  opacity: 0.06;
-  pointer-events: none;
-  z-index: 0;
-}
-/* Seção Parceiros: fundo preto/cinza escuro, cards transparentes/cinza, formal */
+
 .parceiros {
   background: #101114;
   color: #f3f3f3;
@@ -60,14 +39,12 @@ section {
   margin: 0;
   padding-left: 2rem;
   padding-right: 2rem;
-  /* Removido padding-top e padding-bottom para evitar faixa branca acima da hero */
   background: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Cards de apresentação continuam centralizados e com sombra */
 .apresentacao-card {
   background: rgba(255, 255, 255, 0.85);
   border-radius: 1.5rem;

@@ -86,7 +86,7 @@ export default function Apresentacao() {
               ))}
           </div>
           {/* MVV vertical */}
-          <div className="flex-1 flex flex-col gap-6 justify-center">
+          <div className="flex-1 flex flex-col gap-6 justify-center text-justify md:text-left">
             {[
               {
                 title: t.apresentacao.mvv?.mission?.title ?? "Missão",
