@@ -25,7 +25,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="h-screen flex flex-col items-center text-center"
+      className="relative min-h-screen flex flex-col items-center text-center overflow-hidden"
     >
       {/* Vídeo de fundo */}
       <div className="absolute inset-0 w-full h-full z-0">
@@ -34,8 +34,7 @@ export default function Hero() {
             src="/load-image.png"
             alt="Carregando..."
             fill
-            className="w-full h-full object-cover"
-            style={{ objectFit: "cover" }}
+            className="object-cover"
             priority
           />
         )}
@@ -54,7 +53,7 @@ export default function Hero() {
         )}
       </div>
 
-      <div className="w-full flex flex-col h-screen relative z-10">
+      <div className="w-full flex flex-col min-h-full relative z-10">
         {/* Topo: título e subtítulo */}
         <div className="w-full flex flex-col h-[40vh] items-center justify-center py-0 sm:pt-20 z-20">
           <h1
@@ -109,7 +108,7 @@ export default function Hero() {
           </motion.span>
         </div>
         {/* Base: botão e ícone de scroll */}
-        <div className="w-full flex flex-col items-center justify-end h-[30vh] pb-20 z-30">
+        <div className="w-full flex flex-col items-center justify-end h-[30vh] pb-16 z-30">
           <motion.button
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -149,7 +148,7 @@ export default function Hero() {
         </div>
       </div>
       {/* gradiente de transição suave para a próxima seção */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[5vh] bg-gradient-to-b from-transparent to-[#0868cf]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-6 bg-gradient-to-b from-transparent to-[#0868cf]" />
     </section>
   );
 }

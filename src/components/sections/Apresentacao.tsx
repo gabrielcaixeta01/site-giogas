@@ -53,7 +53,7 @@ export default function Apresentacao() {
   const { t } = useLanguage();
 
   return (
-    <section id="apresentacao" className="apresentacao py-32">
+    <section id="apresentacao" className="apresentacao min-h-screen py-32 flex items-center">
       <div className="mx-auto max-w-6xl px-4">
         {/* Intro + MVV lado a lado em telas grandes */}
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-stretch">

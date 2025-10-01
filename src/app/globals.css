@@ -31,11 +31,11 @@ body,
 #__next {
   height: 100%;
   background-color: #fff !important;
+  margin: 0;
 }
 
 section {
   width: 100%;
-  min-height: 100vh;
   margin: 0;
   padding-left: 2rem;
   padding-right: 2rem;
