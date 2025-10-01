@@ -13,12 +13,12 @@
 }
 /* Seção Serviços com gradiente invertido: branco em cima, azul embaixo */
 .servicos {
-  background: linear-gradient(to bottom, #abd7fb 0%, #ffffff 100%);
+  background: linear-gradient(to bottom, #66b5f6 0%, #ffffff 100%);
   color: #000000;
 }
 /* Seção Apresentação com azul institucional e texto branco */
 .apresentacao {
-  background: linear-gradient(to bottom, #175fae 0%, #abd7fb 100%);
+  background: linear-gradient(to bottom, #0868cf 0%, #66b5f6 100%);
   color: #ffffff;
 }
 

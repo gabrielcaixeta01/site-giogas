@@ -62,14 +62,14 @@ export default function Servicos() {
               <motion.div
                 key={idx}
                 variants={item}
-                className="flex flex-col items-center w-full bg-white/95 px-3 py-3 sm:px-5 sm:py-7 transition-shadow hover:shadow-lg rounded-2xl group text-sm sm:text-base md:min-w-[200px] md:max-w-xs lg:mx-2"
+                className="flex flex-row items-center w-full bg-white/95 px-3 py-3 sm:px-5 sm:py-7 transition-shadow hover:shadow-lg rounded-2xl group text-sm sm:text-base md:min-w-[200px] md:max-w-xs lg:mx-2"
               >
-                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mb-3">
+                <div className="flex items-center justify-center h-13 w-13 sm:h-16 sm:w-16 rounded-full bg-blue-100 text-blue-600 mb-3">
                   {servicosIcons[idx]}
                 </div>
                 <div className="flex-1 w-full text-center font-light">
                   <h4
-                    className="text-base sm:text-lg font-light mb-1"
+                    className="text-sm sm:text-base font-light mb-1"
                     style={{ color: "var(--color-fg)" }}
                   >
                     {servico}
@@ -84,14 +84,14 @@ export default function Servicos() {
             <motion.div
               key={idx + 4}
               variants={item}
-              className="flex flex-col items-center w-full bg-white/95 px-3 py-3 sm:px-5 sm:py-7 transition-shadow hover:shadow-lg rounded-2xl group text-sm sm:text-base md:min-w-[200px] md:max-w-xs lg:mx-2"
+              className="flex flex-row items-center w-full bg-white/95 px-3 py-3 sm:px-5 sm:py-7 transition-shadow hover:shadow-lg rounded-2xl group text-sm sm:text-base md:min-w-[200px] md:max-w-xs lg:mx-2"
             >
-              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mb-3">
+              <div className="flex items-center justify-center h-13 w-13 sm:h-16 sm:w-16 rounded-full bg-blue-100 text-blue-600 mb-3">
                 {servicosIcons[idx + 4]}
               </div>
               <div className="flex-1 w-full text-center font-light">
                 <h4
-                  className="text-base sm:text-lg font-light mb-1"
+                  className="text-sm sm:text-base font-light mb-1"
                   style={{ color: "var(--color-fg)" }}
                 >
                   {servico}

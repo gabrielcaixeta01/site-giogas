@@ -198,8 +198,8 @@ export default function Apresentacao() {
         </div>
 
         {/* Métricas */}
-        <div className="mt-4 rounded-xl p-[2px] bg-gradient-to-br from-blue-500 via-blue-800 to-purple-700 shadow-2xl">
-          <div className="flex flex-col sm:flex-row overflow-hidden bg-white/5 divide-y sm:divide-y-0 sm:divide-x divide-white/20 rounded-xl">
+        <div className="mt-4 rounded-xl p-[2px] bg-gradient-to-br border border-white/70 from-blue-500 via-indigo-700 to-purple-600 shadow-2xl">
+          <div className="flex flex-col sm:flex-row overflow-hidden bg-white/5 divide-y sm:divide-y-0 sm:divide-x divide-white/70 rounded-xl">
             {[
               {
                 value: t.apresentacao.metrics?.clientes?.value ?? "+500",

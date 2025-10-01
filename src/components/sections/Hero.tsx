@@ -25,7 +25,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="hero relative min-h-screen flex flex-col justify-between items-center text-center overflow-hidden pt-6 pb-10"
+      className="h-screen flex flex-col items-center text-center"
     >
       {/* Vídeo de fundo */}
       <div className="absolute inset-0 w-full h-full z-0">
@@ -54,9 +54,9 @@ export default function Hero() {
         )}
       </div>
 
-      <div className="w-full flex flex-col gap-10 md:gap-14 relative z-10">
+      <div className="w-full flex flex-col h-screen relative z-10">
         {/* Topo: título e subtítulo */}
-        <div className="w-full flex flex-col items-center z-20 mb-24 md:mb-0 pt-16">
+        <div className="w-full flex flex-col h-[40vh] items-center justify-center py-0 sm:pt-20 z-20">
           <h1
             className="text-[clamp(4rem,12vw,10rem)] font-bold flex gap-1 md:gap-2 select-none drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)]"
             style={{ fontFamily: "Montserrat, sans-serif" }}
@@ -98,18 +98,18 @@ export default function Hero() {
           </motion.p>
         </div>
         {/* Meio: descrição centralizada */}
-        <div className="flex flex-col items-center justify-center flex-1">
+        <div className="flex flex-col items-center h-[30vh] justify-start">
           <motion.span
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-sm md:text-lg font-normal text-gray-500/90 block text-center max-w-xl mx-auto"
+            className="text-sm md:text-lg font-normal text-gray-600 block text-center max-w-xl mx-auto"
           >
             {t.hero.description}
           </motion.span>
         </div>
         {/* Base: botão e ícone de scroll */}
-        <div className="w-full flex flex-col items-center py-40 mt-20 left-0 z-30 pb-8">
+        <div className="w-full flex flex-col items-center justify-end h-[30vh] pb-10 z-30">
           <motion.button
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -149,7 +149,7 @@ export default function Hero() {
         </div>
       </div>
       {/* gradiente de transição suave para a próxima seção */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 sm:h-32 bg-gradient-to-b from-transparent to-[#175fae]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 sm:h-32 bg-gradient-to-b from-transparent to-[#0868cf]" />
     </section>
   );
 }

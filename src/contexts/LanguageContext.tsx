@@ -19,7 +19,7 @@ const translations = {
     hero: {
       title: "GIOGÁS",
       subtitle: "Energia que conecta o Brasil.",
-      description: "Soluções em gás com segurança, qualidade e agilidade para sua empresa.",
+      description: "Soluções em gás com segurança, qualidade e agilidade.",
       button: "Solicite um orçamento",
     },
     apresentacao: {
@@ -149,7 +149,7 @@ const translations = {
     hero: {
       title: "GIOGÁS",
       subtitle: "Energy that connects Brazil.",
-      description: "Gas solutions with safety, quality, and agility for your company.",
+      description: "Gas solutions with safety, quality, and agility.",
       button: "Request a quote",
     },
     apresentacao: {

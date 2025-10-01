@@ -158,24 +158,22 @@ export default function ParceirosCarousel() {
                   }}
                   className="w-full flex items-center justify-center"
                 >
-                  <div className="parceiros-card w-72 h-72 sm:w-80 sm:h-80 max-w-full p-4 sm:p-6 mx-auto flex flex-col justify-center rounded-2xl">
-                    {/* Logo */}
-                    <div className="flex justify-center">
-                      <div className="h-16 sm:h-20 w-auto">
-                        <Image
-                          src={current.logo}
-                          alt={current.name}
-                          width={280}
-                          height={80}
-                          className="h-16 sm:h-20 w-auto object-contain rounded-xl"
-                        />
-                      </div>
+                  {/* Card maior, com menos padding */}
+                  <div className="parceiros-card w-80 h-80 sm:w-96 sm:h-96 max-w-full p-3 sm:p-4 mx-auto flex flex-col justify-center rounded-2xl bg-white/5 backdrop-blur-sm">
+                    {/* Wrapper da logo ocupa ~70% do card */}
+                    <div className="relative w-full h-[70%] mx-auto">
+                      <Image
+                        src={current.logo}
+                        alt={current.name || "Logo do parceiro"}
+                        fill
+                        sizes="(min-width: 640px) 20rem, 20rem"
+                        className="object-contain drop-shadow"
+                        priority
+                      />
                     </div>
-                    {/* Nome se quiser ativar, descomente
-                    <h3 className="text-center mt-4 sm:mt-5 text-lg sm:text-xl font-light border-b border-gray-800 pb-1">
-                      {current.name}
-                    </h3>
-                    */}
+
+                    {/* Espaço opcional para respiro ou futura legenda */}
+                    {/* <div className="h-[10%]" /> */}
                   </div>
                 </motion.div>
               </AnimatePresence>
