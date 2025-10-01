@@ -14,56 +14,56 @@ const depoimentos: Depoimento[] = [
   {
     nome: "Luiz (Posto de Combustível)",
     empresa: "Santa Elisa",
-    logo: "/images/santaelisa-logo.png",
+    logo: "/images/logo-santaelisa.png",
     mensagem:
       "Com a Giogás, acabaram as filas de gás na nossa rede de postos. Nunca mais tivemos problemas de parada nos equipamentos. Recebemos soluções adequadas para nossa realidade e atendimento sempre ágil quando precisamos.",
   },
   {
     nome: "Seu Zé (Consórcio de Transporte Público)",
     empresa: "R.T. Goiânia",
-    logo: "/images/rtgoiania-logo.png",
+    logo: "/images/logo-rtgoiania.png",
     mensagem:
       "No início do projeto piloto não tínhamos conhecimento. A Giogás esteve ao nosso lado, orientando em cada etapa. Graças a esse suporte, o projeto foi um sucesso e agora estamos expandindo, descarbonizando o transporte público da cidade de Goiânia.",
   },
   {
     nome: "Fernando (Logística e Transporte Pesado)",
     empresa: "Reiter",
-    logo: "/images/reiter-logo.png",
+    logo: "/images/logo-reiter.png",
     mensagem:
       "A Giogás dimensionou e montou toda a infraestrutura necessária para nossas garagens, garantindo que nossa frota de mais de 24 carretas operasse sem interrupções. Performance e abastecimento contínuo, sem falhas.",
   },
   {
     nome: "Rodrigo (Energia Sustentável)",
     empresa: "ZEG",
-    logo: "/images/zeg-logo.png",
+    logo: "/images/logo-zeg.png",
     mensagem:
       "A Giogás foi peça fundamental no desenvolvimento da nossa planta. Sempre com equipe à disposição, realizou o dimensionamento, o start e o comissionamento, garantindo total suporte ao nosso projeto.",
   },
   {
     nome: "Sequeto (Montadora de Veículos Pesados)",
     empresa: "Scania",
-    logo: "/images/scania-logo.png",
+    logo: "/images/logo-scania.png",
     mensagem:
       "A Giogás participou ativamente da transição da frota a diesel para o GNV. Desenvolveu projetos sob medida, apresentou parceiros e fornecedores, auxiliou na homologação de equipamentos e esteve conosco em cada etapa.",
   },
   {
     nome: "(Equipamentos Gás - GNV/Biometano)",
     empresa: "Rimag",
-    logo: "/images/rimag-logo.png",
+    logo: "/images/logo-rimag.png",
     mensagem:
       "A Giogás fez a reforma completa dos nossos equipamentos, trazendo revitalização, manutenção e custo-benefício. Sempre preocupada em atender nossas necessidades com parceiros e soluções adequadas.",
   },
   {
     nome: "Fernando Meier (Energia e Combustíveis)",
     empresa: "Vibra",
-    logo: "/images/vibra-logo.png",
+    logo: "/images/logo-vibra.png",
     mensagem:
       "Agradecemos à Giogás pelo apoio no desenvolvimento da ZEG Vibra, na abertura de novos mercados no Mato Grosso e na condução de projetos junto a importantes stakeholders.",
   },
   {
     nome: "Rafael (Energia e Mobilidade Sustentável)",
     empresa: "Itaipu",
-    logo: "/images/itaipu-logo.png",
+    logo: "/images/logo-itaipu.png",
     mensagem:
       "A Giogás montou toda a infraestrutura necessária para que pudéssemos rodar com ônibus a gás e a biometano na usina. Atendimento alinhado à demanda e fundamental para o sucesso do projeto.",
   },

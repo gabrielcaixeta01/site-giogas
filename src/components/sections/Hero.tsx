@@ -94,7 +94,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-2xl font-semilight text-gray-800"
           >
-            Energia que conecta o Rio de Janeiro.
+            {t.hero.subtitle}
           </motion.p>
         </div>
         {/* Meio: descrição centralizada */}
@@ -105,8 +105,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-sm md:text-lg font-normal text-gray-500/90 block text-center max-w-xl mx-auto"
           >
-            Distribuição de gás com segurança, qualidade e agilidade para sua
-            empresa.
+            {t.hero.description}
           </motion.span>
         </div>
         {/* Base: botão e ícone de scroll */}

@@ -9,9 +9,15 @@ import { useEffect, useMemo, useRef, useState } from "react";
 type Partner = { name: string; logo: string };
 
 const basePartners: Partner[] = [
-  { name: "BRB", logo: "/images/brb.jpg" },
-  { name: "Shell", logo: "/images/shell.jpg" },
-  { name: "Prefeitura do Rio", logo: "/images/prefeitura_rio.jpg" },
+  { name: "Forza", logo: "/images/logo-forza.png" },
+  { name: "Shell", logo: "/images/logo-shell.png" },
+  { name: "Rimag", logo: "/images/logo-rimag.png" },
+  { name: "Ipiranga", logo: "/images/logo-ipiranga.png" },
+  { name: "Petrobrás", logo: "/images/logo-petrobras.png" },
+  { name: "Cocal", logo: "/images/logo-cocal.png" },
+  { name: "Louvada", logo: "/images/logo-louvada.png" },
+  { name: "Zeg", logo: "/images/logo-zeg.png" },
+  { name: "Grupo Urca", logo: "/images/logo-urca.png" },
   // adicione mais conforme precisar
 ];
 

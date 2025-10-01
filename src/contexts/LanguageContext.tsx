@@ -18,9 +18,8 @@ const translations = {
     },
     hero: {
       title: "GIOGÁS",
-      subtitle: "Energia que conecta o Rio de Janeiro.",
-      description:
-        "Distribuição de gás com segurança, qualidade e agilidade para sua empresa.",
+      subtitle: "Energia que conecta o Brasil.",
+      description: "Soluções em gás com segurança, qualidade e agilidade para sua empresa.",
       button: "Solicite um orçamento",
     },
     apresentacao: {
@@ -149,9 +148,8 @@ const translations = {
     },
     hero: {
       title: "GIOGÁS",
-      subtitle: "Energy that connects Rio de Janeiro.",
-      description:
-        "Gas distribution with safety, quality and agility for your business.",
+      subtitle: "Energy that connects Brazil.",
+      description: "Gas solutions with safety, quality, and agility for your company.",
       button: "Request a quote",
     },
     apresentacao: {
