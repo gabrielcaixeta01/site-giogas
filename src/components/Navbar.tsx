@@ -2,9 +2,9 @@
 import { useEffect, useState, useRef } from "react";
 import {
   FaChevronDown,
-  FaLinkedin,
-  FaInstagram,
-  FaWhatsapp,
+  //FaLinkedin,
+  //FaInstagram,
+  //FaWhatsapp,
 } from "react-icons/fa";
 import { BR, US } from "country-flag-icons/react/3x2";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -37,16 +37,16 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Detecta a seção ativa com base no scroll
   useEffect(() => {
     const handleScroll = () => {
       const sectionIds = [
         "hero",
         "apresentacao",
         "servico",
+        "produtos",
         "parceiros",
         "depoimentos",
-        "contato",
+        // "contato", // seção de contato comentada
       ];
       let current = "hero";
       for (const id of sectionIds) {
@@ -69,7 +69,6 @@ export default function Navbar() {
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
     if (section) {
-      // Calcula o topo da seção e remove qualquer offset para mostrar a seção sozinha
       const nav = document.querySelector("nav");
       const navHeight = nav ? (nav as HTMLElement).offsetHeight : 0;
       const y =
@@ -106,13 +105,12 @@ export default function Navbar() {
     { key: "produtos", label: t.navbar.produtos || "Produtos" },
     { key: "parceiros", label: t.navbar.parceiros || "Parceiros" },
     { key: "depoimentos", label: t.navbar.depoimentos || "Depoimentos" },
-    { key: "contato", label: t.navbar.contato },
+    // { key: "contato", label: t.navbar.contato }, // botão "Contato" comentado
   ];
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-md py-2 px-4">
       <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
-        {/* Esquerda: Hamburguer no mobile, logo e navegação no desktop */}
         <div className="flex items-center gap-2 flex-1">
           {/* Botão hamburger (Mobile) */}
           <div className="relative md:hidden">
@@ -140,6 +138,7 @@ export default function Navbar() {
                 />
               </svg>
             </button>
+
             <AnimatePresence>
               {isMobileDropdownOpen && (
                 <motion.div
@@ -150,7 +149,6 @@ export default function Navbar() {
                   exit={{ opacity: 0, y: -10, scale: 0.95 }}
                   transition={{ duration: 0.25, ease: "easeOut" }}
                   className="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-2xl py-4 px-4 z-40 flex flex-col gap-2"
-                  // background dinâmico removido junto com theme switcher
                 >
                   {sections.map((item) => (
                     <button
@@ -161,53 +159,37 @@ export default function Navbar() {
                       {item.label}
                     </button>
                   ))}
+
                   {/* Ícones sociais só no mobile */}
+                  {/*
                   <div className="flex items-center justify-center gap-4 mt-4 md:hidden">
-                    <a
-                      href="https://www.linkedin.com/company/giogas/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="LinkedIn"
-                      className="p-2 rounded-full transition-colors"
-                    >
+                    <a href="https://www.linkedin.com/company/giogas/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-2 rounded-full transition-colors">
                       <FaLinkedin size={22} />
                     </a>
-                    <a
-                      href="https://www.instagram.com/giogasdistribuidora/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Instagram"
-                      className="p-2 rounded-full transition-colors"
-                    >
+                    <a href="https://www.instagram.com/giogasdistribuidora/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-2 rounded-full transition-colors">
                       <FaInstagram size={22} />
                     </a>
-                    <a
-                      href="https://wa.me/5521988794509?text=Ol%C3%A1%2C%20vi%20os%20servi%C3%A7os%20no%20site%20da%20GIOG%C3%81S%20e%20gostaria%20de%20saber%20mais%20detalhes."
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="WhatsApp"
-                      className="p-2 rounded-full transition-colors"
-                    >
+                    <a href="https://wa.me/5521988794509" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="p-2 rounded-full transition-colors">
                       <FaWhatsapp size={22} />
                     </a>
                   </div>
+                  */}
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
+
           {/* Navegação Desktop */}
           <div className="hidden md:flex items-center space-x-6">
             {sections.map((item) => (
               <button
                 key={item.key}
                 onClick={() => scrollToSection(item.key)}
-                className={`text-base font-medium text-gray-800 cursor-pointer border-b-2 px-2 py-1 transition ease-in-out duration-300
-                  ${
-                    activeSection === item.key
-                      ? "border-blue-700"
-                      : "border-transparent"
-                  }
-                  hover:translate-y-1`}
+                className={`text-base font-medium text-gray-800 cursor-pointer border-b-2 px-2 py-1 transition ease-in-out duration-300 ${
+                  activeSection === item.key
+                    ? "border-blue-700"
+                    : "border-transparent"
+                } hover:translate-y-1`}
               >
                 {item.label}
               </button>
@@ -215,89 +197,66 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Navegação Desktop movida para a esquerda */}
-
-        {/* Ícones + tema + idioma (direita) */}
+        {/* Ícones sociais desktop — comentados */}
+        {/*
         <div className="flex items-center space-x-2">
-          {/* Ícones sociais só em telas md+ */}
-          <a
-            href="https://www.linkedin.com/company/giogas/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="p-2 rounded-full transition-colors hidden md:inline-flex"
-          >
+          <a href="https://www.linkedin.com/company/giogas/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-2 rounded-full transition-colors hidden md:inline-flex">
             <FaLinkedin size={20} />
           </a>
-          <a
-            href="https://www.instagram.com/giogasdistribuidora/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="p-2 rounded-full transition-colors hidden md:inline-flex"
-          >
+          <a href="https://www.instagram.com/giogasdistribuidora/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-2 rounded-full transition-colors hidden md:inline-flex">
             <FaInstagram size={20} />
           </a>
-          <a
-            href="https://wa.me/5521988794509?text=Ol%C3%A1%2C%20vi%20os%20servi%C3%A7os%20no%20site%20da%20GIOG%C3%81S%20e%20gostaria%20de%20saber%20mais%20detalhes."
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp"
-            className="p-2 rounded-full transition-colors hidden md:inline-flex"
-          >
+          <a href="https://wa.me/5521988794509" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="p-2 rounded-full transition-colors hidden md:inline-flex">
             <FaWhatsapp size={20} />
           </a>
+        </div>
+        */}
 
-          {/* Seletor de idioma */}
-          <div className="relative" ref={dropdownRef}>
-            <button
-              onClick={() => setIsLanguageDropdownOpen((open) => !open)}
-              className="flex items-center space-x-1 p-2 rounded-full transition-colors duration-300 cursor-pointer"
-              aria-label="Change language"
-              aria-expanded={isLanguageDropdownOpen}
-            >
-              {getCurrentFlag()}
-              <FaChevronDown
-                size={10}
-                className={`transition-all duration-300 text-gray-500 ${
-                  isLanguageDropdownOpen ? "rotate-180" : ""
-                }`}
-              />
-            </button>
+        {/* Seletor de idioma */}
+        <div className="relative" ref={dropdownRef}>
+          <button
+            onClick={() => setIsLanguageDropdownOpen((open) => !open)}
+            className="flex items-center space-x-1 p-2 rounded-full transition-colors duration-300 cursor-pointer"
+          >
+            {getCurrentFlag()}
+            <FaChevronDown
+              size={10}
+              className={`transition-all duration-300 text-gray-500 ${
+                isLanguageDropdownOpen ? "rotate-180" : ""
+              }`}
+            />
+          </button>
 
-            <AnimatePresence>
-              {isLanguageDropdownOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
-                  className="language-dropdown absolute right-0 mt-1 rounded-xl shadow-lg py-2 min-w-[120px] z-40 bg-white"
-                >
-                  {[
-                    { key: "pt", flag: BR, label: t.navbar.portuguese },
-                    { key: "en", flag: US, label: t.navbar.english },
-                  ].map((lang, index) => (
-                    <motion.button
-                      key={lang.key}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05, duration: 0.2 }}
-                      onClick={() => handleLanguageChange(lang.key)}
-                      className="w-full px-3 py-2 text-left flex items-center space-x-2 text-sm cursor-pointer"
-                    >
-                      <lang.flag style={{ width: "16px", height: "11px" }} />
-                      <span>{lang.label}</span>
-                    </motion.button>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+          <AnimatePresence>
+            {isLanguageDropdownOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="language-dropdown absolute right-0 mt-1 rounded-xl shadow-lg py-2 min-w-[120px] z-40 bg-white"
+              >
+                {[
+                  { key: "pt", flag: BR, label: t.navbar.portuguese },
+                  { key: "en", flag: US, label: t.navbar.english },
+                ].map((lang, index) => (
+                  <motion.button
+                    key={lang.key}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05, duration: 0.2 }}
+                    onClick={() => handleLanguageChange(lang.key)}
+                    className="w-full px-3 py-2 text-left flex items-center space-x-2 text-sm cursor-pointer"
+                  >
+                    <lang.flag style={{ width: "16px", height: "11px" }} />
+                    <span>{lang.label}</span>
+                  </motion.button>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
-
-      {/* ...existing code... */}
     </nav>
   );
 }

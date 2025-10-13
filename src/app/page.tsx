@@ -5,7 +5,6 @@ import Apresentacao from "../components/sections/Apresentacao";
 import Servicos from "../components/sections/Servicos";
 import Parceiros from "../components/sections/Parceiros";
 import Depoimentos from "../components/sections/Depoimentos";
-import Contato from "../components/sections/Contato";
 import Produtos from "../components/sections/Produtos";
 
 export default function Home() {
@@ -18,7 +17,7 @@ export default function Home() {
         <Produtos />
         <Parceiros />
         <Depoimentos />
-        <Contato />
+        {/* <Contato /> */}
       </main>
     </div>
   );

@@ -3,6 +3,7 @@
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import { LanguageProvider } from "../contexts/LanguageContext";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "GIOGÁS",
@@ -20,6 +21,7 @@ export default function RootLayout({
         <LanguageProvider>
           <Navbar />
           <main>{children}</main>
+          <Footer />
         </LanguageProvider>
       </body>
     </html>

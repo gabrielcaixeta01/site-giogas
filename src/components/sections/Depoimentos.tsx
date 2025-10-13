@@ -76,7 +76,7 @@ const Depoimentos: React.FC = () => {
       id="depoimentos"
       className="
         relative
-        bg-gradient-to-br from-blue-50 via-blue-100 py-32 to-blue-200
+        bg-gradient-to-br from-blue-50 via-blue-100 py-40 to-blue-200
       "
     >
       {/* glow suave no fundo */}
